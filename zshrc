@@ -8,7 +8,7 @@ export ZSH="/home/vandvag/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="spaceship"
+ZSH_THEME="bobbyrussel"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -95,9 +95,8 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias zshconfig="vim ~/.zshrc"
-alias vimconfig="vim ~/.vimrc"
-alias i3config="vim ~/.config/i3/config"
+alias zshconfig="vim ~/.dotfiles/zshrc"
+alias vimconfig="vim ~/.dotfiles/vimrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # >>> conda initialize >>>
