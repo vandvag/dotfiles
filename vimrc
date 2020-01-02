@@ -16,6 +16,9 @@ Plug 'vim-scripts/vim-gitgutter'
 
 " Gruvbox colorscheme
 Plug 'morhetz/gruvbox'
+
+" Autoformat plugin
+Plug 'Chiel92/vim-autoformat'
 call plug#end()
 
 
@@ -75,3 +78,8 @@ nnoremap <C-H> <C-W><C-H>
 set splitbelow
 set splitright
 
+" vim-autoformat config
+noremap <F3> :Autoformat<CR>
+
+" Automatically load external changes
+set autoread
