@@ -36,6 +36,13 @@ set background=dark " Set dark colorscheme
 colorscheme gruvbox
 set laststatus=2 " Display statusline
 set noshowmode " Hide the mode at the right bottom (since we are using lightline)
+" Display different types of white spaces.
+set list
+set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
+" Highlight matching search patterns
+set hlsearch
+"This unsets the "last search pattern" register by hitting return
+nnoremap <CR> :noh<CR><CR>:<backspace>
 
 
 """""""""""""""""""""""""""""""""
@@ -60,21 +67,22 @@ set indentkeys-=0#
 " Shift Y -> copy from cursor till end of line instead of complete line
 nmap <Y> y$
 set ignorecase " Do case insensitive matching
+set smartcase  " Do smart case matching
 
 
 """""""""""""""""""""""""""""
 "  Lightline configuration  "
 """""""""""""""""""""""""""""
 let g:lightline = {
-      \ 'colorscheme': 'jellybeans',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
-      \ },
-      \ }
+            \ 'colorscheme': 'jellybeans',
+            \ 'active': {
+            \   'left': [ [ 'mode', 'paste' ],
+            \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+            \ },
+            \ 'component_function': {
+            \   'gitbranch': 'fugitive#head'
+            \ },
+            \ }
 
 " NERDTree Configuration
 map <C-o> :NERDTreeToggle<CR>
