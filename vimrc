@@ -59,6 +59,7 @@ set indentkeys-=0#
 
 " Shift Y -> copy from cursor till end of line instead of complete line
 nmap <Y> y$
+set ignorecase " Do case insensitive matching
 
 
 """""""""""""""""""""""""""""
