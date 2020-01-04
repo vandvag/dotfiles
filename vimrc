@@ -19,6 +19,9 @@ Plug 'morhetz/gruvbox'
 
 " Autoformat plugin
 Plug 'Chiel92/vim-autoformat'
+
+" Vim Fugitive (git)
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 
@@ -31,6 +34,8 @@ set showmatch  " Highlight matching [{()}]
 syntax on " Enable syntax highlighting
 set background=dark " Set dark colorscheme
 colorscheme gruvbox
+set laststatus=2 " Display statusline
+set noshowmode " Hide the mode at the right bottom (since we are using lightline)
 
 
 """""""""""""""""""""""""""""""""
@@ -59,9 +64,15 @@ nmap <Y> y$
 """""""""""""""""""""""""""""
 "  Lightline configuration  "
 """""""""""""""""""""""""""""
-set laststatus=2
 let g:lightline = {
-      \ 'colorscheme': 'seoul256',
+      \ 'colorscheme': 'jellybeans',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
       \ }
 
 " NERDTree Configuration
