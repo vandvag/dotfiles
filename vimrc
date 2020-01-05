@@ -37,6 +37,9 @@ let mapleader = "\<Space>"
 " Quicker Saving
 nmap <leader>w :w!<cr>
 
+" Quicker quiting
+nmap <leader>q :q<cr>
+
 """""""""""""""""
 "  UI Settings  "
 """""""""""""""""
@@ -51,6 +54,7 @@ set noshowmode " Hide the mode at the right bottom (since we are using lightline
 " Display different types of white spaces.
 set list
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
+set encoding=utf8 " Default encoding
 
 
 """""""""""""""""""""""""""""""""
@@ -88,6 +92,13 @@ set hlsearch
 "This unsets the "last search pattern" register by hitting return
 nnoremap <CR> :noh<CR><CR>:<backspace>
 
+"""""""""""""""""""""""""""""
+"  Files, backups and undo  "
+"""""""""""""""""""""""""""""
+" Turn backup off, since most stuff is in SVN, git etc. anyway...
+set nobackup
+set nowb
+set noswapfile
 
 """""""""""""""""""""""""""""
 "  Lightline configuration  "
