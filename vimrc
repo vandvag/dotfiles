@@ -24,16 +24,27 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'tpope/vim-fugitive'
 call plug#end()
 
+"""""""""""""
+"  General  "
+"""""""""""""
+" Set to auto read when a file is changed from the outside
+set autoread
+au FocusGained,BufEnter * checktime
+" Define the leader key
+let mapleader = "\<Space>"
+
+" Quicker Saving
+nmap <leader>w :w!<cr>
 
 """""""""""""""""
-"  UI Settings  " 
+"  UI Settings  "
 """""""""""""""""
-set number
+set number " Show line numbers
 set cursorline " Highlight current line
 set showmatch  " Highlight matching [{()}]
 syntax on " Enable syntax highlighting
 set background=dark " Set dark colorscheme
-colorscheme gruvbox
+colorscheme gruvbox " Enable gruvbox colorscheme
 set laststatus=2 " Display statusline
 set noshowmode " Hide the mode at the right bottom (since we are using lightline)
 " Display different types of white spaces.
@@ -101,5 +112,3 @@ set splitright
 " vim-autoformat config
 noremap <F3> :Autoformat<CR>
 
-" Automatically load external changes
-set autoread
