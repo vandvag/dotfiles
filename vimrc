@@ -31,6 +31,7 @@ call plug#end()
 set autoread
 au FocusGained,BufEnter * checktime
 " Define the leader key
+nnoremap <Space> <NOP>
 let mapleader = "\<Space>"
 
 " Quicker Saving
@@ -50,10 +51,6 @@ set noshowmode " Hide the mode at the right bottom (since we are using lightline
 " Display different types of white spaces.
 set list
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
-" Highlight matching search patterns
-set hlsearch
-"This unsets the "last search pattern" register by hitting return
-nnoremap <CR> :noh<CR><CR>:<backspace>
 
 
 """""""""""""""""""""""""""""""""
@@ -77,8 +74,19 @@ set indentkeys-=0#
 
 " Shift Y -> copy from cursor till end of line instead of complete line
 nmap <Y> y$
+
+
+"""""""""""""""
+"  Searchnig  "
+"""""""""""""""
 set ignorecase " Do case insensitive matching
 set smartcase  " Do smart case matching
+
+" Highlight matching search patterns
+set hlsearch
+
+"This unsets the "last search pattern" register by hitting return
+nnoremap <CR> :noh<CR><CR>:<backspace>
 
 
 """""""""""""""""""""""""""""
