@@ -17,8 +17,8 @@ Plug 'vim-scripts/vim-gitgutter'
 " Gruvbox colorscheme
 Plug 'morhetz/gruvbox'
 
-" Autoformat plugin
-Plug 'Chiel92/vim-autoformat'
+" Linter
+Plug 'dense-analysis/ale'
 
 " Vim Fugitive (git)
 Plug 'tpope/vim-fugitive'
