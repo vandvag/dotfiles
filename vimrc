@@ -24,6 +24,7 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'tpope/vim-fugitive'
 call plug#end()
 
+
 """""""""""""
 "  General  "
 """""""""""""
@@ -39,6 +40,10 @@ nmap <leader>w :w!<cr>
 
 " Quicker quiting
 nmap <leader>q :q<cr>
+
+" Shift Y -> copy from cursor till end of line instead of complete line
+nmap <Y> y$
+
 
 """""""""""""""""
 "  UI Settings  "
@@ -66,18 +71,14 @@ let g:gruvbox_contrast_dark='medium'
 """"""""""""""""""""""""
 "  Indenting behavior  "
 """"""""""""""""""""""""
+set expandtab " Tabs are spaces
 set autoindent
 set smartindent
 set shiftwidth=4
-set expandtab " Tabs are sapces
 set smarttab
 set softtabstop=4
 set cinkeys-=0#
 set indentkeys-=0#
-
-
-" Shift Y -> copy from cursor till end of line instead of complete line
-nmap <Y> y$
 
 
 """""""""""""""
@@ -90,7 +91,9 @@ set smartcase  " Do smart case matching
 set hlsearch
 
 "This unsets the "last search pattern" register by hitting return
-nnoremap <CR> :noh<CR><CR>:<backspace>
+" nnoremap <CR> :noh<CR><CR>:<backspace>
+map <silent> <leader><cr> :noh<cr>
+
 
 """""""""""""""""""""""""""""
 "  Files, backups and undo  "
@@ -99,6 +102,18 @@ nnoremap <CR> :noh<CR><CR>:<backspace>
 set nobackup
 set nowb
 set noswapfile
+
+
+""""""""""""""""""""
+"  Split behavior  "
+""""""""""""""""""""
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+set splitbelow
+set splitright
+
 
 """""""""""""""""""""""""""""
 "  Lightline configuration  "
@@ -114,19 +129,12 @@ let g:lightline = {
             \ },
             \ }
 
-" NERDTree Configuration
+
+""""""""""""""""""""""""""""
+"  NERDTree Configuration  "
+""""""""""""""""""""""""""""
 map <C-o> :NERDTreeToggle<CR>
 
-
-""""""""""""""""""""
-"  Split behavior  "
-""""""""""""""""""""
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-set splitbelow
-set splitright
 
 " vim-autoformat config
 noremap <F3> :Autoformat<CR>
