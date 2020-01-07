@@ -113,3 +113,7 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+# MATLAB PATH
+
+export PATH="/usr/local/MATLAB/R2019b/bin:$PATH"
