@@ -17,8 +17,11 @@ Plug 'vim-scripts/vim-gitgutter'
 " Gruvbox colorscheme
 Plug 'morhetz/gruvbox'
 
+"Onedark colorscheme
+Plug 'joshdick/onedark.vim'
+
 " Linter
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
 
 " Vim Fugitive (git)
 Plug 'tpope/vim-fugitive'
@@ -62,7 +65,7 @@ set cursorline " Highlight current line
 set showmatch  " Highlight matching [{()}]
 syntax on " Enable syntax highlighting
 set background=dark " Set dark colorscheme
-colorscheme gruvbox " Enable gruvbox colorscheme
+colorscheme onedark " Enable gruvbox colorscheme
 set laststatus=2 " Display statusline
 set noshowmode " Hide the mode at the right bottom (since we are using lightline)
 " Display different types of white spaces.
@@ -128,7 +131,7 @@ set splitright
 "  Lightline configuration  "
 """""""""""""""""""""""""""""
 let g:lightline = {
-            \ 'colorscheme': 'jellybeans',
+            \ 'colorscheme': 'onedark',
             \ 'active': {
             \   'left': [ [ 'mode', 'paste' ],
             \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
