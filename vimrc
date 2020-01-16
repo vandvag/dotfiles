@@ -65,7 +65,7 @@ set cursorline " Highlight current line
 set showmatch  " Highlight matching [{()}]
 syntax on " Enable syntax highlighting
 set background=dark " Set dark colorscheme
-colorscheme onedark " Enable gruvbox colorscheme
+" colorscheme onedark " Enable gruvbox colorscheme
 set laststatus=2 " Display statusline
 set noshowmode " Hide the mode at the right bottom (since we are using lightline)
 " Display different types of white spaces.
