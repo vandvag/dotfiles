@@ -101,7 +101,7 @@ alias vimconfig="vim ~/.dotfiles/vimrc"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/vandvag/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/vandvag/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
@@ -115,5 +115,4 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 # MATLAB PATH
-
 export PATH="/usr/local/MATLAB/R2019b/bin:$PATH"
