@@ -1,0 +1,80 @@
+{
+    //==================================
+    // Workbench and editor settings //
+    //=================================
+    "workbench.colorTheme": "Solarized Light",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.settings.editor": "json", // Open settings in json mode
+    "workbench.startupEditor": "none",
+    "workbench.settings.openDefaultSettings": true,
+    "editor.suggestSelection": "first",
+    "editor.fontFamily": "'Fira Code Retina', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.fontSize": 15,
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 120,
+    "editor.smoothScrolling": true,
+    "editor.mouseWheelZoom": true,
+    "explorer.confirmDelete": false,
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    //================
+    // Code Runner //
+    //===============
+    "code-runner.saveFileBeforeRun": true,
+    //=============
+    // Prettier //
+    //============
+    "prettier.printWidth": 120,
+    //================
+    // Live Server //
+    //===============
+    "liveServer.settings.AdvanceCustomBrowserCmdLine": "chromium",
+    //========
+    // Vim //
+    //======
+    "vim.useCtrlKeys": false,
+    "vim.highlightedyank.enable": true,
+    "vim.leader": " ",
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<C-v>"
+            ],
+            "after": [
+                "<leader>",
+                "v"
+            ]
+        }
+    ],
+    //================
+    // C++ / Cmake //
+    //==============
+    "C_Cpp.clang_format_fallbackStyle": "{BasedOnStyle: Chromium, IndentWidth: 4, TabWidth: 4, SpacesBeforeTrailingComments: 3}",
+    "C_Cpp.updateChannel": "Insiders",
+    "cmake.configureOnOpen": false,
+    //===========
+    // Python //
+    //==========
+    "python.jediEnabled": false, // Jedi linter
+    "python.terminal.activateEnvironment": false,
+    //==========
+    // LaTeX //
+    //========
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.view.pdf.backgroundColor": "#ffffff",
+    "[tex]": {
+        "editor.tabSize": 2
+    },
+    //=========
+    // HTML //
+    //========
+    "[html]": {
+        "editor.tabSize": 2,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    //============
+    // Javascript
+    //===========
+    "[javascript]": {
+        "editor.tabSize": 2
+    }
+}
