@@ -50,6 +50,7 @@ nnoremap <C-H> <C-W><C-H>
 set splitbelow
 set splitright
 
+map <C-o> :NERDTreeToggle<CR>
 " Give more space for displaying messages.
 set cmdheight=2
 " Having longer updatetime leads to notoiceable 
@@ -87,3 +88,7 @@ let g:lightline = {
 
 nnoremap <Leader>= :vertical resize +5<CR>
 nnoremap <Leader>- :vertical resize -5<CR>
+let g:coc_global_extensions = [
+    \ 'coc-snippets',
+    \ 'coc-python',
+    \]
