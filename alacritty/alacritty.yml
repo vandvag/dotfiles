@@ -1,0 +1,12 @@
+# Colorscheme
+import:
+  - ~/.config/alacritty/themes/ayu_dark.yaml
+
+font:
+  normal:
+    family: FiraCode Nerd Font Mono
+  bold:
+    family: FiraCode Nerd Font Mono
+    style: Bold
+  size: 13
+

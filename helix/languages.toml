@@ -1,0 +1,8 @@
+[[language]]
+name = "cpp"
+auto-format = true
+comment-token = "//"
+indent = {tab-width = 4, unit = "\t"}
+formatter = {command = "clang-format", args = ["--style=microsoft"]}
+# language-server = {command = "clangd", args = ["--clang-tidy", "--fallback-style=microsoft", "-std=c++17"]}
+
