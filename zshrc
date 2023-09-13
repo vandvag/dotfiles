@@ -124,27 +124,5 @@ unset __conda_setup
 #======================================================================================================================
 # ALIASES
 #======================================================================================================================
+source .zshaliases
 
-# Replace vi with nvim
-alias vi="nvim"
-
-# Replace ls with exa (https://github.com/ogham/exa)
-if [ -x "$(command -v exa)" ]; then
-    alias ls="exa --icons"
-    alias ll="exa --icons --long"
-    alias la="exa --icons --long --all --group"
-    alias lt="exa --icons --long --all --group --git --tree"
-fi
-
-# Replace cat with bat (https://github.com/sharkdp/bat)
-if [ -x "$(command -v bat)" ]; then
-    alias cat="bat"
-fi
-
-# Alias for lazygit
-if [ -x "$(command -v lazygit)" ]; then
-    alias lgit="lazygit"
-fi
-
-# Quickly source zshrc
-alias zsource="source $HOME/.zshrc"
