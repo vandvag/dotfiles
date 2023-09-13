@@ -209,6 +209,11 @@ _G.packer_plugins = {
     path = "/Users/vandvag/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
   },
+  ["vim-tmux-navigator"] = {
+    loaded = true,
+    path = "/Users/vandvag/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator",
+    url = "https://github.com/christoomey/vim-tmux-navigator"
+  },
   ["vscode.nvim"] = {
     loaded = true,
     path = "/Users/vandvag/.local/share/nvim/site/pack/packer/start/vscode.nvim",

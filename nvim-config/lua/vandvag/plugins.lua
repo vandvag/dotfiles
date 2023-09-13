@@ -44,7 +44,7 @@ return packer.startup(function(use)
 	use "wbthomason/packer.nvim" -- packer manages itself
 
 	-- These 2 are needed for a lot of other plugins
-	use "nvim-lua/popup.nvim"   -- An implementation of the Popup API from vim to Neovim
+	use "nvim-lua/popup.nvim"  -- An implementation of the Popup API from vim to Neovim
 	use "nvim-lua/plenary.nvim" -- Useful lua functions that are used in a lot of plugins
 
 	-- Colorschemes
@@ -54,18 +54,18 @@ return packer.startup(function(use)
 	use "rebelot/kanagawa.nvim"
 
 	-- Cmp plugins
-	use "hrsh7th/nvim-cmp"         -- The completion plugin
-	use "hrsh7th/cmp-buffer"       -- Buffer completions
-	use "hrsh7th/cmp-path"         -- Path completions
-	use "hrsh7th/cmp-cmdline"      -- Command line completions
-	use "hrsh7th/cmp-nvim-lsp"     -- Completions for LSP
+	use "hrsh7th/nvim-cmp"        -- The completion plugin
+	use "hrsh7th/cmp-buffer"      -- Buffer completions
+	use "hrsh7th/cmp-path"        -- Path completions
+	use "hrsh7th/cmp-cmdline"     -- Command line completions
+	use "hrsh7th/cmp-nvim-lsp"    -- Completions for LSP
 	use "hrsh7th/cmp-nvim-lua"
 	use "saadparwaiz1/cmp_luasnip" -- Snippet completions
 
 	use "windwp/nvim-autopairs"
 
 	-- Snippets
-	use "L3MON4D3/LuaSnip"             -- Snippet engine
+	use "L3MON4D3/LuaSnip"            -- Snippet engine
 	use "rafamadriz/friendly-snippets" -- A bunch of snippets to use
 
 	-- LSP
@@ -74,14 +74,14 @@ return packer.startup(function(use)
 		branch = 'v2.x',
 		requires = {
 			-- LSP Support
-			{ 'neovim/nvim-lspconfig' },        -- Required
-			{ 'williamboman/mason.nvim' },      -- Optional
+			{ 'neovim/nvim-lspconfig' },          -- Required
+			{ 'williamboman/mason.nvim' },        -- Optional
 			{ 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
 			-- Autocompletion
-			{ 'hrsh7th/nvim-cmp' }, -- Required
+			{ 'hrsh7th/nvim-cmp' },  -- Required
 			{ 'hrsh7th/cmp-nvim-lsp' }, -- Required
-			{ 'L3MON4D3/LuaSnip' }, -- Required
+			{ 'L3MON4D3/LuaSnip' },  -- Required
 		}
 	}
 
@@ -103,7 +103,7 @@ return packer.startup(function(use)
 		requires = {
 			'nvim-tree/nvim-web-devicons', -- optional, for file icons
 		},
-		tag = 'nightly'                  -- optional, updated every week. (see issue #1193)
+		tag = 'nightly'               -- optional, updated every week. (see issue #1193)
 	}
 
 
@@ -124,6 +124,9 @@ return packer.startup(function(use)
 
 	-- using packer.nvim
 	use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons' }
+
+	-- Tmux navigator
+	use 'christoomey/vim-tmux-navigator'
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
