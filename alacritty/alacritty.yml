@@ -10,3 +10,5 @@ font:
     style: Bold
   size: 13
 
+env:
+  TERM: xterm-256color
