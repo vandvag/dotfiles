@@ -1,6 +1,6 @@
 # Colorscheme
 import:
-  - ~/.config/alacritty/themes/ayu_dark.yaml
+  - $HOME/.config/alacritty/themes/github_dark_default.yaml.yaml
 
 font:
   normal:
