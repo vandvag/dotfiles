@@ -49,9 +49,7 @@ return packer.startup(function(use)
 
 	-- Colorschemes
 	use { "catppuccin/nvim", as = "catppuccin" }
-	use 'folke/tokyonight.nvim'
 	use 'Mofiqul/vscode.nvim'
-	use "rebelot/kanagawa.nvim"
 	use "EdenEast/nightfox.nvim"
 
 	-- Cmp plugins
