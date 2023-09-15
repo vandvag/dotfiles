@@ -1,37 +1,37 @@
 local options = {
 	-- General
-  background = 'dark',
-  mouse = "a",
-  timeoutlen = 100, -- time to wait for a mapped sequence to complete (in ms)
-  -- Files, Backup, Undo
-  undofile = true, -- enable persistent undo
-  updatetime = 300, -- faster completion (default = 4000ms)
-  writebackup = false, -- If a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
-	backup = false, -- creates a backup file (everything is source controlled)
-  swapfile = false, -- no swap file
-  lazyredraw = true, -- good performance config
+	background = 'dark',
+	mouse = "a",
+	timeoutlen = 100,    -- time to wait for a mapped sequence to complete (in ms)
+	-- Files, Backup, Undo
+	undofile = true,     -- enable persistent undo
+	updatetime = 300,    -- faster completion (default = 4000ms)
+	writebackup = false, -- If a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
+	backup = false,      -- creates a backup file (everything is source controlled)
+	swapfile = false,    -- no swap file
+	lazyredraw = true,   -- good performance config
 
 	-- UI Settings
 	number = true,
 	relativenumber = true,
-	showmode = false, -- Since we are using LuaLine
-	laststatus = 2, -- 2 -> Always show statusline
+	showmode = false,  -- Since we are using LuaLine
+	laststatus = 2,    -- 2 -> Always show statusline
 	cursorline = false, -- Hightlight the cursor line
-	cmdheight = 2, -- more space in the neovim command line for displaying messages
-  showtabline = 2, -- always show tabs
-  splitbelow = true, -- force all horizontal splits to appear to the bottom
-  splitright = true, -- force all vertical splits to appear to the right
-  wrap = false, -- display lines in one long line
-  scrolloff = 8,
-  sidescrolloff = 8,
-  pumheight = 10,
-  termguicolors = true,
+	cmdheight = 2,     -- more space in the neovim command line for displaying messages
+	showtabline = 2,   -- always show tabs
+	splitbelow = true, -- force all horizontal splits to appear to the bottom
+	splitright = true, -- force all vertical splits to appear to the right
+	wrap = false,      -- display lines in one long line
+	scrolloff = 8,
+	sidescrolloff = 8,
+	pumheight = 10,
+	termguicolors = true,
 	-- Indenting behavior
 	expandtab = false, -- true -> convert tabs to spaces
 	-- tabstop = 4, -- insert 4 spaces for a tab
-	shiftwidth = 4, -- the number of spaces inserted for each indentation
+	shiftwidth = 4,   -- the number of spaces inserted for each indentation
 	smarttab = true,
-  smartindent = true,
+	smartindent = true,
 	-- Searching
 	hlsearch = true,
 	ignorecase = true,

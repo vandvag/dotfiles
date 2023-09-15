@@ -52,6 +52,7 @@ return packer.startup(function(use)
 	use 'folke/tokyonight.nvim'
 	use 'Mofiqul/vscode.nvim'
 	use "rebelot/kanagawa.nvim"
+	use "EdenEast/nightfox.nvim"
 
 	-- Cmp plugins
 	use "hrsh7th/nvim-cmp"        -- The completion plugin
