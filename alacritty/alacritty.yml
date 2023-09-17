@@ -13,5 +13,19 @@ font:
     style: Italic
   size: 13
 
+window:
+  padding:
+    x: 5
+    y: 5
+  decorations: none
+
+mouse_bindings:
+  - { mouse: Middle, action: PasteSelection }
+
+mouse:
+  hints:
+    launcher: open
+    modifiers: Shift
+
 env:
   TERM: xterm-256color
