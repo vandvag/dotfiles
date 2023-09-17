@@ -1,6 +1,6 @@
 # Colorscheme
 import:
-  - $HOME/.config/alacritty/themes/carbonfox.yaml
+  - ~/.config/alacritty/themes/carbonfox.yaml
 
 font:
   normal:
@@ -8,6 +8,9 @@ font:
   bold:
     family: JetBrainsMono Nerd Font
     style: Bold
+  italic:
+    family: JetBrainsMono Nerd Font
+    style: Italic
   size: 13
 
 env:
