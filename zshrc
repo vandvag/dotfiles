@@ -104,8 +104,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 if [[ $(uname) == "Darwin" ]]; then
-	source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-	source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 
 # >>> conda initialize >>>
@@ -122,6 +122,9 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+# If tmux is installed, attach to an already existing session, otherwise create a new session
+[ -z "$TMUX"  ] && { tmux attach || exec tmux new-session && exit;}
 
 #======================================================================================================================
 # ALIASES
