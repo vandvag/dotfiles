@@ -1,0 +1,5 @@
+[user]
+    name = Evangelos Vandoros
+    email = vandvag@gmail.com
+[core]
+	editor = vim
