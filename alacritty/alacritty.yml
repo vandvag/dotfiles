@@ -1,12 +1,12 @@
 # Colorscheme
 import:
-  - $HOME/.config/alacritty/themes/github_dark_default.yaml.yaml
+  - $HOME/.config/alacritty/themes/carbonfox.yaml
 
 font:
   normal:
-    family: FiraCode Nerd Font Mono
+    family: JetBrainsMono Nerd Font
   bold:
-    family: FiraCode Nerd Font Mono
+    family: JetBrainsMono Nerd Font
     style: Bold
   size: 13
 
