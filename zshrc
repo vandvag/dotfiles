@@ -124,7 +124,7 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 # If tmux is installed, attach to an already existing session, otherwise create a new session
-[ -z "$TMUX"  ] && { tmux attach || exec tmux new-session && exit;}
+# [ -z "$TMUX"  ] && { tmux attach || exec tmux new-session && exit;}
 
 #======================================================================================================================
 # ALIASES
