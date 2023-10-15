@@ -1,6 +1,6 @@
 # Colorscheme
 import:
-  - ~/.config/alacritty/themes/github_dark_default.yaml
+  - ~/.config/alacritty/themes/catppuccin.yaml
 
 font:
   normal:
