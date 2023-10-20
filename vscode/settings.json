@@ -245,5 +245,6 @@
   "gitlens.views.commitDetails.files.layout": "list",
   "terminal.integrated.inheritEnv": false,
   "lldb.suppressUpdateNotifications": true,
-  "lldb.showDisassembly": "never"
+  "lldb.showDisassembly": "never",
+  "workbench.colorTheme": "Catppuccin Mocha"
 }
