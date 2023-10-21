@@ -8,7 +8,7 @@
 -- nordfox
 -- terafox
 -- default
-local colorscheme = "carbonfox"
+local colorscheme = "catppuccin"
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 
 -- vim.o.background = 'light'

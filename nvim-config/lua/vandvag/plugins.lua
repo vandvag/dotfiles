@@ -43,6 +43,8 @@ return packer.startup(function(use)
 	-- The plugins go here
 	use "wbthomason/packer.nvim" -- packer manages itself
 
+	use 'kyazdani42/nvim-web-devicons'
+
 	-- These 2 are needed for a lot of other plugins
 	use "nvim-lua/popup.nvim"  -- An implementation of the Popup API from vim to Neovim
 	use "nvim-lua/plenary.nvim" -- Useful lua functions that are used in a lot of plugins
@@ -51,6 +53,9 @@ return packer.startup(function(use)
 	use { "catppuccin/nvim", as = "catppuccin" }
 	use 'Mofiqul/vscode.nvim'
 	use "EdenEast/nightfox.nvim"
+
+	-- transparency
+	use 'xiyaowong/transparent.nvim'
 
 	-- Cmp plugins
 	use "hrsh7th/nvim-cmp"        -- The completion plugin
@@ -94,17 +99,13 @@ return packer.startup(function(use)
 		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
 	}
 
-	use 'kyazdani42/nvim-web-devicons'
-
 	-- File Tree
 	use {
 		'nvim-tree/nvim-tree.lua',
 		requires = {
 			'nvim-tree/nvim-web-devicons', -- optional, for file icons
 		},
-		tag = 'nightly'               -- optional, updated every week. (see issue #1193)
 	}
-
 
 	-- Tree sitter
 	use {
@@ -120,9 +121,6 @@ return packer.startup(function(use)
 		'nvim-telescope/telescope.nvim', tag = '0.1.4',
 		requires = { { 'nvim-lua/plenary.nvim' } }
 	}
-
-	-- using packer.nvim
-	use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons' }
 
 	-- Tmux navigator
 	use 'christoomey/vim-tmux-navigator'

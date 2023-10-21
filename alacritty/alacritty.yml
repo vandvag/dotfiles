@@ -19,6 +19,7 @@ window:
     y: 5
   decorations: none
   title: Alacritty
+  opacity: 0.89
 
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }
