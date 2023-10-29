@@ -4,14 +4,14 @@ import:
 
 font:
   normal:
-    family: JetBrainsMono Nerd Font
+    family: Iosevka Nerd Font Mono
   bold:
-    family: JetBrainsMono Nerd Font
+    family: Iosevka Nerd Font Mono
     style: Bold
   italic:
-    family: JetBrainsMono Nerd Font
+    family: Iosevka Nerd Font Mono
     style: Italic
-  size: 13
+  size: 14
 
 window:
   padding:
