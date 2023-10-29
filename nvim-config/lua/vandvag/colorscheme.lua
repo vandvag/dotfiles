@@ -1,6 +1,6 @@
 -- Valid options:
 
-vim.o.background = "dark"
+vim.o.background = "light"
 --=====================================================================================================================
 -- KANAGAWA
 --=====================================================================================================================
@@ -10,7 +10,7 @@ require('kanagawa').setup({
 	keywordStyle = { italic = false },
 	transparent = false,
 	terminalColors = true,
-	theme = "lotus",
+	theme = "wave",
 })
 
 -- vim.cmd.colorscheme('kanagawa')
@@ -25,18 +25,18 @@ require("catppuccin").setup({
 		light = "latte",
 		dark = "mocha",
 	},
-	transparent_background = true, -- disables setting the background color.
-	show_end_of_buffer = false,   -- shows the '~' characters after the end of buffers
-	term_colors = false,          -- sets terminal colors (e.g. `g:terminal_color_0`)
+	transparent_background = false, -- disables setting the background color.
+	show_end_of_buffer = false,    -- shows the '~' characters after the end of buffers
+	term_colors = false,           -- sets terminal colors (e.g. `g:terminal_color_0`)
 	dim_inactive = {
-		enabled = false,            -- dims the background color of inactive window
+		enabled = false,             -- dims the background color of inactive window
 		shade = "dark",
-		percentage = 0.15,          -- percentage of the shade to apply to the inactive window
+		percentage = 0.15,           -- percentage of the shade to apply to the inactive window
 	},
-	no_italic = true,             -- Force no italic
-	no_bold = false,              -- Force no bold
-	no_underline = true,          -- Force no underline
-	styles = {                    -- Handles the styles of general hi groups (see `:h highlight-args`):
+	no_italic = true,              -- Force no italic
+	no_bold = false,               -- Force no bold
+	no_underline = true,           -- Force no underline
+	styles = {                     -- Handles the styles of general hi groups (see `:h highlight-args`):
 		-- comments = { "italic" }, -- Change the style of comments
 		conditionals = { "italic" },
 		loops = {},
