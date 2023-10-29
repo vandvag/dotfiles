@@ -38,9 +38,7 @@ packer.init({
 	},
 })
 
--- Install your plugins here
 return packer.startup(function(use)
-	-- The plugins go here
 	use "wbthomason/packer.nvim" -- packer manages itself
 
 	use 'kyazdani42/nvim-web-devicons'
@@ -51,11 +49,7 @@ return packer.startup(function(use)
 
 	-- Colorschemes
 	use { "catppuccin/nvim", as = "catppuccin" }
-	use 'Mofiqul/vscode.nvim'
-	use "EdenEast/nightfox.nvim"
-
-	-- transparency
-	use 'xiyaowong/transparent.nvim'
+	use 'rebelot/kanagawa.nvim'
 
 	-- Cmp plugins
 	use "hrsh7th/nvim-cmp"        -- The completion plugin
