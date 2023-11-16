@@ -1,7 +1,8 @@
 {
   // Editor settings
   "editor.suggestSelection": "first",
-  "editor.fontFamily": " 'JetBrainsMono Nerd Font Mono','FiraCode NFM','Iosevka Nerd Font',monospace",
+  "editor.fontFamily": " 'Monaspace Krypton', 'Iosevka Nerd Font Mono', 'JetBrainsMono Nerd Font Mono','FiraCode NFM',monospace",
+  "editor.fontWeight": "Medium",
   "editor.fontSize": 13,
   "editor.fontLigatures": true,
   "editor.renderWhitespace": "selection",
@@ -246,5 +247,5 @@
   "terminal.integrated.inheritEnv": false,
   "lldb.suppressUpdateNotifications": true,
   "lldb.showDisassembly": "never",
-  "workbench.colorTheme": "Catppuccin Mocha"
+  "workbench.colorTheme": "Kanagawa"
 }
