@@ -119,6 +119,9 @@ return packer.startup(function(use)
 	-- Tmux navigator
 	use 'christoomey/vim-tmux-navigator'
 
+	-- Harpoon
+	use 'ThePrimeagen/harpoon'
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTAP then

@@ -1,6 +1,6 @@
-local opts = { noremap = true, silent = true}
+local opts = { noremap = true, silent = true }
 
-local term_opts = { silent = true }
+-- local term_opts = { silent = true }
 
 local keymap = vim.api.nvim_set_keymap -- Cause we like it shorter
 
@@ -37,7 +37,6 @@ keymap("n", "<C-Right>", ":vertical resize +2<cr>", opts)
 keymap("n", "<S-l>", ":bnext<cr>", opts)
 keymap("n", "<S-h>", ":bprevious<cr>", opts)
 
--- keymap("n", "<leader>l" ,":Format<cr>", opts)
 --
 -- Visual
 --
@@ -61,14 +60,14 @@ keymap("x", "K", ":move '<-2<cr>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<cr>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<cr>gv-gv", opts)
 
--- NvimTree
-keymap("n", "<leader>b", ":NvimTreeToggle<cr>", opts)
-
 -- Telescope
-keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false}))<cr>", opts)
-keymap("n", "<leader>t", "<cmd>lua require'telescope.builtin'.lsp_workspace_symbols(require('telescope.themes').get_dropdown({ previewer = false}))<cr>", opts)
+keymap("n", "<leader>f",
+	"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false}))<cr>",
+	opts)
+keymap("n", "<leader>t",
+	"<cmd>lua require'telescope.builtin'.lsp_workspace_symbols(require('telescope.themes').get_dropdown({ previewer = false}))<cr>",
+	opts)
 keymap("n", "<leader>r", "<cmd>lua require'telescope.builtin'.live_grep()<cr>", opts)
-keymap("n", "<leader>l", "<cmd>lua vim.lsp.buf.format() <cr>", opts)
 
 -- Debugging
 keymap("n", "<F5>", "<cmd> lua require'dap'.continue()<cr>", opts)
@@ -79,5 +78,10 @@ keymap("n", "<F9>", "<cmd> lua require'dap'.toggle_breakpoint()<cr>", opts)
 keymap("n", "<leader>bb", "<cmd> lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>", opts)
 keymap("n", "<leader>db", "<cmd> lua require'dap'.repl_open()<cr>", opts)
 
+-- Harpoon
+keymap("n", "<leader>s", ":Telescope harpoon marks<cr>", opts)
+keymap("n", "<leader>m", ":lua require('harpoon.mark').add_file()<cr>", opts)
+keymap("n", "<leader>h", ":lua require('harpoon.ui').toggle_quick_menu()<cr>", opts)
 
 
+keymap("n", "<leader>l", "<cmd>lua vim.lsp.buf.format() <cr>", opts)

@@ -56,3 +56,8 @@ vim.cmd [[ autocmd FileType xml,html,xhtml,css,scss,javascript,lua,dart setlocal
 
 -- Remove whitespace on save
 vim.cmd [[ au BufEnter * set fo-=c fo-=r fo-=o ]]
+
+-- Neovide options
+if vim.g.neovide then
+	vim.o.guifont = "Monaspace Argon:h14"
+end
