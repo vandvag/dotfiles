@@ -1,10 +1,12 @@
 # Colorscheme
 import:
-  - ~/.config/alacritty/themes/catppuccin.yaml
+  - /Users/vandvag/.config/alacritty/themes/kanagawa.yaml
 
 font:
   normal:
+    # family: Monaspace Krypton
     family: Iosevka Nerd Font Mono
+    style: Medium
   bold:
     family: Iosevka Nerd Font Mono
     style: Bold
