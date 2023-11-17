@@ -82,6 +82,11 @@ keymap("n", "<leader>db", "<cmd> lua require'dap'.repl_open()<cr>", opts)
 keymap("n", "<leader>s", ":Telescope harpoon marks<cr>", opts)
 keymap("n", "<leader>m", ":lua require('harpoon.mark').add_file()<cr>", opts)
 keymap("n", "<leader>h", ":lua require('harpoon.ui').toggle_quick_menu()<cr>", opts)
+keymap("n", "<a-1>", ":lua require('harpoon.ui').nav_file(1)<cr>", opts)
+keymap("n", "<a-2>", ":lua require('harpoon.ui').nav_file(2)<cr>", opts)
+keymap("n", "<a-3>", ":lua require('harpoon.ui').nav_file(3)<cr>", opts)
+keymap("n", "<a-4>", ":lua require('harpoon.ui').nav_file(4)<cr>", opts)
 
 
+-- Autoformat
 keymap("n", "<leader>l", "<cmd>lua vim.lsp.buf.format() <cr>", opts)
