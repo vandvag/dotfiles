@@ -1,130 +1,65 @@
-local fn = vim.fn
-
--- Automatically install packer
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-	PACKER_BOOTSTRAP = fn.system({
-		"git",
-		"clone",
-		"--depth",
-		"1",
-		"https://github.com/wbthomason/packer.nvim",
-		install_path,
-	})
-	print("Installing packer close and reopen Neovim...")
-	vim.cmd([[packadd packer.nvim]])
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]])
-
--- Use a protected call so we don't get error out on first use
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-	return
-end
-
--- Have packer use a popup window
-packer.init({
-	display = {
-		open_fn = function()
-			return require("packer.util").float({ border = "rounded" })
-		end,
-	},
-})
-
-return packer.startup(function(use)
-	use "wbthomason/packer.nvim" -- packer manages itself
-
-	use 'kyazdani42/nvim-web-devicons'
-
-	-- These 2 are needed for a lot of other plugins
-	use "nvim-lua/popup.nvim"  -- An implementation of the Popup API from vim to Neovim
-	use "nvim-lua/plenary.nvim" -- Useful lua functions that are used in a lot of plugins
+local plugins = {
+	-- Plugins that are used by other plugins
+	'kyazdani42/nvim-web-devicons',
+	'nvim-lua/popup.nvim', -- An implementation of the Popup API from vim to Neovim
+	'nvim-lua/plenary.nvim',
 
 	-- Colorschemes
-	use { "catppuccin/nvim", as = "catppuccin" }
-	use 'rebelot/kanagawa.nvim'
+	'catppuccin/nvim',
+	'rebelot/kanagawa.nvim',
 
 	-- Cmp plugins
-	use "hrsh7th/nvim-cmp"        -- The completion plugin
-	use "hrsh7th/cmp-buffer"      -- Buffer completions
-	use "hrsh7th/cmp-path"        -- Path completions
-	use "hrsh7th/cmp-cmdline"     -- Command line completions
-	use "hrsh7th/cmp-nvim-lsp"    -- Completions for LSP
-	use "hrsh7th/cmp-nvim-lua"
-	use "saadparwaiz1/cmp_luasnip" -- Snippet completions
+	'hrsh7th/nvim-cmp',            -- The completion plugin
+	'hrsh7th/cmp-buffer',          -- Buffer completions
+	'hrsh7th/cmp-path',            -- Path completions
+	'hrsh7th/cmp-cmdline',         -- Command line completions
+	'hrsh7th/cmp-nvim-lsp',        -- Completions for LSP
+	'hrsh7th/cmp-nvim-lua',
+	'saadparwaiz1/cmp_luasnip',    -- Snippet completions
+	'L3MON4D3/LuaSnip',            -- Snippet engine
+	'rafamadriz/friendly-snippets', -- A bunch of snippets to use
 
-	use "windwp/nvim-autopairs"
+	-- Autopairs
+	'windwp/nvim-autopairs',
 
-	-- Snippets
-	use "L3MON4D3/LuaSnip"            -- Snippet engine
-	use "rafamadriz/friendly-snippets" -- A bunch of snippets to use
-
-	-- LSP
-	use {
-		'VonHeikemen/lsp-zero.nvim',
-		branch = 'v2.x',
-		requires = {
-			-- LSP Support
-			{ 'neovim/nvim-lspconfig' },          -- Required
-			{ 'williamboman/mason.nvim' },        -- Optional
-			{ 'williamboman/mason-lspconfig.nvim' }, -- Optional
-
-			-- Autocompletion
-			{ 'hrsh7th/nvim-cmp' },  -- Required
-			{ 'hrsh7th/cmp-nvim-lsp' }, -- Required
-			{ 'L3MON4D3/LuaSnip' },  -- Required
-		}
-	}
-
-	use "neovim/nvim-lspconfig" -- enable LSP
-	use "williamboman/mason.nvim"
-	use "williamboman/mason-lspconfig.nvim"
+	-- LSPconfig
+	{ 'neovim/nvim-lspconfig' },
+	{ 'williamboman/mason.nvim' },
+	{ 'williamboman/mason-lspconfig.nvim' },
+	{ 'VonHeikemen/lsp-zero.nvim',        branch = 'v3.x' },
 
 	-- Lualine
-	use {
-		'nvim-lualine/lualine.nvim',
-		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-	}
+	'nvim-lualine/lualine.nvim',
 
-	-- File Tree
-	use {
-		'nvim-tree/nvim-tree.lua',
-		requires = {
-			'nvim-tree/nvim-web-devicons', -- optional, for file icons
-		},
-	}
-
-	-- Tree sitter
-	use {
-		"nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate"
-	}
+	-- Treesitter
+	'nvim-treesitter/nvim-treesitter',
 
 	-- Gitsigns
-	use "lewis6991/gitsigns.nvim"
+	'lewis6991/gitsigns.nvim',
 
 	-- Telescope (fuzzy finder)
-	use {
-		'nvim-telescope/telescope.nvim', tag = '0.1.4',
-		requires = { { 'nvim-lua/plenary.nvim' } }
-	}
+	'nvim-telescope/telescope.nvim',
 
 	-- Tmux navigator
-	use 'christoomey/vim-tmux-navigator'
+	-- 'christoomey/vim-tmux-navigator',
 
 	-- Harpoon
-	use 'ThePrimeagen/harpoon'
+	'ThePrimeagen/harpoon',
+}
 
-	-- Automatically set up your configuration after cloning packer.nvim
-	-- Put this at the end after all plugins
-	if PACKER_BOOTSTAP then
-		require("packer").sync()
-	end
-end)
+local opts = {}
+
+require("lazy").setup(plugins, opts)
