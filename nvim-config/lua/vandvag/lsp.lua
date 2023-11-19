@@ -36,13 +36,22 @@ require('lspconfig').rust_analyzer.setup {
 			},
 			checkOnSave = {
 				command = "clippy"
+			},
+			inlayHints = {
+				auto = true,
 			}
 		}
 	}
 }
 
 require('lspconfig').clangd.setup {
-	on_attach = on_attach
+	on_attach = on_attach,
+	settings = {
+		cmd = {
+			"clangd",
+			"--clang-tidy"
+		}
+	}
 }
 
 require('lspconfig').pyright.setup {
