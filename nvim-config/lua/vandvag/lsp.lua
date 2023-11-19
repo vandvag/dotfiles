@@ -1,57 +1,50 @@
-local lsp = require('lsp-zero')
+require("mason").setup()
 
-lsp.preset("recommended")
-
-lsp.ensure_installed({
-	'lua_ls',
-	'rust_analyzer',
-	'clangd',
-	'pyright',
-	'gopls'
-})
-
-local cmp = require("cmp")
-local cmp_select = { behavior = cmp.SelectBehavior.Select }
-local cmp_mappings = lsp.defaults.cmp_mappings({
-	['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-	['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-	['<C-y>'] = cmp.mapping.confirm({ select=true }),
-	['<C-Space'] = cmp.mapping.complete(),
-})
-
-lsp.setup_nvim_cmp({
-	mapping = cmp_mappings
-})
-
-lsp.set_preferences({
-	suggest_lsp_servers = false,
-	sign_icons = {
-		error = 'E',
-		warn = 'W',
-		hint = 'H',
-		info = 'I'
+require("mason-lspconfig").setup({
+	ensure_installed = {
+		"lua_ls",
+		"rust_analyzer",
+		"clangd",
+		"bashls",
+		"pyright",
 	}
 })
 
-lsp.on_attach(function(client, bufnr)
+local on_attach = function(_, bufnr)
 	local opts = { buffer = bufnr, remap = false}
-	vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-	vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-	vim.keymap.set("n", "<leader>e", function() vim.diagnostic.open_float() end, opts)
-	vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
-	-- vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, opts)
-	vim.keymap.set("n", "gr", ":lua require'telescope.builtin'.lsp_references(require('telescope.themes').get_dropdown({}))<cr>", opts)
-	-- lsp.default_keymaps({buffer=bufnr})
+	vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+	vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
 
-	-- Autoformat
-	vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
-end)
+	vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+	vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+	vim.keymap.set('n', 'gr', ":lua require 'telescope.builtin'.lsp_references(require('telescope.themes').get_dropdown({}))<cr>", opts)
+	vim.keymap.set('n', '<leader>e', vim.lsp.diagnostic.open_float, opts)
+	vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+end
 
+require('lspconfig').lua_ls.setup {
+	on_attach = on_attach
+}
 
-require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+require('lspconfig').rust_analyzer.setup {
+	on_attach = on_attach,
+  settings = {
+    ['rust-analyzer'] = {
+      diagnostics = {
+        enable = false;
+      }
+    }
+  }
+}
 
-lsp.setup()
+require('lspconfig').clangd.setup {
+	on_attach = on_attach
+}
 
-vim.diagnostic.config({
-	virtual_text = true
-})
+require('lspconfig').pyright.setup {
+	on_attach = on_attach
+}
+
+require('lspconfig').bashls.setup {
+	on_attach = on_attach
+}
