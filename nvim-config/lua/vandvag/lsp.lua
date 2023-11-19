@@ -11,13 +11,14 @@ require("mason-lspconfig").setup({
 })
 
 local on_attach = function(_, bufnr)
-	local opts = { buffer = bufnr, remap = false}
+	local opts = { buffer = bufnr, remap = false }
 	vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
 	vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
 
 	vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
 	vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-	vim.keymap.set('n', 'gr', ":lua require 'telescope.builtin'.lsp_references(require('telescope.themes').get_dropdown({}))<cr>", opts)
+	vim.keymap.set('n', 'gr',
+		":lua require 'telescope.builtin'.lsp_references(require('telescope.themes').get_dropdown({}))<cr>", opts)
 	vim.keymap.set('n', '<leader>e', vim.lsp.diagnostic.open_float, opts)
 	vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
 end
@@ -28,13 +29,16 @@ require('lspconfig').lua_ls.setup {
 
 require('lspconfig').rust_analyzer.setup {
 	on_attach = on_attach,
-  settings = {
-    ['rust-analyzer'] = {
-      diagnostics = {
-        enable = false;
-      }
-    }
-  }
+	settings = {
+		['rust-analyzer'] = {
+			diagnostics = {
+				enable = false,
+			},
+			checkOnSave = {
+				command = "clippy"
+			}
+		}
+	}
 }
 
 require('lspconfig').clangd.setup {
