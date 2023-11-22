@@ -60,33 +60,9 @@ keymap("x", "K", ":move '<-2<cr>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<cr>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<cr>gv-gv", opts)
 
--- Telescope
-keymap("n", "<leader>f",
-	"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false}))<cr>",
-	opts)
-keymap("n", "<leader>t",
-	"<cmd>lua require'telescope.builtin'.lsp_workspace_symbols(require('telescope.themes').get_dropdown({ previewer = false}))<cr>",
-	opts)
-keymap("n", "<leader>r", "<cmd>lua require'telescope.builtin'.live_grep()<cr>", opts)
-
--- Debugging
-keymap("n", "<F5>", "<cmd> lua require'dap'.continue()<cr>", opts)
-keymap("n", "<F10>", "<cmd> lua require'dap'.step_over()<cr>", opts)
-keymap("n", "<F11>", "<cmd> lua require'dap'.step_into()<cr>", opts)
-keymap("n", "<S-F11>", "<cmd> lua require'dap'.step_out()<cr>", opts)
-keymap("n", "<F9>", "<cmd> lua require'dap'.toggle_breakpoint()<cr>", opts)
-keymap("n", "<leader>bb", "<cmd> lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>", opts)
-keymap("n", "<leader>db", "<cmd> lua require'dap'.repl_open()<cr>", opts)
-
--- Harpoon
-keymap("n", "<leader>s", ":Telescope harpoon marks<cr>", opts)
-keymap("n", "<leader>m", ":lua require('harpoon.mark').add_file()<cr>", opts)
-keymap("n", "<leader>h", ":lua require('harpoon.ui').toggle_quick_menu()<cr>", opts)
-keymap("n", "<a-1>", ":lua require('harpoon.ui').nav_file(1)<cr>", opts)
-keymap("n", "<a-2>", ":lua require('harpoon.ui').nav_file(2)<cr>", opts)
-keymap("n", "<a-3>", ":lua require('harpoon.ui').nav_file(3)<cr>", opts)
-keymap("n", "<a-4>", ":lua require('harpoon.ui').nav_file(4)<cr>", opts)
-
+-- Trouble
+keymap("n", "<leader>dw", ":lua require('trouble').toggle('workspace_diagnostics')<cr>", opts)
+keymap("n", "<leader>d", ":lua require('trouble').toggle()<cr>", opts)
 
 -- Autoformat
 keymap("n", "<leader>l", "<cmd>lua vim.lsp.buf.format() <cr>", opts)
