@@ -1,7 +1,7 @@
 {
   // Editor settings
   "editor.suggestSelection": "first",
-  "editor.fontFamily": " 'Monaspace Krypton', 'Iosevka Nerd Font Mono', 'JetBrainsMono Nerd Font Mono','FiraCode NFM',monospace",
+  "editor.fontFamily": " 'Monaspace Argon', 'Iosevka Nerd Font Mono', 'JetBrainsMono Nerd Font Mono','FiraCode NFM',monospace",
   "editor.fontWeight": "Medium",
   "editor.fontSize": 13,
   "editor.fontLigatures": true,
