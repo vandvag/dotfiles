@@ -9,8 +9,10 @@ return {
 	config = function()
 		local lspsaga = require('lspsaga')
 		lspsaga.setup({
+			ui = {
+				code_action_icon = "",
+			},
 			code_action_prompt = { enable = false },
-			code_action_icon = "",
 		})
 	end,
 }

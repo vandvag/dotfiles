@@ -60,9 +60,5 @@ keymap("x", "K", ":move '<-2<cr>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<cr>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<cr>gv-gv", opts)
 
--- Trouble
-keymap("n", "<leader>dw", ":lua require('trouble').toggle('workspace_diagnostics')<cr>", opts)
-keymap("n", "<leader>d", ":lua require('trouble').toggle()<cr>", opts)
-
 -- Autoformat
 keymap("n", "<leader>l", "<cmd>lua vim.lsp.buf.format() <cr>", opts)
