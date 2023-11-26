@@ -16,7 +16,7 @@ return {
 		local on_attach = function(_, bufnr)
 			opts.buffer = bufnr
 			vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-			vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
+			vim.keymap.set('n', '<leader>ca', "<cmd>Lspsaga code_action<cr>", opts)
 			vim.keymap.set('n', 'gD', function() vim.lsp.buf.declarations() end, opts)
 			-- keymap.set('n', 'gd', ":lua require 'telescope.builtin'.definition(require('telescope.themes').get_dropdown({}))<cr>", opts)
 			-- keymap.set('n', 'gd', '<cmd>Telecope lsp_definitions<cr>', opts)
@@ -25,9 +25,9 @@ return {
 			vim.keymap.set('n', 'gi', "<cmd>Telescope lsp_implementations<cr>", opts)
 			vim.keymap.set('n', 'gr',
 				":lua require 'telescope.builtin'.lsp_references(require('telescope.themes').get_dropdown({}))<cr>", opts)
-			vim.keymap.set('n', 'K', function() vim.lsp.buf.hover() end, opts)
-			vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev() end, opts)      -- jump to previous diagnostic in buffer
-			vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next() end, opts)      -- jump to next diagnostic in buffer
+			vim.keymap.set('n', 'K', "<cmd>Lspsaga hover_doc<cr>", opts)
+			vim.keymap.set("n", "[d", "<cmd>Lspsaga diagonstic_jump_prev<cr>", opts)      -- jump to previous diagnostic in buffer
+			vim.keymap.set("n", "]d",  "<cmd>Lspsaga diagonstic_jump_next<cr>", opts)      -- jump to next diagnostic in buffer
 			vim.keymap.set("n", '<leader>e', function() vim.diagnostic.open_float() end, opts) -- show diagnostics for line
 		end
 
