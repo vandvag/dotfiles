@@ -18,8 +18,8 @@
   "editor.minimap.autohide": true,
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.organizeImports": true
-  },
+    "source.organizeImports": "explicit"
+},
   "editor.lineNumbers": "relative",
   // "editor.wordWrapColumn": 120,
   "editor.rulers": [120],
