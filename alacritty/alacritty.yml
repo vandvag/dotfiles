@@ -1,6 +1,6 @@
 # Colorscheme
 import:
-  - /Users/vandvag/.config/alacritty/themes/github_dark_default.yaml
+  - /Users/vandvag/.config/alacritty/themes/catppuccin.yaml
 
 font:
   normal:
