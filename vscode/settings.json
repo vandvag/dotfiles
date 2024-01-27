@@ -1,11 +1,11 @@
 {
   // Editor settings
   "editor.suggestSelection": "first",
-  "editor.fontFamily": " 'Monaspace Argon', 'Iosevka Nerd Font Mono', 'JetBrainsMono Nerd Font Mono','FiraCode NFM',monospace",
-  "editor.fontWeight": "Medium",
-  "editor.fontSize": 13,
+  "editor.fontFamily": " 'JetBrainsMono Nerd Font Mono','FiraCode NFM',monospace",
+  "editor.fontWeight": "normal",
+  "editor.fontSize": 14,
   "editor.fontLigatures": true,
-  "editor.renderWhitespace": "selection",
+  "editor.renderWhitespace": "boundary",
   "editor.insertSpaces": true,
   "editor.wordWrap": "off",
   "editor.smoothScrolling": true,
@@ -19,13 +19,11 @@
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.organizeImports": "explicit"
-},
+  },
   "editor.lineNumbers": "relative",
-  // "editor.wordWrapColumn": 120,
   "editor.rulers": [120],
   "editor.inlayHints.enabled": "onUnlessPressed",
   "editor.guides.bracketPairs": true,
-  "search.useRipgrep": true,
   "vim.incsearch": true,
   "vim.highlightedyank.enable": true,
   "vim.leader": " ",
@@ -168,7 +166,6 @@
   "workbench.settings.openDefaultSettings": true,
   "explorer.confirmDelete": false,
   "workbench.tips.enabled": false,
-  "workbench.tree.indent": 2,
   "workbench.tree.renderIndentGuides": "always",
   "terminal.integrated.fontSize": 12,
   "editor.renderLineHighlight": "gutter",
@@ -179,12 +176,8 @@
   //==========
   // Python //
   //=========
-  "python.formatting.provider": "black",
-  "python.formatting.blackArgs": ["--line-length", "120"],
   "python.languageServer": "Default",
-  "python.defaultInterpreterPath": "/Users/vandvag/miniconda3/bin/python",
-  "python.linting.flake8Enabled": true,
-  "python.linting.flake8Args": ["--ignore=E501"],
+"python.defaultInterpreterPath": "/Users/vandvag/miniconda3/bin/python",
   "[python]": {
     "editor.formatOnType": true
   },
@@ -247,5 +240,5 @@
   "terminal.integrated.inheritEnv": false,
   "lldb.suppressUpdateNotifications": true,
   "lldb.showDisassembly": "never",
-  "workbench.colorTheme": "Kanagawa"
+  "workbench.colorTheme": "Catppuccin Mocha"
 }
