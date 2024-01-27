@@ -12,7 +12,7 @@ return {
 
 		telescope.setup({
 			defaults = {
-				path_display = { "truncate " },
+				path_display = { "truncate" },
 				mappings = {
 					i = {
 						["<C-k>"] = actions.move_selection_previous,
@@ -32,11 +32,12 @@ return {
 		local opts = { noremap = true, silent = true }
 		local keymap = vim.keymap
 		keymap.set("n", "<leader>f",
-			"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false}))<cr>",
+			"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false, hidden = true}))<cr>",
 			opts)
 		keymap.set("n", "<leader>t",
 			"<cmd>lua require'telescope.builtin'.lsp_workspace_symbols(require('telescope.themes').get_dropdown({ previewer = false}))<cr>",
 			opts)
 		keymap.set("n", "<leader>r", "<cmd>lua require'telescope.builtin'.live_grep()<cr>", opts)
+		keymap.set("n", "<leader>a", "<cmd>lua require'telescope.builtin'.buffers()<cr>", opts)
 	end,
 }
