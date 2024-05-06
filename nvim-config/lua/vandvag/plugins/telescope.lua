@@ -23,6 +23,11 @@ return {
 						["q"] = actions.close
 					},
 				}
+			},
+			pickers = {
+				colorscheme = {
+					enable_preview = true
+				}
 			}
 		})
 
@@ -39,5 +44,6 @@ return {
 			opts)
 		keymap.set("n", "<leader>r", "<cmd>lua require'telescope.builtin'.live_grep()<cr>", opts)
 		keymap.set("n", "<leader>a", "<cmd>lua require'telescope.builtin'.buffers()<cr>", opts)
+		keymap.set("n", "<leader>kt", ":Telescope colorscheme<cr>")
 	end,
 }
