@@ -26,12 +26,14 @@ local options = {
 	sidescrolloff = 8,
 	pumheight = 10,
 	termguicolors = true,
+
 	-- Indenting behavior
-	expandtab = false, -- true -> convert tabs to spaces
+	expandtab = true, -- true -> convert tabs to spaces
 	-- tabstop = 4, -- insert 4 spaces for a tab
 	shiftwidth = 4,   -- the number of spaces inserted for each indentation
 	smarttab = true,
 	smartindent = true,
+
 	-- Searching
 	hlsearch = true,
 	ignorecase = true,
@@ -52,7 +54,7 @@ vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 
 -- 2 spaces for selected filetypes
-vim.cmd [[ autocmd FileType xml,html,xhtml,css,scss,javascript,lua,dart setlocal shiftwidth=2 tabstop=2]]
+vim.cmd [[ autocmd FileType html,xhtml,css,scss,lua,dart setlocal shiftwidth=2 tabstop=2]]
 
 -- Remove whitespace on save
 vim.cmd [[ au BufEnter * set fo-=c fo-=r fo-=o ]]
