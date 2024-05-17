@@ -2,13 +2,10 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+# export ZSH="$HOME/.oh-my-zsh"
 
 # Path to flutter 
 export PATH="$PATH:/$HOME/Flutter-Dev/bin"
-
-# Starship prompt
-eval "$(starship init zsh)"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -121,6 +118,12 @@ eval "$(zoxide init zsh)"
 if [ -x "$(command -v fzf)" ]; then
     eval "$(fzf --zsh)"
 fi
+
+# Starship prompt
+eval "$(starship init zsh)"
+
+# path to bash_script folder
+BASH_SCRIPT_FOLDER="$HOME/.config/bash_scripts/"
 #======================================================================================================================
 # ALIASES
 #======================================================================================================================

@@ -22,3 +22,6 @@ fi
 
 # Quickly source zshrc
 alias zsource="source $HOME/.zshrc"
+
+# Tmux sessionlizer
+alias tsess="$BASH_SCRIPT_FOLDER/tmux_sessionizer.sh"
