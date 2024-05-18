@@ -59,6 +59,9 @@ vim.cmd [[ autocmd FileType html,xhtml,css,scss,lua,dart setlocal shiftwidth=2 t
 -- Remove whitespace on save
 vim.cmd [[ au BufEnter * set fo-=c fo-=r fo-=o ]]
 
+-- Default colorscheme
+vim.cmd [[colorscheme catppuccin-mocha]]
+
 -- Neovide options
 if vim.g.neovide then
 	vim.o.guifont = "Monaspace Argon:h14"
