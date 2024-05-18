@@ -9,7 +9,7 @@ local options = {
 	writebackup = false, -- If a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 	backup = false,     -- creates a backup file (everything is source controlled)
 	swapfile = false,   -- no swap file
-	lazyredraw = true,  -- good performance config
+	lazyredraw = false,  -- good performance config, but conflics with noice.nvim, so I've turned it off
 
 	-- UI Settings
 	number = true,
