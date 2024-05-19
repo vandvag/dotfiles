@@ -4,11 +4,8 @@ return {
     config = function()
       require("mini.surround").setup()
       require("mini.notify").setup()
-      require("mini.starter").setup()
-      require("mini.indentscope").setup({
-        animation = require("mini.indentscope").gen_animation.none()
-      }
-      )
+      require("mini.tabline").setup()
+      require("mini.files").setup()
     end,
   },
 }
