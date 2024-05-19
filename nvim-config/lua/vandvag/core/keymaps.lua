@@ -2,7 +2,7 @@ local opts = { noremap = true, silent = true }
 
 -- local term_opts = { silent = true }
 
-local keymap = vim.api.nvim_set_keymap -- Cause we like it shorter
+local keymap = vim.keymap.set -- Cause we like it shorter
 
 -- Space is the best leader key
 keymap("", "<Space>", "<Nop>", opts)
