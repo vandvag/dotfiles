@@ -7,6 +7,7 @@ return {
       require("mini.tabline").setup()
       require("mini.files").setup()
       require("mini.indentscope").setup()
+      require("mini.starter").setup()
     end,
   },
 }
