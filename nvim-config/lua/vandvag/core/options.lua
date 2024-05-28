@@ -1,6 +1,6 @@
 local options = {
 	-- General
-	background = 'dark',
+	background = "dark",
 	mouse = "a",
 	timeoutlen = 100,   -- time to wait for a mapped sequence to complete (in ms)
 	-- Files, Backup, Undo
@@ -58,9 +58,6 @@ vim.cmd [[ autocmd FileType html,xhtml,css,scss,lua,dart setlocal shiftwidth=2 t
 
 -- Remove whitespace on save
 vim.cmd [[ au BufEnter * set fo-=c fo-=r fo-=o ]]
-
--- Default colorscheme
-vim.cmd [[colorscheme catppuccin-mocha]]
 
 -- Neovide options
 if vim.g.neovide then
