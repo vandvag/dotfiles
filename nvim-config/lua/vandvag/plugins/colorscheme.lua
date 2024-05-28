@@ -138,4 +138,11 @@ return {
   { "ricardoraposo/gruvbox-minor.nvim" },
   { "rktjmp/lush.nvim" },
   { "craftzdog/solarized-osaka.nvim" },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
+  { "Mofiqul/vscode.nvim" }
 }
