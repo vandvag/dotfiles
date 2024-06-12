@@ -28,8 +28,8 @@ local options = {
 	termguicolors = true,
 
 	-- Indenting behavior
-	expandtab = true, -- true -> convert tabs to spaces
-	-- tabstop = 4, -- insert 4 spaces for a tab
+	expandtab = false, -- true -> convert tabs to spaces
+	-- tabstop = 4, -- insert <n> spaces for a tab
 	shiftwidth = 4,   -- the number of spaces inserted for each indentation
 	smarttab = true,
 	smartindent = true,
