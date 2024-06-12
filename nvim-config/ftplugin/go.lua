@@ -1,7 +1,6 @@
 local opts = {
 	-- Indenting behavior
-	tabstop = 8, -- insert 8 spaces for a tab
-	shiftwidth = 8,   -- the number of spaces inserted for each indentation
+	tabstop = 4, -- insert <n> spaces for a tab
 }
 
 for k, v in pairs(opts) do
