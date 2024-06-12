@@ -25,7 +25,9 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Open window explorer
-keymap("n", "<leader>b", ":Lex 30<cr>", opts)
+-- That's for netrw
+-- keymap("n", "<leader>b", ":Lex 30<cr>", opts)
+keymap("n", "<leader>b", ":lua MiniFiles.open() MiniFiles.open()<cr>", opts)
 
 -- Resize with arrows (Well doesn't work well with macos)
 keymap("n", "<C-Up>", ":resize +2<cr>", opts)
