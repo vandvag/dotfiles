@@ -17,9 +17,6 @@ require("lazy").setup(
     { import = "vandvag.plugins.lsp" }
   },
   {
-    -- install = {
-    -- 	colorscheme = { "catppuccin" },
-    -- },
     checker = {
       enabled = true,
       notify = false,
