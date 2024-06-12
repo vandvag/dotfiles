@@ -169,7 +169,6 @@
   "workbench.tree.renderIndentGuides": "always",
   "terminal.integrated.fontSize": 12,
   "editor.renderLineHighlight": "gutter",
-  "workbench.sideBar.location": "right",
 
   // Debug
   "debug.terminal.clearBeforeReusing": true,
@@ -177,7 +176,7 @@
   // Python //
   //=========
   "python.languageServer": "Default",
-"python.defaultInterpreterPath": "/Users/vandvag/miniconda3/bin/python",
+  "python.defaultInterpreterPath": "/Users/vandvag/miniconda3/bin/python",
   "[python]": {
     "editor.formatOnType": true
   },
@@ -197,6 +196,7 @@
   "C_Cpp.inlayHints.autoDeclarationTypes.showOnLeft": true,
   "cmake.configureOnOpen": true,
   "cmake.generator": "",
+  "C_Cpp.intelliSenseEngine": "disabled",
 
   // JSON
   "[jsonc]": {
@@ -240,5 +240,5 @@
   "terminal.integrated.inheritEnv": false,
   "lldb.suppressUpdateNotifications": true,
   "lldb.showDisassembly": "never",
-  "workbench.colorTheme": "Catppuccin Mocha"
+  "workbench.colorTheme": "Tokyo Night Storm"
 }
