@@ -10,6 +10,7 @@ return {
   config = function()
     local telescope = require("telescope")
     local actions = require("telescope.actions")
+    local takis = 1
 
     telescope.setup({
       defaults = {
@@ -49,6 +50,7 @@ return {
     keymap.set("n", "<leader>kt", ":Telescope colorscheme<cr>")
     keymap.set("n", "<leader>q", ":Telescope marks<cr>")
     keymap.set("n", "<leader>u", ":Telescope undo<cr>")
-    keymap.set("n", "<leader>gb", "<cmd> lua require'telescope.builtin'.git_bcommits()", opts)
+    keymap.set("n", "<leader>gb", "<cmd> lua require'telescope.builtin'.git_bcommits()<cr>", opts)
+    keymap.set("n", "<leader>gs", ":Telescope grep_string<cr>")
   end,
 }
