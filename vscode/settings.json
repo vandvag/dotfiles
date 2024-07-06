@@ -1,7 +1,7 @@
 {
   // Editor settings
   "editor.suggestSelection": "first",
-  "editor.fontFamily": " 'JetBrainsMono Nerd Font Mono','FiraCode NFM',monospace",
+  "editor.fontFamily": " 'CaskaydiaCove Nerd Font', 'JetBrainsMono Nerd Font Mono','FiraCode NFM',monospace",
   "editor.fontWeight": "normal",
   "editor.fontSize": 14,
   "editor.fontLigatures": true,
@@ -240,5 +240,7 @@
   "terminal.integrated.inheritEnv": false,
   "lldb.suppressUpdateNotifications": true,
   "lldb.showDisassembly": "never",
-  "workbench.colorTheme": "Tokyo Night Storm"
+  "workbench.colorTheme": "Shades of Purple",
+  "cmake.showOptionsMovedNotification": false,
+  "go.toolsManagement.autoUpdate": true
 }
