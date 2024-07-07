@@ -26,8 +26,8 @@ return {
 			vim.keymap.set('n', 'gr',
 				":lua require 'telescope.builtin'.lsp_references(require('telescope.themes').get_dropdown({}))<cr>", opts)
 			vim.keymap.set('n', 'K', "<cmd>Lspsaga hover_doc<cr>", opts)
-			vim.keymap.set("n", "[d", "<cmd>Lspsaga diagonstic_jump_prev<cr>", opts)      -- jump to previous diagnostic in buffer
-			vim.keymap.set("n", "]d",  "<cmd>Lspsaga diagonstic_jump_next<cr>", opts)      -- jump to next diagnostic in buffer
+			vim.keymap.set("n", "[d", "<cmd>Lspsaga diagonstic_jump_prev<cr>", opts)        -- jump to previous diagnostic in buffer
+			vim.keymap.set("n", "]d", "<cmd>Lspsaga diagonstic_jump_next<cr>", opts)        -- jump to next diagnostic in buffer
 			vim.keymap.set("n", '<leader>e', function() vim.diagnostic.open_float() end, opts) -- show diagnostics for line
 		end
 
@@ -56,6 +56,11 @@ return {
 		})
 
 		lspconfig["gopls"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		lspconfig["zls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
