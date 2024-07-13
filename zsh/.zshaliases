@@ -3,11 +3,11 @@
 alias vi="nvim"
 
 # Replace ls with exa (https://github.com/ogham/exa)
-if [ -x "$(command -v exa)" ]; then
-    alias ls="exa --icons"
-    alias ll="exa --icons --long"
-    alias la="exa --icons --long --all --group"
-    alias lt="exa --icons --long --all --group --git --tree"
+if [ -x "$(command -v eza)" ]; then
+    alias ls="eza --icons"
+    alias ll="eza --icons --long"
+    alias la="eza --icons --long --all --group"
+    alias lt="eza --icons --long --all --group --git --tree"
 fi
 
 # Replace cat with bat (https://github.com/sharkdp/bat)
