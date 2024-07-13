@@ -1,4 +1,5 @@
 {
+  "debug.inlineValues": "on",
   // Editor settings
   "editor.suggestSelection": "first",
   "editor.fontFamily": " 'CaskaydiaCove Nerd Font', 'JetBrainsMono Nerd Font Mono','FiraCode NFM',monospace",
@@ -240,7 +241,11 @@
   "terminal.integrated.inheritEnv": false,
   "lldb.suppressUpdateNotifications": true,
   "lldb.showDisassembly": "never",
-  "workbench.colorTheme": "Shades of Purple",
+  "workbench.colorTheme": "Tokyo Night Storm",
   "cmake.showOptionsMovedNotification": false,
-  "go.toolsManagement.autoUpdate": true
+  "go.toolsManagement.autoUpdate": true,
+  "cmake.pinnedCommands": [
+    "workbench.action.tasks.configureTaskRunner",
+    "workbench.action.tasks.runTask"
+  ]
 }
