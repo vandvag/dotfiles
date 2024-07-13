@@ -1,34 +1,35 @@
 local wezterm = require("wezterm")
+local act = wezterm.action
 
-local themes = wezterm.get_builtin_color_schemes();
+local M = {}
 
-local function pick_theme()
-	print(themes)
-	local choices = table.concat(themes, '\n')
-	local args = { 'sh', '-c', 'echo "' .. choices .. '" | fzf --prompt="Pick a theme: "' }
+M.theme_switcher = function(window, pane)
+	local themes = wezterm.get_builtin_color_schemes();
 
-	local result = wezterm.run_child_process(args)
-	if result.exit_code == 0 then
-		return result.stdout:gsub('\n', '')
+	local choices = {}
+	for key, _ in pairs(themes) do
+		table.insert(choices, { label = tostring(key) })
 	end
-	return nil
+
+	table.sort(choices, function(c1, c2)
+		return c1.label < c2.label
+	end)
+
+	local action = wezterm.action_callback(function(_, _, _, label)
+		if label then
+			wezterm.set_config({ color_scheme = label })
+		end
+	end)
+
+	window:perform_action(
+		act.InputSelector({
+			title = "Pick a Theme!",
+			choices = choices,
+			fuzzy = true,
+			action = action,
+		}),
+		pane
+	)
 end
 
-local function set_theme(theme)
-	if theme and wezterm.color_schemes[theme] then
-		wezterm.set_config({ color_scheme = theme })
-	end
-end
-
-wezterm.on("toggle-theme-picker", function()
-	local selected_theme = pick_theme()
-	if selected_theme then
-		set_theme(selected_theme)
-	end
-end)
-
-return {
-	keys = {
-		{ key = "t", mods = "CTRL|ALT", action = wezterm.action { EmitEvent = "toggle-theme-picker" } },
-	}
-}
+return M
