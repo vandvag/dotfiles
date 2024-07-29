@@ -26,14 +26,36 @@ return {
 			end
 		}
 
+		dap.adapters.codelldb = {
+			type = "server",
+			port = "${port}",
+			executable = {
+				command = vim.fn.stdpath('data') .. '/mason/bin/codelldb',
+				args = { "--port", "${port}" }
+			},
+			name = "codelldb",
+		}
+
 		dap.adapters.lldb = {
 			type = "executable",
 			command = "/usr/bin/lldb",
 			name = "lldb",
 		}
 
-		local lldb_launch_config = {
-			type = "lldb",
+		local lldb_config = {
+			name = 'Launch',
+			type = 'lldb',
+			request = 'launch',
+			program = function()
+				return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+			end,
+			cwd = '${workspaceFolder}',
+			stopOnEntry = false,
+			args = {},
+		}
+
+		local codelldb_launch_config = {
+			type = "codelldb",
 			name = "Launch Debugger",
 			request = "launch",
 			cwd = "${workspaceFolder}",
@@ -45,15 +67,15 @@ return {
 		}
 
 		dap.configurations.cpp = {
-			lldb_launch_config,
+			codelldb_launch_config,
 		}
 
 		dap.configurations.rust = {
-			lldb_launch_config,
+			codelldb_launch_config,
 		}
 
 		dap.configurations.c = {
-			lldb_launch_config,
+			codelldb_launch_config,
 		}
 
 		vim.keymap.set("n", "<F9>", dap.toggle_breakpoint)
