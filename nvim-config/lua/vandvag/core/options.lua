@@ -2,7 +2,7 @@ local options = {
 	-- General
 	background = "dark",
 	mouse = "a",
-	timeoutlen = 100,   -- time to wait for a mapped sequence to complete (in ms)
+	timeoutlen = 300,   -- time to wait for a mapped sequence to complete (in ms)
 	-- Files, Backup, Undo
 	undofile = true,    -- enable persistent undo
 	updatetime = 300,   -- faster completion (default = 4000ms)
