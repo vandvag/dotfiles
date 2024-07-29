@@ -1,6 +1,6 @@
 
 # Replace vi with nvim
-alias vi="nvim"
+alias v="nvim"
 
 # Replace ls with exa (https://github.com/ogham/exa)
 if [ -x "$(command -v eza)" ]; then
