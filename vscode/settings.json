@@ -247,5 +247,8 @@
   "cmake.pinnedCommands": [
     "workbench.action.tasks.configureTaskRunner",
     "workbench.action.tasks.runTask"
-  ]
+  ],
+  "zig.path": "zig",
+  "zig.zls.path": "zls",
+  "zig.initialSetupDone": true
 }
