@@ -47,16 +47,15 @@ return {
 
 		-- set keymaps
 		local builtin = require("telescope.builtin")
-		local opts = { noremap = true, silent = true }
-		local keymap = vim.keymap
-		keymap.set("n", "<leader>ff", builtin.find_files, opts)
-		keymap.set("n", "<leader>ft", builtin.lsp_dynamic_workspace_symbols, opts)
-		keymap.set("n", "<leader>fr", builtin.live_grep, opts)
-		keymap.set("n", "<leader>fb", builtin.buffers, opts)
-		keymap.set("n", "<leader>kt", builtin.colorscheme, opts)
-		keymap.set("n", "<leader>q", builtin.marks, opts)
-		keymap.set("n", "<leader>u", ":Telescope undo<cr>")
-		keymap.set("n", "<leader>gb", "<cmd> lua require'telescope.builtin'.git_bcommits()<cr>", opts)
-		keymap.set("n", "<leader>gs", ":Telescope grep_string<cr>")
+		local noremap = require("vandvag.core.utils").noremap
+		noremap("n", "<leader>ff", builtin.find_files, "Show files in workspace")
+		noremap("n", "<leader>ft", builtin.lsp_dynamic_workspace_symbols, "Show workspace symbols")
+		noremap("n", "<leader>fr", builtin.live_grep, "Search workspace for string")
+		noremap("n", "<leader>fb", builtin.buffers, "Show open buffers")
+		noremap("n", "<leader>kt", builtin.colorscheme, "Show available colorschemes")
+		noremap("n", "<leader>q", builtin.marks, "Show vim marks")
+		noremap("n", "<leader>gb", builtin.git_bcommits, "Show local git commits")
+		noremap("n", "<leader>gs", builtin.grep_string, "Search for word under cursor")
+		-- keymap.set("n", "<leader>u", builtin.undo, opts)
 	end,
 }

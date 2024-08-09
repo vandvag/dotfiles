@@ -6,6 +6,7 @@ return {
     -- refer to the configuration section below
   },
   config = function ()
-    vim.keymap.set("n", "<leader>z", "<cmd>ZenMode<cr>")
+		local remap = require("vandvag.core.utils").noremap
+    remap("n", "<leader>z", "<cmd>ZenMode<cr>", "Toggle ZenMode")
   end
 }

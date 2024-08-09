@@ -8,7 +8,7 @@ return {
     require("trouble").setup {
     }
 
-    local opts = { noremap = true, silent = true }
-    vim.keymap.set("n", "<leader>d", "<cmd>Trouble diagnostics toggle<cr>", opts)
+		local noremap = require("vandvag.core.utils").noremap
+    noremap("n", "<leader>d", "<cmd>Trouble diagnostics toggle<cr>", "Show Trouble diagnostics")
   end,
 }

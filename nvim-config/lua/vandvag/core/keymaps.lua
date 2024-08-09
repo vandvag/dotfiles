@@ -1,8 +1,7 @@
-local opts = { noremap = true, silent = true }
-local keymap = vim.keymap.set -- Cause we like it shorter
+local noremap = require("vandvag.core.utils").noremap
 
 -- Space is the best leader key
-keymap("", "<Space>", "<Nop>", opts)
+noremap("", "<Space>", "<Nop>")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -25,18 +24,18 @@ vim.g.maplocalleader = " "
 
 -- That's for netrw
 -- keymap("n", "<leader>o", ":Lex 30<cr>", opts)
-keymap("n", "<leader>o", ":lua MiniFiles.open() MiniFiles.open()<cr>", opts)
+noremap("n", "<leader>o", ":lua MiniFiles.open() MiniFiles.open()<cr>", "Open MiniFiles file explorer")
 
 -- Resize with arrows (Well doesn't work well with macos)
-keymap("n", "<C-Up>", ":resize +2<cr>", opts)
-keymap("n", "<C-Down>", ":resize -2<cr>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<cr>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<cr>", opts)
+noremap("n", "<C-Up>", ":resize +2<cr>", "Resize up")
+noremap("n", "<C-Down>", ":resize -2<cr>", "Resize down")
+noremap("n", "<C-Left>", ":vertical resize -2<cr>", "Resize left")
+noremap("n", "<C-Right>", ":vertical resize +2<cr>", "Resize right")
 
 -- Buffers
-keymap("n", "<S-l>", ":bnext<cr>", opts)
-keymap("n", "<S-h>", ":bprevious<cr>", opts)
-keymap("n", "<leader>bd", ":bdelete<cr>", opts)
+noremap("n", "<S-l>", ":bnext<cr>", "Go to next buffer")
+noremap("n", "<S-h>", ":bprevious<cr>", "Go to previous buffer")
+noremap("n", "<leader>bd", ":bdelete<cr>", "Delete current buffer")
 vim.api.nvim_create_user_command(
 	"BufOnly",
 	function()
@@ -44,33 +43,33 @@ vim.api.nvim_create_user_command(
 	end,
 	{}
 )
-keymap("n", "<leader>bk", ":BufOnly<cr>", opts)
+noremap("n", "<leader>bk", ":BufOnly<cr>", "Delete all but current buffer")
 
-keymap("n", "<C-j>", ":cNext<cr>", opts)
-keymap("n", "<C-k>", ":cPrev<cr>", opts)
+noremap("n", "<C-j>", ":cNext<cr>", "Go to next item in qfixlist")
+noremap("n", "<C-k>", ":cPrev<cr>", "Go to previous item in qfixlist")
 --
 -- Visual
 --
 
 -- Stay in indent mode
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
+noremap("v", "<", "<gv")
+noremap("v", ">", ">gv")
 
 -- Move text up and down
-keymap("v", "<A-j>", ":m .+1<cr>==", opts)
-keymap("v", "<A-k>", ":m .-2<cr>==", opts)
-keymap("v", "p", '"_dP', opts)
+noremap("v", "<A-j>", ":m .+1<cr>==")
+noremap("v", "<A-k>", ":m .-2<cr>==")
+noremap("v", "p", '"_dP')
 
 --
 -- Visual Block
 --
 
 -- Move text up and down
-keymap("x", "J", ":move '>+1<cr>gv-gv", opts)
-keymap("x", "K", ":move '<-2<cr>gv-gv", opts)
-keymap("x", "<A-j>", ":move '>+1<cr>gv-gv", opts)
-keymap("x", "<A-k>", ":move '<-2<cr>gv-gv", opts)
+noremap("x", "J", ":move '>+1<cr>gv-gv")
+noremap("x", "K", ":move '<-2<cr>gv-gv")
+noremap("x", "<A-j>", ":move '>+1<cr>gv-gv")
+noremap("x", "<A-k>", ":move '<-2<cr>gv-gv")
 
 -- Autoformat
-keymap("n", "<leader>l", "<cmd>lua vim.lsp.buf.format() <cr>", opts)
+noremap("n", "<leader>l", "<cmd>lua vim.lsp.buf.format()<cr>", "Format document")
 

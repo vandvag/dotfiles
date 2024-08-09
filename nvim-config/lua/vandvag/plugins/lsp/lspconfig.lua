@@ -11,24 +11,22 @@ return {
 
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-		local opts = { noremap = true, silent = true }
 
+		local noremap = require("vandvag.core.utils").noremap
 		local on_attach = function(_, bufnr)
-			opts.buffer = bufnr
-			vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-			vim.keymap.set('n', '<leader>ca', "<cmd>Lspsaga code_action<cr>", opts)
-			vim.keymap.set('n', 'gD', function() vim.lsp.buf.declarations() end, opts)
-			-- keymap.set('n', 'gd', ":lua require 'telescope.builtin'.definition(require('telescope.themes').get_dropdown({}))<cr>", opts)
-			-- keymap.set('n', 'gd', '<cmd>Telecope lsp_definitions<cr>', opts)
-			vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end, opts)
-			vim.keymap.set('n', 'gt', "<cmd>Telescope lsp_type_definitions<cr>", opts)
-			vim.keymap.set('n', 'gi', "<cmd>Telescope lsp_implementations<cr>", opts)
-			vim.keymap.set('n', 'gr',
-				":lua require 'telescope.builtin'.lsp_references(require('telescope.themes').get_dropdown({}))<cr>", opts)
-			vim.keymap.set('n', 'K', "<cmd>Lspsaga hover_doc<cr>", opts)
-			vim.keymap.set("n", "[d", "<cmd>Lspsaga diagonstic_jump_prev<cr>", opts)        -- jump to previous diagnostic in buffer
-			vim.keymap.set("n", "]d", "<cmd>Lspsaga diagonstic_jump_next<cr>", opts)        -- jump to next diagnostic in buffer
-			vim.keymap.set("n", '<leader>e', function() vim.diagnostic.open_float() end, opts) -- show diagnostics for line
+			local additional_opts = { buffer = bufnr }
+			noremap('n', '<leader>rn', vim.lsp.buf.rename, "Rename symbol under cursor", additional_opts)
+			noremap('n', '<leader>ca', "<cmd>Lspsaga code_action<cr>", "Show code actions", additional_opts)
+			noremap('n', 'gD', vim.lsp.buf.declarations, "Go to declaration", additional_opts)
+			noremap('n', 'gd', vim.lsp.buf.definition, "Go to definition", additional_opts)
+			noremap('n', 'gt', "<cmd>Telescope lsp_type_definitions<cr>", "Show type definitions", additional_opts)
+			noremap('n', 'gi', "<cmd>Telescope lsp_implementations<cr>", "Show type implementations", additional_opts)
+			noremap('n', 'gr', require('telescope.builtin').lsp_references, "Show symbol references", additional_opts)
+			noremap('n', 'K', "<cmd>Lspsaga hover_doc<cr>", "Show symbol documentation", additional_opts)
+			noremap("n", "[d", "<cmd>Lspsaga diagonstic_jump_prev<cr>", "Jump to previous diagnostic in buffer",
+				additional_opts)
+			noremap("n", "]d", "<cmd>Lspsaga diagonstic_jump_next<cr>", "Jump to next diagnostic in buffer", additional_opts)
+			noremap("n", '<leader>e', function() vim.diagnostic.open_float() end, "Show diagnostics for line", additional_opts)
 		end
 
 		local capabilities = cmp_nvim_lsp.default_capabilities()

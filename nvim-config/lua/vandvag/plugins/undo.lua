@@ -1,6 +1,7 @@
 return {
   "mbbill/undotree",
   config = function()
-    vim.keymap.set("n", "<leader>ku", "<cmd>UndotreeToggle<cr>")
+		local noremap = require("vandvag.core.utils").noremap
+    noremap("n", "<leader>ku", "<cmd>UndotreeToggle<cr>", "Toggle UndoTree")
   end,
 }

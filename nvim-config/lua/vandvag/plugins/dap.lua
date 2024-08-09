@@ -78,18 +78,20 @@ return {
 			codelldb_launch_config,
 		}
 
-		vim.keymap.set("n", "<F9>", dap.toggle_breakpoint)
-		vim.keymap.set("n", "<leader>db", dap.run_to_cursor)
+		local noremap = require("vandvag.core.utils").noremap
+
+		noremap("n", "<F9>", dap.toggle_breakpoint, "[DAP] Toggle breakpoint")
+		noremap("n", "<leader>db", dap.run_to_cursor, "[DAP] Run to cursor")
 
 		vim.keymap.set("n", "<leader>?", function()
 			ui.eval(nil, { enter = true })
 		end)
 
-		vim.keymap.set("n", "<F5>", dap.continue)
-		vim.keymap.set("n", "<F11>", dap.step_into)
-		vim.keymap.set("n", "<F10>", dap.step_over)
-		vim.keymap.set("n", "<S-F11>", dap.step_out)
-		vim.keymap.set("n", "<S-F5>", dap.restart)
+		noremap("n", "<F5>", dap.continue, "[DAP] Continue")
+		noremap("n", "<F11>", dap.step_into, "[DAP] Step into")
+		noremap("n", "<F10>", dap.step_over, "[DAP] Step over")
+		noremap("n", "<S-F11>", dap.step_out, "[DAP] Step out")
+		noremap("n", "<S-F5>", dap.restart, "[DAP] Restart")
 
 		dap.listeners.before.attach.dapui_config = function()
 			ui.open()
