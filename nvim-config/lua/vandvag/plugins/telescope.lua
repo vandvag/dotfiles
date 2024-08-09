@@ -46,16 +46,15 @@ return {
 		telescope.load_extension("undo")
 
 		-- set keymaps
+		local builtin = require("telescope.builtin")
 		local opts = { noremap = true, silent = true }
 		local keymap = vim.keymap
-		keymap.set("n", "<leader>ff", ":Telescope find_files<cr>")
-		keymap.set("n", "<leader>t",
-			"<cmd>lua require'telescope.builtin'.lsp_dynamic_workspace_symbols(require('telescope.themes').get_dropdown({ previewer = false}))<cr>",
-			opts)
-		keymap.set("n", "<leader>r", "<cmd>lua require'telescope.builtin'.live_grep()<cr>", opts)
-		keymap.set("n", "<leader>ba", "<cmd>lua require'telescope.builtin'.buffers()<cr>", opts)
-		keymap.set("n", "<leader>kt", ":Telescope colorscheme<cr>")
-		keymap.set("n", "<leader>q", ":Telescope marks<cr>")
+		keymap.set("n", "<leader>ff", builtin.find_files, opts)
+		keymap.set("n", "<leader>ft", builtin.lsp_dynamic_workspace_symbols, opts)
+		keymap.set("n", "<leader>fr", builtin.live_grep, opts)
+		keymap.set("n", "<leader>fb", builtin.buffers, opts)
+		keymap.set("n", "<leader>kt", builtin.colorscheme, opts)
+		keymap.set("n", "<leader>q", builtin.marks, opts)
 		keymap.set("n", "<leader>u", ":Telescope undo<cr>")
 		keymap.set("n", "<leader>gb", "<cmd> lua require'telescope.builtin'.git_bcommits()<cr>", opts)
 		keymap.set("n", "<leader>gs", ":Telescope grep_string<cr>")
