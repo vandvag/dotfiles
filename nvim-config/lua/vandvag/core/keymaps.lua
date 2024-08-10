@@ -45,8 +45,8 @@ vim.api.nvim_create_user_command(
 )
 noremap("n", "<leader>bk", ":BufOnly<cr>", "Delete all but current buffer")
 
-noremap("n", "<C-j>", ":cNext<cr>", "Go to next item in qfixlist")
-noremap("n", "<C-k>", ":cPrev<cr>", "Go to previous item in qfixlist")
+noremap("n", "<C-j>", ":cnext<cr>", "Go to next item in qfixlist")
+noremap("n", "<C-k>", ":cprevious<cr>", "Go to previous item in qfixlist")
 --
 -- Visual
 --
