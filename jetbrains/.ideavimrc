@@ -1,0 +1,73 @@
+"" Source your .vimrc
+"source ~/.vimrc
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=8
+
+" Do incremental searching.
+set incsearch
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+set number relativenumber
+set idearefactormode=keep
+set ideajoin
+set surround
+
+let mapleader = " "
+
+" System clipboard
+vmap <leader>y "+y
+vmap <leader>d "+d
+nmap <leader>y "+yy
+nmap <leader>p "+p
+nmap <leader>P "+P
+vmap <leader>p "+p
+vmap <leader>P "+P
+
+map gd <Action>(GotoDeclaration)
+map K <action>(QuickDocumentation)
+" Scrolling
+nmap <leader>d <C-d>
+
+" Version control actions
+nmap <leader>ga <action>(Annotate)
+
+" actions
+map <leader>rn <action>(RenameElement)
+nmap gu <action>(ShowUsages)
+
+map <S-h> <action>(PreviousTab)
+map <S-l> <action>(NextTab)
+map <leader>bd <action>(CloseEditor)
+map <leader>i <action>(Generate)
+map <leader>m <action>(Git.Menu)
+map <leader>s <action>(QuickChangeScheme)
+map <leader>e <action>(ShowErrorDescription)
+map <Leader>zp <action>(TogglePresentationMode)
+map <Leader>zz <action>(ToggleZenMode)
+map <leader>ff <action>(GotoFile)
+map <leader>fr <action>(FindInPath)
+map <leader>ft <action>(GotoSymbol)
+map <leader>\ <action>(Refactorings.QuickListPopupAction)
+nmap <leader>q :q<cr>
+
+" always use jetbrains jumplist
+nmap <C-o> <Action>(Back)
+nmap <C-i> <Action>(Forward)
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+" Map <leader>d to start debug
+" map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
+
+
+" Find more examples here: https://jb.gg/share-ideavimrc
