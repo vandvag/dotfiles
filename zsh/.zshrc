@@ -7,6 +7,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # Path to flutter 
 export PATH="$PATH:/$HOME/Flutter-Dev/bin"
 
+# Path to go/bin directory
 export PATH="$PATH:/$HOME/go/bin"
 
 # Uncomment the following line to use case-sensitive completion.
