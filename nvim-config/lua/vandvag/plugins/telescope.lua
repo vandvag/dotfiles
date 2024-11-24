@@ -13,7 +13,13 @@ return {
 
 		telescope.setup({
 			defaults = {
-				path_display = { "truncate" },
+				path_display = {
+					"truncate",
+					filename_first = {
+						reverse_directories = true,
+					},
+				},
+
 				mappings = {
 					i = {
 					},
@@ -21,12 +27,19 @@ return {
 						["q"] = actions.close
 					},
 				},
+
 				file_ignore_patterns = {
 					".git/",
 					".hg/",
 					"build*/"
 				},
+
+				layout_strategy = 'vertical',
+				layout_config = {
+					width = vim.o.columns,
+				},
 			},
+
 			pickers = {
 				colorscheme = {
 					enable_preview = true
@@ -36,8 +49,12 @@ return {
 					hidden = true,
 				},
 				lsp_dynamic_workspace_symbols = {
-					theme = "cursor",
+					theme = "ivy",
 					previewer = false,
+				},
+				buffers = {
+					theme = "ivy",
+					preview_width = 0.7,
 				}
 			}
 		})
