@@ -42,10 +42,12 @@ return {
 
 			pickers = {
 				colorscheme = {
-					enable_preview = true
+					enable_preview = true,
+					theme = "ivy",
 				},
 				find_files = {
-					previewer = true,
+					previewer = false,
+					theme = "ivy",
 					hidden = true,
 				},
 				lsp_dynamic_workspace_symbols = {
@@ -54,7 +56,6 @@ return {
 				},
 				buffers = {
 					theme = "ivy",
-					preview_width = 0.7,
 				}
 			}
 		})
@@ -65,14 +66,14 @@ return {
 		-- set keymaps
 		local builtin = require("telescope.builtin")
 		local noremap = require("vandvag.core.utils").noremap
+
+		noremap("n", "<leader>fm", builtin.marks, "Show vim marks")
+		noremap("n", "<leader>fq", builtin.quickfix, "Show quickfix list")
 		noremap("n", "<leader>ff", builtin.find_files, "Show files in workspace")
 		noremap("n", "<leader>ft", builtin.lsp_dynamic_workspace_symbols, "Show workspace symbols")
-		noremap("n", "<leader>fr", builtin.live_grep, "Search workspace for string")
 		noremap("n", "<leader>fb", builtin.buffers, "Show open buffers")
 		noremap("n", "<leader>kt", builtin.colorscheme, "Show available colorschemes")
-		noremap("n", "<leader>q", builtin.marks, "Show vim marks")
-		noremap("n", "<leader>gb", builtin.git_bcommits, "Show local git commits")
-		noremap("n", "<leader>gs", builtin.grep_string, "Search for word under cursor")
-		-- keymap.set("n", "<leader>u", builtin.undo, opts)
+		noremap("n", "<leader>fg", builtin.live_grep, "Search workspace for string")
+		noremap("n", "<leader>fs", builtin.grep_string, "Search for word under cursor")
 	end,
 }
