@@ -5,13 +5,13 @@ return {
 	},
 	keys = {
 		{
-			"<leader>s", ":Telescope harpoon marks<cr>", desc = "Show harpoon marks"
+			"<leader>hs", ":Telescope harpoon marks<cr>", desc = "Show harpoon marks"
 		},
 		{
-			"<leader>m", ":lua require('harpoon.mark').add_file()<cr>", desc = "Add harpoon mark"
+			"<leader>hm", ":lua require('harpoon.mark').add_file()<cr>", desc = "Add harpoon mark"
 		},
 		{
-			"<leader>h", ":lua require('harpoon.ui').toggle_quick_menu()<cr>", desc = "Toggle harpoon quick menu"
+			"<leader>hh", ":lua require('harpoon.ui').toggle_quick_menu()<cr>", desc = "Toggle harpoon quick menu"
 		},
 		{
 			"<a-1>", ":lua require('harpoon.ui').nav_file(1)<cr>", desc = "Go to harpoon mark 1"
