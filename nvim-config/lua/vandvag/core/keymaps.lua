@@ -14,16 +14,6 @@ vim.g.maplocalleader = " "
 -- command_mode = "c",
 
 -- Normal Mode
--- Better split window navigation
--- keymap("n", "<C-h>", "<C-w>h", opts)
--- keymap("n", "<C-j>", "<C-w>j", opts)
--- keymap("n", "<C-k>", "<C-w>k", opts)
--- keymap("n", "<C-l>", "<C-w>l", opts)
-
--- Open window explorer
-
--- That's for netrw
--- keymap("n", "<leader>o", ":Lex 30<cr>", opts)
 noremap("n", "<leader>o", ":lua MiniFiles.open() MiniFiles.open()<cr>", "Open MiniFiles file explorer")
 
 -- Resize with arrows (Well doesn't work well with macos)
@@ -45,8 +35,8 @@ vim.api.nvim_create_user_command(
 )
 noremap("n", "<leader>bk", ":BufOnly<cr>", "Delete all but current buffer")
 
-noremap("n", "<C-j>", ":cnext<cr>", "Go to next item in qfixlist")
-noremap("n", "<C-k>", ":cprevious<cr>", "Go to previous item in qfixlist")
+noremap("n", "]q", ":cnext<cr>", "Go to next item in qfixlist")
+noremap("n", "[q", ":cprevious<cr>", "Go to previous item in qfixlist")
 --
 -- Visual
 --
