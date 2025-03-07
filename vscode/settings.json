@@ -241,7 +241,6 @@
   "terminal.integrated.inheritEnv": false,
   "lldb.suppressUpdateNotifications": true,
   "lldb.showDisassembly": "never",
-  "workbench.colorTheme": "Tokyo Night Storm",
   "cmake.showOptionsMovedNotification": false,
   "go.toolsManagement.autoUpdate": true,
   "cmake.pinnedCommands": [
@@ -250,5 +249,5 @@
   ],
   "zig.path": "zig",
   "zig.zls.path": "zls",
-  "zig.initialSetupDone": true
+  "C_Cpp.default.intelliSenseMode": "macos-clang-arm64"
 }

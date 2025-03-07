@@ -16,7 +16,6 @@ return {
 	},
 	keys = {
 		{ "<leader>gb", function() Snacks.git.blame_line() end, desc = "Git Blame Line" },
-		{ "<leader>z", function() Snacks.zen() end, desc = "Toggle zen mode" },
 		{ "<leader>gg", function() Snacks.lazygit() end, desc = "Lazygit" },
 	},
 }

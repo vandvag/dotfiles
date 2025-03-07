@@ -23,8 +23,6 @@ noremap("n", "<C-Left>", ":vertical resize -2<cr>", "Resize left")
 noremap("n", "<C-Right>", ":vertical resize +2<cr>", "Resize right")
 
 -- Buffers
-noremap("n", "<S-l>", ":bnext<cr>", "Go to next buffer")
-noremap("n", "<S-h>", ":bprevious<cr>", "Go to previous buffer")
 noremap("n", "<leader>bd", ":bdelete<cr>", "Delete current buffer")
 vim.api.nvim_create_user_command(
 	"BufOnly",
