@@ -220,11 +220,15 @@
 
 (use-package embark
   :ensure t
-  :defer t)
+  :defer t
+  :bind
+  (("C-." . embark-act)))
 
 
 (use-package embark-consult
   :ensure t
+  :defer t
+  :demand t
   :hook
   (embark-collect-mode . consult-preview-at-point-mode))
 
@@ -391,6 +395,8 @@
   (evil-set-undo-system 'undo-tree)
   (setq evil-leader/in-all-states t)
   (setq evil-want-fine-undo t)
+  (define-key evil-normal-state-map (kbd "C-.") nil)
+  (define-key evil-insert-state-map (kbd "C-.") nil)
 
   (evil-mode 1))
 
@@ -476,13 +482,16 @@
 	;; rest
 	(vandvag/leader-keys
 	  "u"   '(undo-tree-visualize :which-key "undo tree")
-	  "."   '(embark-act :which-key "embark act")
 	  "SPC" '(find-file :which-key "find file")
+	  "."   '(embark-act :which-key "embark act")
 	  "/"   '(consult-line :which-key "consult line"))
 
 	(general-define-key
 	 :states 'motion
 	 "gc" 'comment-or-uncomment-region)
+
+	(general-define-key
+	 "C-." 'embark-act)
   )
 
 
