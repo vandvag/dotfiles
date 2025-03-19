@@ -541,7 +541,10 @@
 (use-package doom-themes
   :ensure t)
 
-(load-theme 'doom-dracula t)
+(use-package alect-themes
+  :ensure t)
+
+(load-theme 'alect-black t)
 
 (provide 'init)
 ;;; init.el ends here
