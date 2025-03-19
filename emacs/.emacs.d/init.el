@@ -529,6 +529,19 @@
   :hook
   (after-init . doom-modeline-mode))
 
+
+(use-package anzu
+  :ensure t
+  :config
+  (global-anzu-mode +1))
+
+
+(use-package evil-anzu
+  :ensure t
+  :after (evil anzu)
+  :config
+  (global-anzu-mode +1))
+
 ;; (use-package whitespace
 ;;   :ensure t
 ;;   :diminish t
