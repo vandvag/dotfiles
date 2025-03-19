@@ -467,7 +467,7 @@
 	  "pc" '(project-compile :which-key "project compile")
 	  "pp" '(project-switch-project :which-key "project switch")
 	  "pf" '(project-find-file :which-key "project find file")
-	  "pd" '(project-dired :which-key "project dired")
+	  "pd" '(project-dired :which-key "project dired"))
 
 	;; lsp
 	(general-define-key
