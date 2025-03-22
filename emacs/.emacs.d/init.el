@@ -241,7 +241,7 @@
   :hook
   (
    (bash-ts-mode . lsp)
-   (go-mode . lsp)
+   (go-ts-mode . lsp)
    (lsp-mode . lsp-enable-which-key-integration))
   :commands (lsp lsp-deferred)
   :custom
@@ -283,8 +283,8 @@
 (use-package cc-mode
   :ensure t
   :defer t
-  :hook ((c++-mode . lsp-deferred)
-		 (c-mode . lsp-deferred))
+  :hook ((c++-ts-mode . lsp-deferred)
+		 (c-ts-mode . lsp-deferred))
   :config
   (setq c-basic-offset 4)
   )
@@ -298,7 +298,7 @@
 (use-package rust-mode
   :ensure t
   :defer t
-  :hook (rust-mode . lsp-deferred))
+  :hook (rust-ts-mode . lsp-deferred))
 
 
 (use-package lsp-pyright
@@ -319,6 +319,13 @@
   (lsp-ui-sideline-enable t)
   (lsp-ui-sideline-show-diagnostics t)
   (lsp-ui-sideline-show-code-actions t))
+
+(use-package treesit-auto
+  :custom
+  (treesit-auto-install 'prompt)
+  :config
+  (global-treesit-auto-mode)
+  (treesit-auto-add-to-auto-mode-alist 'all))
 
 ;;; END: LSP Configurations
 (use-package flycheck
