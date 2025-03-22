@@ -320,6 +320,10 @@
   (lsp-ui-sideline-show-diagnostics t)
   (lsp-ui-sideline-show-code-actions t))
 
+(use-package consult-lsp
+  :ensure t
+  :defer t)
+
 (use-package treesit-auto
   :custom
   (treesit-auto-install 'prompt)
@@ -484,7 +488,10 @@
 
 	(vandvag/leader-keys
 	  "c"  '(:ignore t :which-key "lsp")
-	  "cl" '(lsp-format-buffer :which-key "format buffer"))
+	  "cl" '(lsp-format-buffer :which-key "format buffer")
+	  "cs" '(consult-lsp-symbols :which-key "workspace symbols")
+	  "ci" '(lsp-imenu :which-key "lsp-imenu"))
+	
 
 	;; rest
 	(vandvag/leader-keys
