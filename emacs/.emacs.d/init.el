@@ -241,7 +241,6 @@
   :hook
   (
    (bash-ts-mode . lsp)
-   (go-ts-mode . lsp)
    (lsp-mode . lsp-enable-which-key-integration))
   :commands (lsp lsp-deferred)
   :custom
@@ -292,19 +291,25 @@
 (use-package zig-mode
   :ensure t
   :defer t
-  :hook (zig-mode . lsp-deferred))
+  :hook (zig-ts-mode . lsp-deferred))
 
+(use-package go-mode
+  :ensure t
+  :defer t
+  :config
+  ;; Hack for gopls working on MacOs
+  (add-to-list 'exec-path "~/go/bin")
+  :hook (go-ts-mode . lsp-deferred))
 
 (use-package rust-mode
   :ensure t
   :defer t
   :hook (rust-ts-mode . lsp-deferred))
 
-
 (use-package lsp-pyright
   :ensure t
   :custom (lsp-pyright-langsever-command "pyright")
-  :hook (python-mode . (lambda ()
+  :hook (python-ts-mode . (lambda ()
 						 (require 'lsp-pyright)
 						 (lsp))))
 
@@ -332,11 +337,12 @@
   (treesit-auto-add-to-auto-mode-alist 'all))
 
 ;;; END: LSP Configurations
+
+
 (use-package flycheck
   :ensure t
   :after lsp-ui
   :hook (prog-mode . flycheck-mode))
-
 
 ;;; COMPANY
 (use-package company
