@@ -1,2 +1,2 @@
-theme = tokyonight_moon
+theme = dark:tokyonight_moon,light:OneHalfLight
 font-family = CaskaydiaCove Nerd Font
