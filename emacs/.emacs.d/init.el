@@ -285,8 +285,7 @@
   :hook ((c++-ts-mode . lsp-deferred)
 		 (c-ts-mode . lsp-deferred))
   :config
-  (setq c-basic-offset 4)
-  )
+  (setq c-basic-offset 4))
 
 (use-package zig-mode
   :ensure t
@@ -578,7 +577,10 @@
 (use-package alect-themes
   :ensure t)
 
-(load-theme 'modus-operandi-tinted t)
+(use-package ef-themes
+  :ensure t)
+
+(load-theme 'ef-dark t)
 
 (provide 'init)
 ;;; init.el ends here
