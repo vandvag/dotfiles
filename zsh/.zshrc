@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export PATH="$PATH:/$HOME/Flutter-Dev/bin"
 
 # Path to go/bin directory
-export PATH="$PATH:/$HOME/go/bin"
+export PATH="$PATH:$HOME/go/bin"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -127,6 +127,9 @@ eval "$(starship init zsh)"
 
 # path to bash_script folder
 BASH_SCRIPT_FOLDER="$HOME/.config/bash_scripts/"
+
+#path for gopls
+export GOPATH="/Users/vandvag/go/"
 #======================================================================================================================
 # ALIASES
 #======================================================================================================================
