@@ -578,7 +578,7 @@
 (use-package alect-themes
   :ensure t)
 
-(load-theme 'alect-black t)
+(load-theme 'modus-operandi-tinted t)
 
 (provide 'init)
 ;;; init.el ends here
