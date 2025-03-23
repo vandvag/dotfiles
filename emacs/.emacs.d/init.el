@@ -444,7 +444,8 @@
 
 	(vandvag/leader-keys
 	  "b"  '(:ignore t :which-key "buffer")
-	  "bd" '(kill-buffer)
+	  "bd" '(kill-current-buffer :which-key "kill current buffer")
+	  "bi" '(ibuffer :which-key "ibuffer")
 	  ","  '(consult-buffer :which-key "switch buffer"))
 
 	;;; Diagnostics key defines
