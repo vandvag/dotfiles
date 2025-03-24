@@ -563,14 +563,6 @@
   :config
   (global-anzu-mode +1))
 
-;; (use-package whitespace
-;;   :ensure t
-;;   :diminish t
-;;   :hook
-;;   (prog-mode . whitespace-mode)
-;;   :config
-;;   (setq whitespace-style
-;;         '(spaces tabs indentation-space tab-mark space-mark)))
 
 (use-package ef-themes
   :ensure t)
