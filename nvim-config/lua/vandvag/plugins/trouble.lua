@@ -22,10 +22,6 @@ return {
 	},
 
   config = function()
-    require("trouble").setup {
-    }
-
-		local noremap = require("vandvag.core.utils").noremap
-    -- noremap("n", "<leader>d", "<cmd>Trouble diagnostics toggle<cr>", "Show Trouble diagnostics")
+    require("trouble").setup{}
   end,
 }
