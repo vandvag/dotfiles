@@ -75,7 +75,7 @@
 
   (global-hl-line-mode 1)
   (global-auto-revert-mode 1)
-  (indent-tabs-mode -1) ;; Disable the use of tabs for indentation
+  (indent-tabs-mode nil) ;; Disable the use of tabs for indentation
   (recentf-mode 1)
   (savehist-mode 1)
   (save-place-mode 1)
@@ -285,6 +285,7 @@
   :hook ((c++-ts-mode . lsp-deferred)
 		 (c-ts-mode . lsp-deferred))
   :config
+  (setq tab-width 4)
   (setq c-basic-offset 4))
 
 (use-package zig-mode
