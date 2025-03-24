@@ -1,3 +1,3 @@
 require("vandvag.core")
 require("vandvag.lazy")
-vim.cmd [[colorscheme tokyonight-moon]]
+vim.cmd [[colorscheme ef-theme]]

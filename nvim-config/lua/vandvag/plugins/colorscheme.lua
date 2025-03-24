@@ -1,4 +1,20 @@
 return {
+	{ "f-person/auto-dark-mode.nvim",    opts = {} },
+	-- Ef themes
+	{
+		"oonamo/ef-themes.nvim",
+		config = function()
+			local ef = require("ef-themes")
+			ef.setup({
+				light = "ef-day",
+				dark = "ef-autumn",
+				styles = {
+					comments = { italic = false },
+					pickers = "borderless" -- can be default
+				},
+			})
+		end
+	},
 	-- Kanagawa
 	{
 		"rebelot/kanagawa.nvim",
@@ -32,12 +48,6 @@ return {
 				},
 			})
 		end
-	},
-	-- Midnight
-	{
-		'dasupradyumna/midnight.nvim',
-		lazy = false,
-		priority = 1000,
 	},
 	-- Github
 	{
