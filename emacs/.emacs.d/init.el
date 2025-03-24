@@ -571,12 +571,6 @@
 ;;   (setq whitespace-style
 ;;         '(spaces tabs indentation-space tab-mark space-mark)))
 
-(use-package doom-themes
-  :ensure t)
-
-(use-package alect-themes
-  :ensure t)
-
 (use-package ef-themes
   :ensure t)
 
