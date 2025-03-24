@@ -45,6 +45,11 @@ return {
 					enable_preview = true,
 					theme = "ivy",
 				},
+				fd = {
+					previewer = false,
+					theme = "ivy",
+					hidden = true,
+				},
 				find_files = {
 					previewer = false,
 					theme = "ivy",
@@ -69,9 +74,11 @@ return {
 
 		noremap("n", "<leader>fm", builtin.marks, "Show vim marks")
 		noremap("n", "<leader>fq", builtin.quickfix, "Show quickfix list")
-		noremap("n", "<leader>ff", builtin.find_files, "Show files in workspace")
+		noremap("n", "<leader>ff", builtin.fd, "Show files in workspace")
+		noremap("n", "<leader><leader>", builtin.fd, "Show files in workspace")
 		noremap("n", "<leader>ft", builtin.lsp_dynamic_workspace_symbols, "Show workspace symbols")
 		noremap("n", "<leader>fb", builtin.buffers, "Show open buffers")
+		noremap("n", "<leader>,", builtin.buffers, "Show open buffers")
 		noremap("n", "<leader>kt", builtin.colorscheme, "Show available colorschemes")
 		noremap("n", "<leader>fg", builtin.live_grep, "Search workspace for string")
 		noremap("n", "<leader>fs", builtin.grep_string, "Search for word under cursor")
