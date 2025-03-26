@@ -579,7 +579,7 @@
 (use-package ef-themes
   :ensure t)
 
-(load-theme 'ef-dark t)
+(load-theme 'ef-autumn t)
 
 (provide 'init)
 ;;; init.el ends here
