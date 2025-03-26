@@ -491,13 +491,8 @@
 	  "k"  '(:ignore t :which-key "utilities")
 	  "kt" '(consult-theme :which-key "change theme"))
 	
-	;; project key defines
 	(vandvag/leader-keys
-	  "p"  '(:ignore t :which-key "project")
-	  "pc" '(project-compile :which-key "project compile")
-	  "pp" '(project-switch-project :which-key "project switch")
-	  "pf" '(project-find-file :which-key "project find file")
-	  "pd" '(project-dired :which-key "project dired"))
+	  "p"  '(projectile-command-map :which-key "projectile"))
 
 	;; lsp
 	(general-define-key
@@ -575,6 +570,13 @@
   :config
   (global-anzu-mode +1))
 
+
+(use-package projectile
+  :ensure t
+  :init
+  (setq projectile-project-search-path '("~/dev/"))
+  :config
+  (projectile-mode +1))
 
 (use-package ef-themes
   :ensure t)
