@@ -48,14 +48,18 @@
   (ring-bell-function 'ignore)
   (split-width-threshold 300)
   (switch-to-buffer-obey-display-actions t)
-  (tab-always-indent 'complete)
-  (tab-width 4)
   (treesit-font-lock-level 4)
   (truncate-lines t)
   (use-dialog-box nil)
   (use-short-answers t)
   (warning-level-minimum :emergency)
   (help-window-select t)
+  (indent-line-function 'insert-tab)
+  (tab-always-indent nil)
+  (tab-width 4)
+  (c-basic-offset tab-width)
+  (c-ts-mode-indent-offset tab-width)
+  (c++-ts-mode-indent-offset tab-width)
 
   :hook
   (prog-mode . display-line-numbers-mode)
@@ -75,7 +79,7 @@
 
   (global-hl-line-mode 1)
   (global-auto-revert-mode 1)
-  (indent-tabs-mode nil) ;; Disable the use of tabs for indentation
+  (indent-tabs-mode nil) ;; nil -> Disable the use of tabs for indentation, t -> Enable the use of tabs for indentation
   (recentf-mode 1)
   (savehist-mode 1)
   (save-place-mode 1)
@@ -282,16 +286,20 @@
 (use-package cc-mode
   :ensure t
   :defer t
-  :hook ((c++-ts-mode . lsp-deferred)
-		 (c-ts-mode . lsp-deferred))
-  :config
-  (setq tab-width 4)
-  (setq c-basic-offset 4))
+  :hook
+  (
+   (c++-ts-mode . lsp-deferred)
+   (c-ts-mode . lsp-deferred)
+   )
+  )
+
+
 
 (use-package zig-mode
   :ensure t
   :defer t
-  :hook (zig-ts-mode . lsp-deferred))
+  :hook (zig-mode . lsp-deferred))
+
 
 (use-package go-mode
   :ensure t
@@ -306,12 +314,14 @@
   :defer t
   :hook (rust-ts-mode . lsp-deferred))
 
+
 (use-package lsp-pyright
   :ensure t
   :custom (lsp-pyright-langsever-command "pyright")
   :hook (python-ts-mode . (lambda ()
 						 (require 'lsp-pyright)
 						 (lsp))))
+
 
 (use-package lsp-ui
   :ensure t
@@ -325,9 +335,11 @@
   (lsp-ui-sideline-show-diagnostics t)
   (lsp-ui-sideline-show-code-actions t))
 
+
 (use-package consult-lsp
   :ensure t
   :defer t)
+
 
 (use-package treesit-auto
   :custom
