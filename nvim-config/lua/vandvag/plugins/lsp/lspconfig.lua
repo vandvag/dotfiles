@@ -15,16 +15,19 @@ return {
 		local noremap = require("vandvag.core.utils").noremap
 		local on_attach = function(_, bufnr)
 			local additional_opts = { buffer = bufnr }
-			noremap('n', '<leader>rn', ":lua vim.lsp.buf.rename()<cr>", "Rename symbol under cursor", additional_opts)
-			noremap('n', '<leader>ca', "<cmd>Lspsaga code_action<cr>", "Show code actions", additional_opts)
+			-- noremap('n', '<leader>rn', ":lua vim.lsp.buf.rename()<cr>", "Rename symbol under cursor", additional_opts)
 			noremap('n', 'gD', ":lua vim.lsp.buf.declarations()<cr>", "Go to declaration", additional_opts)
 			noremap('n', 'gd', ":lua vim.lsp.buf.definition()<cr>", "Go to definition", additional_opts)
 			noremap('n', 'gt', "<cmd>Telescope lsp_type_definitions<cr>", "Show type definitions", additional_opts)
 			noremap('n', 'gi', "<cmd>Telescope lsp_implementations<cr>", "Show type implementations", additional_opts)
 			noremap('n', 'gr', ":lua require('telescope.builtin').lsp_references()<cr>", "Show symbol references",
 				additional_opts)
-			noremap('n', 'K', "<cmd>Lspsaga hover_doc<cr>", "Show symbol documentation", additional_opts)
 			noremap("n", '<leader>e', function() vim.diagnostic.open_float() end, "Show diagnostics for line", additional_opts)
+			vim.diagnostic.config({
+				virtual_lines = {
+				 current_line = true,
+				},
+			})
 		end
 
 		local capabilities = cmp_nvim_lsp.default_capabilities()
