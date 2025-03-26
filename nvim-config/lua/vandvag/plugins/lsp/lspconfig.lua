@@ -24,9 +24,6 @@ return {
 			noremap('n', 'gr', ":lua require('telescope.builtin').lsp_references()<cr>", "Show symbol references",
 				additional_opts)
 			noremap('n', 'K', "<cmd>Lspsaga hover_doc<cr>", "Show symbol documentation", additional_opts)
-			noremap("n", "[d", vim.diagnostic.goto_prev, "Jump to previous diagnostic in buffer",
-				additional_opts)
-			noremap("n", "]d", vim.diagnostic.goto_next, "Jump to next diagnostic in buffer", additional_opts)
 			noremap("n", '<leader>e', function() vim.diagnostic.open_float() end, "Show diagnostics for line", additional_opts)
 		end
 
