@@ -61,6 +61,12 @@ return {
 				},
 				buffers = {
 					theme = "ivy",
+				},
+				quickfix = {
+					theme = "ivy",
+				},
+				live_grep = {
+					theme = "ivy",
 				}
 			}
 		})
