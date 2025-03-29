@@ -83,7 +83,7 @@ return {
 		noremap("n", "<leader>ff", builtin.fd, "Show files in workspace")
 		noremap("n", "<leader><leader>", builtin.fd, "Show files in workspace")
 		noremap("n", "<leader>ft", builtin.lsp_dynamic_workspace_symbols, "Show workspace symbols")
-		noremap("n", "<leader>fb", builtin.buffers, "Show open buffers")
+		noremap("n", "<leader>bb", builtin.buffers, "Show open buffers")
 		noremap("n", "<leader>,", builtin.buffers, "Show open buffers")
 		noremap("n", "<leader>kt", builtin.colorscheme, "Show available colorschemes")
 		noremap("n", "<leader>fg", builtin.live_grep, "Search workspace for string")
