@@ -1,5 +1,4 @@
 return {
-	{ "f-person/auto-dark-mode.nvim",    opts = {} },
 	-- Ef themes
 	{
 		"oonamo/ef-themes.nvim",
