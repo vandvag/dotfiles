@@ -498,6 +498,13 @@
 	(vandvag/leader-keys
 	  "p"  '(projectile-command-map :which-key "projectile"))
 
+	;; org mode
+	(vandvag/leader-keys
+	  "o"  '(:ignore t :which-key "org")
+	  "ol" '(org-insert-link :which-key "insert link")
+	  "ot" '(org-todo :which-key "todo")
+	  "o," '(org-insert-structure-template :which-key "structure template"))
+
 	;; lsp
 	(general-define-key
 	 :states 'motion
