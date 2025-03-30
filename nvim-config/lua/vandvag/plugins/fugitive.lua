@@ -1,7 +1,8 @@
 return {
 	"tpope/vim-fugitive",
 	config = function()
-		vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
+		local noremap = require("vandvag.core.utils").noremap
+		noremap("n", "<leader>gs", vim.cmd.Git, "fugitive")
 
 		local ThePrimeagen_Fugitive = vim.api.nvim_create_augroup("ThePrimeagen_Fugitive", {})
 
@@ -10,20 +11,33 @@ return {
 			group = ThePrimeagen_Fugitive,
 			pattern = "*",
 			callback = function()
+				noremap("n", "<leader>gs", vim.cmd.Git, "fugitive")
 				if vim.bo.ft ~= "fugitive" then
 					return
 				end
 
 				local bufnr = vim.api.nvim_get_current_buf()
 				local opts = { buffer = bufnr, remap = false }
-				vim.keymap.set("n", "<leader>p", function()
-					vim.cmd.Git('push')
-				end, opts)
+				noremap(
+					"n",
+					"<leader>p",
+					function()
+						vim.cmd.Git('push')
+					end,
+					"Git push",
+					opts
+				)
 
 				-- rebase always
-				vim.keymap.set("n", "<leader>P", function()
-					vim.cmd.Git({ 'pull', '--rebase' })
-				end, opts)
+				noremap(
+					"n",
+					"<leader>P",
+					function()
+						vim.cmd.Git({ 'pull', '--rebase' })
+					end,
+					"Git pulll rebase",
+					opts
+				)
 
 				-- NOTE: It allows me to easily set the branch i am pushing and any tracking
 				-- needed if i did not set the branch up correctly
