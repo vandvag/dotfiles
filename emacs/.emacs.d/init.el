@@ -474,9 +474,13 @@
 	(vandvag/leader-keys
 	  "f"   '(:ignore t :which-key "Find")
 	  "ff"  '(consult-fd :which-key "Find file")
-	  "fg"  '(consult-ripgrep :which-key "Search in files")
-	  "fr"  '(consult-recent-file :which-key "Recent files")
-	  "fl"  '(consult-line :which-key "Find line"))
+	  "fr"  '(consult-recent-file :which-key "Recent files"))
+
+	;; Search keymaps
+	(vandvag/leader-keys
+	  "s"  '(:ignore t :which-key "search")
+	  "sg" '(consult-ripgrep :which-key "search in files")
+	  "sl" '(consult-line :which-key "search for line in buffer"))
 
 	;; Magit key defines
 	(vandvag/leader-keys
@@ -504,7 +508,8 @@
 	  "c"  '(:ignore t :which-key "lsp")
 	  "cl" '(lsp-format-buffer :which-key "format buffer")
 	  "cs" '(consult-lsp-symbols :which-key "workspace symbols")
-	  "ci" '(lsp-imenu :which-key "lsp-imenu"))
+	  "ci" '(lsp-imenu :which-key "lsp-imenu")
+	  "cd" '(consult-lsp-diagnostics :which-key "diagnostics"))
 	
 
 	;; rest
