@@ -9,6 +9,10 @@ return {
 			require("mini.indentscope").setup()
 			require("mini.cursorword").setup()
 			require("mini.icons").setup()
+			require("mini.statusline").setup()
 		end,
+		keys = {
+			{ "<leader>o", function() MiniFiles.open() end, desc = "Open MiniFiles" },
+		}
 	},
 }

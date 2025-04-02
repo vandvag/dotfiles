@@ -14,8 +14,6 @@ vim.g.maplocalleader = " "
 -- command_mode = "c",
 
 -- Normal Mode
-noremap("n", "<leader>o", ":lua MiniFiles.open() MiniFiles.open()<cr>", "Open MiniFiles file explorer")
-
 -- Resize with arrows (Well doesn't work well with macos)
 noremap("n", "<C-Up>", ":resize +2<cr>", "Resize up")
 noremap("n", "<C-Down>", ":resize -2<cr>", "Resize down")
