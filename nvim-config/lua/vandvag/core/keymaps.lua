@@ -57,5 +57,5 @@ noremap("x", "<A-j>", ":move '>+1<cr>gv-gv")
 noremap("x", "<A-k>", ":move '<-2<cr>gv-gv")
 
 -- Autoformat
-noremap("n", "<leader>l", "<cmd>lua vim.lsp.buf.format()<cr>", "Format document")
+noremap("n", "<leader>cl", "<cmd>lua vim.lsp.buf.format()<cr>", "Format document")
 
