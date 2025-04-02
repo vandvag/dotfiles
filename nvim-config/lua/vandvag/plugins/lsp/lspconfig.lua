@@ -20,7 +20,6 @@ return {
 			noremap('n', 'gd', ":lua vim.lsp.buf.definition()<cr>", "Go to definition", additional_opts)
 			noremap('n', 'gt', "<cmd>Telescope lsp_type_definitions<cr>", "Show type definitions", additional_opts)
 			noremap('n', 'gi', "<cmd>Telescope lsp_implementations<cr>", "Show type implementations", additional_opts)
-			-- noremap('n', 'gr', ":lua require('telescope.builtin').lsp_references()<cr>", "Show symbol references", additional_opts)
 			noremap("n", '<leader>e', function() vim.diagnostic.open_float() end, "Show diagnostics for line", additional_opts)
 			vim.diagnostic.config({
 				virtual_lines = {
