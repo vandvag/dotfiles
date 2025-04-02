@@ -2,7 +2,7 @@ return {
   "folke/trouble.nvim",
   cmd = "Trouble",
   event = "VeryLazy",
-  dependencies = "nvim-tree/nvim-web-devicons",
+  ependencies = { "echasnovski/mini.icons" },
 	keys = {
     {
       "<leader>ts",
