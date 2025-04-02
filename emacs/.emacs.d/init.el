@@ -495,6 +495,7 @@
 	  "k"  '(:ignore t :which-key "utilities")
 	  "kt" '(consult-theme :which-key "change theme"))
 	
+	;; projectile
 	(vandvag/leader-keys
 	  "p"  '(projectile-command-map :which-key "projectile"))
 
@@ -534,6 +535,13 @@
 	 "C-." 'embark-act)
   )
 
+(use-package markdown-mode
+  :defer t
+  :ensure t
+  :mode ("README\\.md\\'" . gfm-mode)            ;; Use gfm-mode for README.md files.
+  :init (setq markdown-command "multimarkdown")) ;; Set the Markdown processing command.
+
+(use-package org)
 
 (use-package undo-tree
   :ensure t
