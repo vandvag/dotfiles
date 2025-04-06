@@ -20,12 +20,12 @@ return {
 			noremap('n', 'gd', ":lua vim.lsp.buf.definition()<cr>", "Go to definition", additional_opts)
 			noremap('n', 'gt', "<cmd>Telescope lsp_type_definitions<cr>", "Show type definitions", additional_opts)
 			noremap('n', 'gi', "<cmd>Telescope lsp_implementations<cr>", "Show type implementations", additional_opts)
-			noremap("n", '<leader>e', function() vim.diagnostic.open_float() end, "Show diagnostics for line", additional_opts)
-			vim.diagnostic.config({
-				virtual_lines = {
-					current_line = true,
-				},
-			})
+			-- noremap("n", '<leader>e', function() vim.diagnostic.open_float() end, "Show diagnostics for line", additional_opts)
+			local toggle_virtual_lines = function()
+				local new_val = not vim.diagnostics.config().virtual_lines
+				vim.diagnostics.config({ virtual_lines = new_val })
+			end
+			noremap('n', 'gk', toggle_virtual_lines, "Toggle virtual lines", additional_opts)
 		end
 
 		local capabilities = cmp_nvim_lsp.default_capabilities()
