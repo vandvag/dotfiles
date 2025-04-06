@@ -15,12 +15,11 @@ return {
 		local noremap = require("vandvag.core.utils").noremap
 		local on_attach = function(_, bufnr)
 			local additional_opts = { buffer = bufnr }
-			-- noremap('n', '<leader>rn', ":lua vim.lsp.buf.rename()<cr>", "Rename symbol under cursor", additional_opts)
 			noremap('n', 'gD', ":lua vim.lsp.buf.declarations()<cr>", "Go to declaration", additional_opts)
 			noremap('n', 'gd', ":lua vim.lsp.buf.definition()<cr>", "Go to definition", additional_opts)
 			noremap('n', 'gt', "<cmd>Telescope lsp_type_definitions<cr>", "Show type definitions", additional_opts)
 			noremap('n', 'gi', "<cmd>Telescope lsp_implementations<cr>", "Show type implementations", additional_opts)
-			-- noremap("n", '<leader>e', function() vim.diagnostic.open_float() end, "Show diagnostics for line", additional_opts)
+			noremap("n", '<leader>e', function() vim.diagnostic.open_float() end, "Show diagnostics for line", additional_opts)
 			local toggle_virtual_lines = function()
 				local new_val = not vim.diagnostic.config().virtual_lines
 				vim.diagnostic.config({ virtual_lines = new_val })
