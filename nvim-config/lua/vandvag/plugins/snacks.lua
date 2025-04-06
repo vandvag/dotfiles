@@ -15,7 +15,10 @@ return {
 		zen = { enabled = true },
 		picker = {
 			enabled = true,
-			layout = { preset = "ivy" }
+			layout = { preset = "ivy" },
+			sources = {
+				files = { hidden = true },
+			}
 		},
 	},
 	keys = {
