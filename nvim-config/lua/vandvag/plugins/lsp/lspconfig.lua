@@ -22,10 +22,11 @@ return {
 			noremap('n', 'gi', "<cmd>Telescope lsp_implementations<cr>", "Show type implementations", additional_opts)
 			-- noremap("n", '<leader>e', function() vim.diagnostic.open_float() end, "Show diagnostics for line", additional_opts)
 			local toggle_virtual_lines = function()
-				local new_val = not vim.diagnostics.config().virtual_lines
-				vim.diagnostics.config({ virtual_lines = new_val })
+				local new_val = not vim.diagnostic.config().virtual_lines
+				vim.diagnostic.config({ virtual_lines = new_val })
 			end
 			noremap('n', 'gk', toggle_virtual_lines, "Toggle virtual lines", additional_opts)
+			vim.diagnostic.config({ virtual_lines = true })
 		end
 
 		local capabilities = cmp_nvim_lsp.default_capabilities()
