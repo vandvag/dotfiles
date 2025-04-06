@@ -14,7 +14,8 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup(
   {
     { import = "vandvag.plugins" },
-    { import = "vandvag.plugins.lsp" }
+    { import = "vandvag.plugins.lsp" },
+    { import = "vandvag.plugins.cmp" }
   },
   {
     checker = {

@@ -1,18 +1,48 @@
 return {
 	"neovim/nvim-lspconfig",
-	-- event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
-		"hrsh7th/cmp-nvim-lsp",
-		{ "antosha417/nvim-lsp-file-operations", config = true },
+		'saghen/blink.cmp',
+		-- "hrsh7th/cmp-nvim-lsp",
+		-- { "antosha417/nvim-lsp-file-operations", config = true },
 	},
-
-	config = function()
+	opts = {
+		servers = {
+			rust_analyzer = {
+				settings = {
+					["rust-analyzer"] = {
+						checkOnSave = {
+							command = "clippy"
+						}
+					}
+				}
+			},
+			clangd = {},
+			pyright = {},
+			zls = {},
+			gopls = {},
+			lua_ls = {
+				settings = { -- custom settings for lua
+					Lua = {
+						-- make the language server recognize "vim" global
+						diagnostics = {
+							globals = { "vim" },
+						},
+						workspace = {
+							-- make language server aware of runtime files
+							library = {
+								[vim.fn.expand("$VIMRUNTIME/lua")] = true,
+								[vim.fn.stdpath("config") .. "/lua"] = true,
+							},
+						},
+					},
+				},
+			},
+		}
+	},
+	config = function(_, opts)
 		local lspconfig = require("lspconfig")
-
-		local cmp_nvim_lsp = require("cmp_nvim_lsp")
-
-
 		local noremap = require("vandvag.core.utils").noremap
+
 		local on_attach = function(_, bufnr)
 			local additional_opts = { buffer = bufnr }
 			noremap('n', 'gD', ":lua vim.lsp.buf.declarations()<cr>", "Go to declaration", additional_opts)
@@ -28,58 +58,11 @@ return {
 			vim.diagnostic.config({ virtual_lines = true })
 		end
 
-		local capabilities = cmp_nvim_lsp.default_capabilities()
 
-		lspconfig["rust_analyzer"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			settings = {
-				["rust-analyzer"] = {
-					checkOnSave = {
-						command = "clippy"
-					}
-				}
-			}
-		})
-
-		lspconfig["clangd"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-
-		lspconfig["pyright"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-
-		lspconfig["gopls"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-
-		lspconfig["zls"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-
-		lspconfig["lua_ls"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			settings = { -- custom settings for lua
-				Lua = {
-					-- make the language server recognize "vim" global
-					diagnostics = {
-						globals = { "vim" },
-					},
-					workspace = {
-						-- make language server aware of runtime files
-						library = {
-							[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-							[vim.fn.stdpath("config") .. "/lua"] = true,
-						},
-					},
-				},
-			},
-		})
+		for server, config in pairs(opts.servers) do
+			config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
+			config.on_attach = on_attach
+			lspconfig[server].setup(config)
+		end
 	end
 }
