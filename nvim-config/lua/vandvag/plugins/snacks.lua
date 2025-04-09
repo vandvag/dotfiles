@@ -12,7 +12,6 @@ return {
 		git = { enabled = true },
 		lazygit = { enabled = true },
 		input = { enabled = true },
-		zen = { enabled = true },
 		picker = {
 			enabled = true,
 			layout = { preset = "ivy" },
