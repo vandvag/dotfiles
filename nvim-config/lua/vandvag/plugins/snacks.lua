@@ -28,7 +28,7 @@ return {
 		{ "<leader>/",        function() Snacks.picker.grep() end,                  desc = "Search string" },
 		{ "<leader>e",        function() Snacks.picker.explorer() end,              desc = "Show file explorer" },
 		{ "<leader>ff",       function() Snacks.picker.files() end,                 desc = "Find files" },
-		{ "<leader>fn",       function() Snacks.picker.notifications() end,         desc = "Find files" },
+		{ "<leader>fn",       function() Snacks.picker.notifications() end,         desc = "Find notifications" },
 		{ "<leader>,",        function() Snacks.picker.buffers() end,               desc = "Show buffers" },
 		{ "<leader>bb",       function() Snacks.picker.buffers() end,               desc = "Show buffers" },
 		{ "<leader>kt",       function() Snacks.picker.colorschemes() end,          desc = "Show colorschemes" },
