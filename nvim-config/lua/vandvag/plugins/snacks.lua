@@ -25,7 +25,7 @@ return {
 		{ "<leader>gb",       function() Snacks.git.blame_line() end,               desc = "Git Blame Line" },
 		{ "<leader>gg",       function() Snacks.lazygit() end,                      desc = "Lazygit" },
 		{ "<leader><leader>", function() Snacks.picker.files() end,                 desc = "Find files" },
-		{ "<leader>/",        function() Snacks.picker.lines() end,                 desc = "Find line in buffer" },
+		{ "<leader>/",        function() Snacks.picker.grep() end,                  desc = "Search string" },
 		{ "<leader>e",        function() Snacks.picker.explorer() end,              desc = "Show file explorer" },
 		{ "<leader>ff",       function() Snacks.picker.files() end,                 desc = "Find files" },
 		{ "<leader>fn",       function() Snacks.picker.notifications() end,         desc = "Find files" },
