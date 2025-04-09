@@ -25,7 +25,7 @@ return {
 					Lua = {
 						-- make the language server recognize "vim" global
 						diagnostics = {
-							globals = { "vim", "Snacks" },
+							globals = { "vim", "Snacks", "MiniFiles" },
 						},
 						workspace = {
 							-- make language server aware of runtime files
@@ -52,10 +52,15 @@ return {
 			noremap("n", '<leader>e', function() vim.diagnostic.open_float() end, "Show diagnostics for line", additional_opts)
 			local toggle_virtual_lines = function()
 				local new_val = not vim.diagnostic.config().virtual_lines
-				vim.diagnostic.config({ virtual_lines = new_val })
+				local new_v_text_val = not vim.diagnostic.config().virtual_text
+				vim.diagnostic.config({
+					virtual_lines = new_val, virtual_text = new_v_text_val })
 			end
 			noremap('n', 'gk', toggle_virtual_lines, "Toggle virtual lines", additional_opts)
-			vim.diagnostic.config({ virtual_lines = true })
+			vim.diagnostic.config({
+				virtual_lines = true,
+				virtual_text = false
+			})
 		end
 
 
