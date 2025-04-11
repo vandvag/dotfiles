@@ -2,7 +2,7 @@ return {
 	"tpope/vim-fugitive",
 	config = function()
 		local noremap = require("vandvag.core.utils").noremap
-		noremap("n", "<leader>gs", vim.cmd.Git, "fugitive")
+		noremap("n", "<leader>gG", vim.cmd.Git, "fugitive")
 
 		local ThePrimeagen_Fugitive = vim.api.nvim_create_augroup("ThePrimeagen_Fugitive", {})
 
@@ -11,7 +11,7 @@ return {
 			group = ThePrimeagen_Fugitive,
 			pattern = "*",
 			callback = function()
-				noremap("n", "<leader>gs", vim.cmd.Git, "fugitive")
+				noremap("n", "<leader>gG", vim.cmd.Git, "fugitive")
 				if vim.bo.ft ~= "fugitive" then
 					return
 				end
