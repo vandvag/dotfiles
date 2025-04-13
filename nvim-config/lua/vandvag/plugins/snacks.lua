@@ -14,7 +14,8 @@ return {
 		input = { enabled = true },
 		picker = {
 			enabled = true,
-			layout = { preset = "ivy" },
+			layout = "ivy",
+			-- layout = { preset = "ivy" },
 			sources = {
 				files = { hidden = true },
 			}
@@ -28,6 +29,8 @@ return {
 		{ "<leader>gb",       function() Snacks.git.blame_line() end,               desc = "Git Blame Line" },
 		{ "<leader>gg",       function() Snacks.lazygit() end,                      desc = "Lazygit" },
 		{ "<leader>gh",       function() Snacks.picker.git_log_file() end,          desc = "Git log file" },
+		{ "<leader>gd",       function() Snacks.picker.git_diff() end,              desc = "Git Diff (hunks)" },
+		{ "<leader>gs",       function() Snacks.picker.git_status() end,            desc = "Git Status" },
 		{ "<leader><leader>", function() Snacks.picker.files() end,                 desc = "Find files" },
 		{ "<leader>/",        function() Snacks.picker.grep() end,                  desc = "Search string" },
 		{ "<leader>e",        function() Snacks.picker.explorer() end,              desc = "Show file explorer" },
