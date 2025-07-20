@@ -15,9 +15,14 @@ return {
       desc = "LSP Definitions / references / ... (Trouble)",
     },
     {
-      "<leader>tt",
+      "<leader>td",
       "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
       desc = "Buffer Diagnostics (Trouble)",
+    },
+    {
+      "<leader>tt",
+      "<cmd>Trouble todo toggle filter.buf=0<cr>",
+      desc = "Todo List (Trouble)",
     },
 	},
 
