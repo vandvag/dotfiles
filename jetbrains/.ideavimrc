@@ -29,6 +29,7 @@ vmap <leader>P "+P
 
 map gd <Action>(GotoDeclaration)
 map K <action>(ShowHoverInfo)
+
 " Scrolling
 nmap <leader>d <C-d>
 
