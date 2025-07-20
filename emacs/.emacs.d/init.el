@@ -65,9 +65,9 @@
   (prog-mode . display-line-numbers-mode)
 
   :config
-  (set-face-attribute 'default nil :family "JetBrainsMono Nerd Font" :height 120)
+  (set-face-attribute 'default nil :family "JetBrainsMono Nerd Font M" :height 120)
   (when (eq system-type 'darwin)
-	(set-face-attribute 'default nil :family "JetBrainsMono Nerd Font" :height 130))
+	(set-face-attribute 'default nil :family "JetBrainsMono Nerd Font Mono" :height 130))
   (setq custom-file (locate-user-emacs-file "custom-vars.el"))
   (load custom-file 'noerror 'nomessage)
 
@@ -401,13 +401,13 @@
 								  (ignored . "i"))))
 
 
-(use-package indent-guide
-  :ensure t
-  :defer t
-  :hook
-  (prog-mode . indent-guide-mode)
-  :config
-  (setq indent-guide-char "|"))
+;; (use-package indent-guide
+;;   :ensure t
+;;   :defer t
+;;   :hook
+;;   (prog-mode . indent-guide-mode)
+;;   :config
+;;   (setq indent-guide-char "|"))
 
   
 (use-package evil
@@ -597,6 +597,11 @@
   (setq projectile-project-search-path '("~/dev/"))
   :config
   (projectile-mode +1))
+
+(use-package keycast
+  :ensure t
+  :config
+  (keycast-mode-line-mode +1))
 
 (use-package ef-themes
   :ensure t)
