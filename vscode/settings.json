@@ -1,6 +1,5 @@
 {
   "debug.inlineValues": "on",
-  // Editor settings
   "editor.suggestSelection": "first",
   "editor.fontFamily": " 'CaskaydiaCove Nerd Font', 'JetBrainsMono Nerd Font Mono','FiraCode NFM',monospace",
   "editor.fontWeight": "normal",
@@ -14,7 +13,6 @@
   "editor.detectIndentation": false,
   "editor.tabSize": 4,
   "editor.cursorStyle": "line",
-  // "editor.insertSpaces": false,
   "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
   "editor.minimap.autohide": true,
   "editor.formatOnSave": true,
@@ -159,16 +157,12 @@
   "terminal.integrated.sendKeybindingsToShell": true,
   "search.showLineNumbers": true,
   "notebook.lineNumbers": "on",
-
-  // Workbench settings
-  "workbench.iconTheme": "material-icon-theme",
   "workbench.settings.editor": "json", // Open settings in json mode
   "workbench.startupEditor": "none",
   "workbench.settings.openDefaultSettings": true,
   "explorer.confirmDelete": false,
   "workbench.tips.enabled": false,
   "workbench.tree.renderIndentGuides": "always",
-  "terminal.integrated.fontSize": 12,
   "editor.renderLineHighlight": "gutter",
 
   // Debug
@@ -249,5 +243,13 @@
   ],
   "zig.path": "zig",
   "zig.zls.path": "zls",
-  "C_Cpp.default.intelliSenseMode": "macos-clang-arm64"
+  "C_Cpp.default.intelliSenseMode": "macos-clang-arm64",
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "workbench.colorTheme": "Kanagawa",
+  "terminal.integrated.fontSize": 14,
+  "window.autoDetectColorScheme": true,
+  "workbench.preferredDarkColorTheme": "Catppuccin Macchiato",
+  "workbench.preferredLightColorTheme": "Solarized Light"
 }
