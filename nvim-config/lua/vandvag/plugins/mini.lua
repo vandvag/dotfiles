@@ -11,6 +11,7 @@ return {
 			require("mini.icons").setup()
 			require("mini.diff").setup()
 			require("mini.pairs").setup()
+			require("mini.bracketed").setup()
 		end,
 		keys = {
 			{ "<leader>fm", function() MiniFiles.open() end, desc = "Open MiniFiles" },
