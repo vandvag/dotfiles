@@ -13,7 +13,7 @@ set idearefactormode=keep
 set ideajoin
 set surround
 set quickscope
-set highlightyank
+set hlsearch
 set timeoutlen=300
 
 let mapleader = " "
@@ -53,8 +53,10 @@ map <leader>b <action>(ViewBreakpoints)
 map <Leader>zp <action>(TogglePresentationMode)
 map <Leader>zz <action>(ToggleZenMode)
 map <leader>ff <action>(GotoFile)
+map <leader><leader> <action>(GotoFile)
 map <leader>fr <action>(FindInPath)
-map <leader>ft <action>(GotoSymbol)
+map <leader>fs <action>(GotoSymbol)
+map <leader>cl <action>(ReformatCode)
 map <leader>\ <action>(Refactorings.QuickListPopupAction)
 nmap <leader>q :q<cr>
 
