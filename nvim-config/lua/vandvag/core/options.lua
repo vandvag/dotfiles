@@ -26,6 +26,12 @@ local options = {
   sidescrolloff = 8,
   pumheight = 10,
   termguicolors = true,
+  list = true,
+  listchars = {
+    tab = '>  ',
+    space = '·'
+  },
+  winborder = 'rounded',
 
   -- Indenting behavior
   expandtab = true, -- true -> convert tabs to spaces
@@ -33,16 +39,11 @@ local options = {
   shiftwidth = 4,   -- the number of spaces inserted for each indentation
   smarttab = true,
   smartindent = true,
-  list = false,
-  listchars = {
-    tab = '··→',
-    -- tab = '▸▸',
-    space = '·'
-  },
 
   -- Searching
   hlsearch = true,
   ignorecase = true,
+
   clipboard = "unnamedplus",
   completeopt = { "menuone", "noselect" }, -- mostly for cmp
   conceallevel = 0,
