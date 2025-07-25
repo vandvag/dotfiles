@@ -23,11 +23,11 @@ noremap("n", "<C-Right>", ":vertical resize +2<cr>", "Resize right")
 -- Buffers
 noremap("n", "<leader>bd", ":bdelete<cr>", "Delete current buffer")
 vim.api.nvim_create_user_command(
-	"BufOnly",
-	function()
-		vim.cmd("%bdelete|edit #|bdelete#")
-	end,
-	{}
+  "BufOnly",
+  function()
+    vim.cmd("%bdelete|edit #|bdelete#")
+  end,
+  {}
 )
 noremap("n", "<leader>bk", ":BufOnly<cr>", "Delete all but current buffer")
 
@@ -58,4 +58,3 @@ noremap("x", "<A-k>", ":move '<-2<cr>gv-gv")
 
 -- Autoformat
 noremap("n", "<leader>cl", "<cmd>lua vim.lsp.buf.format()<cr>", "Format document")
-
