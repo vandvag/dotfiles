@@ -6,15 +6,17 @@ return {
       require("mini.surround").setup()
       require("mini.notify").setup()
       require("mini.files").setup()
-      require("mini.indentscope").setup()
+      -- require("mini.indentscope").setup()
       require("mini.cursorword").setup()
       require("mini.icons").setup()
       require("mini.diff").setup()
       require("mini.pairs").setup()
       require("mini.bracketed").setup()
+      require("mini.extra").setup()
+      require("mini.statusline").setup()
     end,
     keys = {
-      { "<leader>fm", function() MiniFiles.open() end, desc = "Open MiniFiles" },
+      { "<leader>fm",       function() MiniFiles.open() end, desc = "Open MiniFiles" },
     }
   },
 }
