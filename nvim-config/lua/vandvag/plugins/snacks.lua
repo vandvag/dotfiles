@@ -8,8 +8,6 @@ return {
     quickfile = { enabled = true },
     words = { enabled = true },
     debug = { enabled = true },
-    dashboard = { enabled = true },
-    git = { enabled = true },
     lazygit = { enabled = true },
     input = { enabled = true },
     picker = {
@@ -22,7 +20,6 @@ return {
   },
   keys = {
     -- <leader>f keymaps (Find/files)
-    { "<leader>ff",       function() Snacks.picker.files() end,                 desc = "Find files" },
     { "<leader>fn",       function() Snacks.picker.notifications() end,         desc = "Find notifications" },
     -- <leader>g keymaps (git)
     { "<leader>gb",       function() Snacks.git.blame_line() end,               desc = "Git Blame Line" },
