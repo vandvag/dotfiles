@@ -474,7 +474,8 @@
 	(vandvag/leader-keys
 	  "f"   '(:ignore t :which-key "Find")
 	  "ff"  '(consult-fd :which-key "Find file")
-	  "fr"  '(consult-recent-file :which-key "Recent files"))
+	  "fr"  '(consult-recent-file :which-key "Recent files")
+	  "fd"  '(dired :which-key "Dired"))
 
 	;; Search keymaps
 	(vandvag/leader-keys
@@ -598,15 +599,15 @@
   :config
   (projectile-mode +1))
 
-(use-package keycast
-  :ensure t
-  :config
-  (keycast-mode-line-mode +1))
+;; (use-package keycast
+;;   :ensure t
+;;   :config
+;;   (keycast-mode-line-mode +1))
 
 (use-package ef-themes
   :ensure t)
 
-(load-theme 'ef-autumn t)
+(load-theme 'modus-operandi t)
 
 (provide 'init)
 ;;; init.el ends here
