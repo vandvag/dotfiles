@@ -6,7 +6,6 @@ return {
       require("mini.surround").setup()
       require("mini.notify").setup()
       require("mini.files").setup()
-      -- require("mini.indentscope").setup()
       require("mini.cursorword").setup()
       require("mini.icons").setup()
       require("mini.diff").setup()
