@@ -53,6 +53,9 @@ local options = {
 
 vim.opt.shortmess:append "c"
 
+-- ripgrep
+vim.opt.grepprg = "rg -i -uu ."
+
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
