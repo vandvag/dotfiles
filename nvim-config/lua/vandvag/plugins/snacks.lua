@@ -19,6 +19,7 @@ return {
     },
   },
   keys = {
+    { "<leader>e", false },
     -- <leader>f keymaps (Find/files)
     { "<leader>fn",       function() Snacks.picker.notifications() end,         desc = "Find notifications" },
     -- <leader>g keymaps (git)
@@ -29,7 +30,6 @@ return {
     { "<leader>gs",       function() Snacks.picker.git_status() end,            desc = "Git Status" },
     { "<leader><leader>", function() Snacks.picker.files() end,                 desc = "Find files" },
     { "<leader>/",        function() Snacks.picker.grep() end,                  desc = "Search string" },
-    { "<leader>e",        function() Snacks.picker.explorer() end,              desc = "Show file explorer" },
     { "<leader>,",        function() Snacks.picker.buffers() end,               desc = "Show buffers" },
     { "<leader>bb",       function() Snacks.picker.buffers() end,               desc = "Show buffers" },
     { "<leader>kt",       function() Snacks.picker.colorschemes() end,          desc = "Show colorschemes" },
