@@ -23,7 +23,7 @@ else
     # else
     #     selected=$(find ~/dev/ ~/.dotfiles/ -mindepth 1 -maxdepth 1 -type d | fzf)
     # fi
-    selected=$(find ~/dev ~/.dotfiles -mindepth 0 -maxdepth 2 -type d | fzf)
+    selected=$(find ~/dev ~/.dotfiles ~/qmk_firmware/ -mindepth 0 -maxdepth 2 -type d | fzf)
 fi
 
 if [[ -z $selected ]]; then
