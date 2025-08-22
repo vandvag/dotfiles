@@ -12,10 +12,9 @@ return {
     input = { enabled = true },
     picker = {
       enabled = true,
-      layout = "ivy",
+      layout = "vertical",
       sources = {
         files = { hidden = true },
-      }
       },
       matcher = {
           frecency = true,
@@ -23,7 +22,7 @@ return {
     },
   },
   keys = {
-    { "<leader>e", false },
+    { "<leader>e",        false },
     -- <leader>f keymaps (Find/files)
     { "<leader>fn",       function() Snacks.picker.notifications() end,         desc = "Find notifications" },
     -- <leader>g keymaps (git)
@@ -32,18 +31,24 @@ return {
     { "<leader>gh",       function() Snacks.picker.git_log_file() end,          desc = "Git log file" },
     { "<leader>gd",       function() Snacks.picker.git_diff() end,              desc = "Git Diff (hunks)" },
     { "<leader>gs",       function() Snacks.picker.git_status() end,            desc = "Git Status" },
-    { "<leader><leader>", function() Snacks.picker.files() end,                 desc = "Find files" },
+    { "<leader><leader>", function() Snacks.picker.files({layout = "vscode"}) end,                 desc = "Find files" },
     { "<leader>/",        function() Snacks.picker.grep() end,                  desc = "Search string" },
     { "<leader>,",        function() Snacks.picker.buffers() end,               desc = "Show buffers" },
     { "<leader>bb",       function() Snacks.picker.buffers() end,               desc = "Show buffers" },
     { "<leader>kt",       function() Snacks.picker.colorschemes() end,          desc = "Show colorschemes" },
     { "<leader>sg",       function() Snacks.picker.grep() end,                  desc = "Search string" },
     { "<leader>ss",       function() Snacks.picker.grep_word() end,             desc = "Search for word" },
+    -- <leader>g keymaps (code/lsp)
     { "<leader>cs",       function() Snacks.picker.lsp_workspace_symbols() end, desc = "Show workspace symbols" },
+    -- <leader>h keymaps (help)
     { "<leader>hk",       function() Snacks.picker.keymaps() end,               desc = "Show keymaps" },
     { "<leader>hh",       function() Snacks.picker.help() end,                  desc = "Show help" },
+    { "<leader>hp",       function() Snacks.picker() end,                       desc = "Show available pickers" },
+    -- <leader>q keymaps (quickfix)
     { "<leader>qq",       function() Snacks.picker.qflist() end,                desc = "Show quickfix list" },
-    { "<leader>xx",       function() Snacks.picker.diagnostics() end,           desc = "Show workspace diagnostics" },
+    -- <leader>c keymaps (code)
+    { "<leader>cx",       function() Snacks.picker.diagnostics() end,           desc = "Show workspace diagnostics" },
+    { "<leader>cb",       function() Snacks.picker.diagnostics() end,           desc = "Show buffer diagnostics" },
     { "<leader>mm",       function() Snacks.picker.marks() end,                 desc = "Show marks" },
   },
 }
