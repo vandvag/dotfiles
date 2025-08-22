@@ -16,6 +16,10 @@ return {
       sources = {
         files = { hidden = true },
       }
+      },
+      matcher = {
+          frecency = true,
+        },
     },
   },
   keys = {
