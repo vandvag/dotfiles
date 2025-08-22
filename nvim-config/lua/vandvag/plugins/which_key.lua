@@ -11,6 +11,7 @@ return {
       { "<leader>q", group = "quickfix" },
       { "<leader>g", group = "git" },
       { "<leader>h", group = "help" },
+      { "<leader>j", group = "[j]harpoon" },
       { "g",         group = "goto" },
 
     },
