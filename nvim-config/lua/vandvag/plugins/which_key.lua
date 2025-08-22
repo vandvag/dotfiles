@@ -4,12 +4,13 @@ return {
   opts = {
     spec = {
       mode = { "n", "v" },
-      { "<leader>c", group = "code" },
+      { "<leader>c", group = "code/lsp" },
       { "<leader>f", group = "find/file" },
       { "<leader>b", group = "buffer" },
       { "<leader>s", group = "search" },
       { "<leader>q", group = "quickfix" },
       { "<leader>g", group = "git" },
+      { "<leader>h", group = "help" },
       { "g",         group = "goto" },
 
     },
