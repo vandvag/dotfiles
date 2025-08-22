@@ -5,7 +5,13 @@ return {
   },
   keys = {
     {
-      "<leader>jk", ":lua require('harpoon.mark').add_file()<cr>", desc = "Add harpoon mark"
+      "<leader>jk",
+        function()
+          require('harpoon.mark').add_file()
+          local current_filename = vim.fn.expand("%:t")
+          vim.notify(string.format("File '%s' was added to harpoon list", current_filename), vim.log.levels.INFO)
+        end,
+      desc = "Add harpoon mark"
     },
     {
       "<leader>jj", ":lua require('harpoon.ui').toggle_quick_menu()<cr>", desc = "Toggle harpoon quick menu"
