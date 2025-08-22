@@ -27,8 +27,6 @@ return {
     priority = 1000,
     opts = {},
   },
-  -- Eldritch
-  { "eldritch-theme/eldritch.nvim" },
   { "ricardoraposo/gruvbox-minor.nvim" },
   {
     "folke/tokyonight.nvim",
