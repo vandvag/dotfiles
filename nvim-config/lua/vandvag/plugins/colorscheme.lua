@@ -27,9 +27,14 @@ return {
     priority = 1000,
     opts = {},
   },
-  { "ricardoraposo/gruvbox-minor.nvim" },
   {
     "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
+  {
+    "craftzdog/solarized-osaka.nvim",
     lazy = false,
     priority = 1000,
     opts = {},
