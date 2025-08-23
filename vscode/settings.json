@@ -1,7 +1,11 @@
 {
+  "telemetry.enableTelemetry": false,
   "debug.inlineValues": "on",
+
+  // Editor settings
+  "editor.tabCompletion": "on",
   "editor.suggestSelection": "first",
-  "editor.fontFamily": " 'CaskaydiaCove Nerd Font', 'JetBrainsMono Nerd Font Mono','FiraCode NFM',monospace",
+  "editor.fontFamily": "'JetBrainsMono Nerd Font Mono', 'CaskaydiaCove Nerd Font','FiraCode NFM',monospace",
   "editor.fontWeight": "normal",
   "editor.fontSize": 14,
   "editor.fontLigatures": true,
@@ -14,7 +18,7 @@
   "editor.tabSize": 4,
   "editor.cursorStyle": "line",
   "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
-  "editor.minimap.autohide": true,
+  "editor.minimap.autohide": "mouseover",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.organizeImports": "explicit"
@@ -23,6 +27,8 @@
   "editor.rulers": [120],
   "editor.inlayHints.enabled": "onUnlessPressed",
   "editor.guides.bracketPairs": true,
+
+  // Vim extension Settings
   "vim.incsearch": true,
   "vim.highlightedyank.enable": true,
   "vim.leader": " ",
@@ -30,25 +36,12 @@
     "<C-f>": false,
     "<C-s>": false,
     "<C-z>": false,
-    "<C-d>": false,
     "<C-k>": false
   },
   "vim.smartRelativeLine": true,
 
-  // vim keybindings
+  // Vim keybindings
   "vim.normalModeKeyBindingsNonRecursive": [
-    {
-      "before": ["<CR>"],
-      "after": ["o", "<Esc>"]
-    },
-    {
-      "before": ["<S-CR>"],
-      "after": ["O", "<Esc>"]
-    },
-    {
-      "before": ["<C-v>"],
-      "after": ["<leader>", "v"]
-    },
     {
       "before": ["<leader>", "p"],
       "after": ["\"", "*", "p"]
@@ -250,6 +243,6 @@
   "workbench.colorTheme": "Kanagawa",
   "terminal.integrated.fontSize": 14,
   "window.autoDetectColorScheme": true,
-  "workbench.preferredDarkColorTheme": "Catppuccin Macchiato",
+  "workbench.preferredDarkColorTheme": "Tokyo Night Light",
   "workbench.preferredLightColorTheme": "Solarized Light"
 }
