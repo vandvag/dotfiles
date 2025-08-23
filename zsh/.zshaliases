@@ -26,3 +26,5 @@ alias zsource="source $HOME/.zshrc"
 # Tmux sessionlizer
 alias tsess="$BASH_SCRIPT_FOLDER/tmux_sessionizer.sh"
 alias zsess="$BASH_SCRIPT_FOLDER/zellij_sessionizer.sh"
+
+export ZETTEL="/Users/vandvag/Library/Mobile Documents/iCloud~md~obsidian/Documents/zettelkasten/"
