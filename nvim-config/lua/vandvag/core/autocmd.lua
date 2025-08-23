@@ -10,7 +10,7 @@ vim.api.nvim_create_autocmd(
 )
 
 local theme_group = vim.api.nvim_create_augroup("MacOSThemeSync", { clear = true })
-local preferred_dark_theme = "ef-bio"
+local preferred_dark_theme = "solarized-osaka"
 local preferred_light_theme = "ef-melissa-light"
 
 local function sync_with_macos_theme_setting()
