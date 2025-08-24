@@ -14,7 +14,15 @@ return {
           }
         }
       },
-      clangd = {},
+      clangd = {
+        cmd = {
+          "clangd",
+          "--clang-tidy",
+          "-j=5",
+          "--fallback-style=goole",
+        },
+        filetypes = { "c", "h", "h.c", "hpp", "cpp" },
+      },
       pyright = {},
       zls = {},
       gopls = {},
@@ -40,11 +48,19 @@ return {
     local lspconfig = require("lspconfig")
     local noremap = require("vandvag.core.utils").noremap
 
-    local on_attach = function(_, bufnr)
+    local on_attach = function(client, bufnr)
       local additional_opts = { buffer = bufnr }
       noremap('n', 'gD', ":lua vim.lsp.buf.declarations()<cr>", "Go to declaration", additional_opts)
       noremap('n', 'gd', ":lua vim.lsp.buf.definition()<cr>", "Go to definition", additional_opts)
       noremap("n", '<leader>e', function() vim.diagnostic.open_float() end, "Show diagnostics for line", additional_opts)
+
+      if client.server_capabilities.inlayHintProvider then
+        vim.lsp.inlay_hint.enable(true)
+      end
+
+      if client.server_capabilities.hoverProvider then
+        noremap('n', 'K', function() vim.lsp.buf.hover() end, "Get hover info", additional_opts)
+      end
     end
 
     vim.diagnostic.config({
