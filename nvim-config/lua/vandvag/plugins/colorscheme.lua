@@ -20,24 +20,10 @@ return {
       theme = "wave"
     },
   },
-  -- rose-pine
-  {
-    "rose-pine/neovim",
-    name = "rose-pine",
-    priority = 1000,
-    opts = {},
-  },
   {
     "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
     opts = {},
   },
-  {
-    "craftzdog/solarized-osaka.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {},
-  },
-  { "Mofiqul/vscode.nvim" },
 }
