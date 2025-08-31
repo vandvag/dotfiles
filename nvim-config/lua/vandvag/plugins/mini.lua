@@ -37,6 +37,7 @@ return {
         delay = 200,
       },
     })
+    require("mini.git").setup()
     require("mini.ai").setup()
     require("mini.surround").setup()
     require("mini.notify").setup()
