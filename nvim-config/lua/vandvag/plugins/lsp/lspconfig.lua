@@ -30,7 +30,7 @@ return {
         settings = {
           Lua = {
             diagnostics = {
-              globals = { "vim", "Snacks", "MiniFiles" },
+              globals = { "vim", "Snacks", "MiniFiles", "MiniPick" },
             },
             workspace = {
               library = {
