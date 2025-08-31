@@ -49,7 +49,6 @@ return {
     require("mini.files").setup()
     require("mini.cursorword").setup()
     require("mini.icons").setup()
-    require("mini.diff").setup()
     require("mini.pairs").setup()
     require("mini.bracketed").setup()
     require("mini.extra").setup()
@@ -61,18 +60,18 @@ return {
     })
   end,
   keys = {
-    { "<leader>fm",       function() MiniFiles.open() end,                                      desc = "Open MiniFiles" },
-    { "<leader><leader>", function() MiniPick.registry.files() end,                             desc = "Find File" },
-    { "<leader>,",        function() MiniPick.registry.buffers() end,                           desc = "Find Buffer" },
-    { "<leader>/",        function() MiniPick.registry.buf_lines() end,                         desc = "Find Line in open buffers" },
-    { "<leader>kt",       function() MiniPick.registry.colorschemes() end,                      desc = "Select colorscheme" },
-    { "<leader>sg",       function() MiniPick.registry.grep_live() end,                         desc = "Search in project (live)" },
-    { "<leader>sd",       function() MiniPick.registry.grep() end,                              desc = "Search in project" },
-    { "<leader>mm",       function() MiniPick.registry.marks() end,                             desc = "Show marks" },
-    { "<leader>cb",       function() MiniPick.registry.diagnostic({ scope = 'current' }) end,   desc = "Show diagnostics (buffer)" },
-    { "<leader>cx",       function() MiniPick.registry.diagnostic() end,                        desc = "Show diagnostics (workspace)" },
-    { "<leader>qq",       function() MiniPick.registry.list({ scope = 'quickfix' }) end,        desc = "Show quickfix list" },
-    { "<leader>cs",       function() MiniPick.registry.lsp({ scope = 'workspace_symbol' }) end, desc = "Show symbols (workspace)" },
-
+    { "<leader>fm",       function() MiniFiles.open() end,                desc = "Open MiniFiles" },
+    { "<leader><leader>", '<cmd>Pick files<cr>',                          desc = "Find File" },
+    { "<leader>,",        '<cmd>Pick buffers<cr>',                        desc = "Find Buffer" },
+    { "<leader>/",        '<cmd>Pick buf_lines scope="current"<cr>',      desc = "Find Line (current)" },
+    { "<leader>kt",       '<cmd>Pick colorschemes<cr>',                   desc = "Select colorscheme" },
+    { "<leader>sg",       '<cmd>Pick grep_live<cr>',                      desc = "Search in project (live)" },
+    { "<leader>sd",       '<cmd>Pick grep<cr>',                           desc = "Search in project" },
+    { "<leader>mm",       '<cmd>Pick marks<cr>',                          desc = "Show marks" },
+    { "<leader>cb",       '<cmd>Pick diagnostic scope = "current"<cr>',   desc = "Show diagnostics (buffer)" },
+    { "<leader>cx",       '<cmd>Pick diagnostic<cr>',                     desc = "Show diagnostics (workspace)" },
+    { "<leader>qq",       '<cmd>Pick list scope = "quickfix"<cr>',        desc = "Show quickfix list" },
+    { "<leader>cs",       '<cmd>Pick lsp scope="workspace_symbol"<cr>', desc = "Show symbols (workspace)" },
+    { "<leader>ss",       '<cmd>Pick grep pattern="<cword>"<cr>',         desc = 'Grep current word' }
   }
 }
