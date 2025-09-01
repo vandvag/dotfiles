@@ -60,18 +60,18 @@ return {
     })
   end,
   keys = {
-    { "<leader>fm",       function() MiniFiles.open() end,                desc = "Open MiniFiles" },
-    { "<leader><leader>", '<cmd>Pick files<cr>',                          desc = "Find File" },
-    { "<leader>,",        '<cmd>Pick buffers<cr>',                        desc = "Find Buffer" },
-    { "<leader>/",        '<cmd>Pick buf_lines scope="current"<cr>',      desc = "Find Line (current)" },
-    { "<leader>kt",       '<cmd>Pick colorschemes<cr>',                   desc = "Select colorscheme" },
-    { "<leader>sg",       '<cmd>Pick grep_live<cr>',                      desc = "Search in project (live)" },
-    { "<leader>sd",       '<cmd>Pick grep<cr>',                           desc = "Search in project" },
-    { "<leader>mm",       '<cmd>Pick marks<cr>',                          desc = "Show marks" },
-    { "<leader>cb",       '<cmd>Pick diagnostic scope = "current"<cr>',   desc = "Show diagnostics (buffer)" },
-    { "<leader>cx",       '<cmd>Pick diagnostic<cr>',                     desc = "Show diagnostics (workspace)" },
-    { "<leader>qq",       '<cmd>Pick list scope = "quickfix"<cr>',        desc = "Show quickfix list" },
+    { "<leader>fm",       function() MiniFiles.open() end,              desc = "Open MiniFiles" },
+    { "<leader><leader>", '<cmd>Pick files tool="fd"<cr>',              desc = "Find File" },
+    { "<leader>,",        '<cmd>Pick buffers<cr>',                      desc = "Find Buffer" },
+    { "<leader>/",        '<cmd>Pick buf_lines scope="current"<cr>',    desc = "Find Line (current)" },
+    { "<leader>kt",       '<cmd>Pick colorschemes<cr>',                 desc = "Select colorscheme" },
+    { "<leader>sg",       '<cmd>Pick grep_live<cr>',                    desc = "Search in project (live)" },
+    { "<leader>sd",       '<cmd>Pick grep<cr>',                         desc = "Search in project" },
+    { "<leader>mm",       '<cmd>Pick marks<cr>',                        desc = "Show marks" },
+    { "<leader>cb",       '<cmd>Pick diagnostic scope = "current"<cr>', desc = "Show diagnostics (buffer)" },
+    { "<leader>cx",       '<cmd>Pick diagnostic<cr>',                   desc = "Show diagnostics (workspace)" },
+    { "<leader>qq",       '<cmd>Pick list scope = "quickfix"<cr>',      desc = "Show quickfix list" },
     { "<leader>cs",       '<cmd>Pick lsp scope="workspace_symbol"<cr>', desc = "Show symbols (workspace)" },
-    { "<leader>ss",       '<cmd>Pick grep pattern="<cword>"<cr>',         desc = 'Grep current word' }
+    { "<leader>ss",       '<cmd>Pick grep pattern="<cword>"<cr>',       desc = 'Grep current word' }
   }
 }
