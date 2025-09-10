@@ -243,6 +243,6 @@
   "workbench.colorTheme": "Kanagawa",
   "terminal.integrated.fontSize": 14,
   "window.autoDetectColorScheme": true,
-  "workbench.preferredDarkColorTheme": "Tokyo Night Light",
+  "workbench.preferredDarkColorTheme": "Default Light+",
   "workbench.preferredLightColorTheme": "Solarized Light"
 }

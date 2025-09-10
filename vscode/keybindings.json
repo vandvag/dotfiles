@@ -72,7 +72,7 @@
     "command": "prettier.forceFormatDocument"
   },
   {
-    "key": "alt+cmd+'",
+    "key": "ctrl+alt+'",
     "command": "workbench.action.toggleAuxiliaryBar"
   },
   {
@@ -86,7 +86,7 @@
     "when": "viewContainer.workbench.view.explorer.enabled"
   },
   {
-    "key": "cmd+5",
+    "key": "ctrl+5",
     "command": "workbench.debug.action.toggleRepl",
     "when": "workbench.panel.repl.view.active"
   },
@@ -106,7 +106,7 @@
     "when": "viewContainer.workbench.view.debug.enabled"
   },
   {
-    "key": "cmd+3",
+    "key": "ctrl+4",
     "command": "workbench.action.output.toggleOutput",
     "when": "workbench.panel.output.active"
   },
@@ -116,7 +116,7 @@
     "when": "workbench.panel.output.active"
   },
   {
-    "key": "cmd+'",
+    "key": "ctrl+'",
     "command": "workbench.action.toggleSidebarVisibility"
   },
   {
@@ -129,7 +129,7 @@
     "when": "editorTextFocus && !editorReadonly"
   },
   {
-    "key": "ctrl+'",
+    "key": "alt+'",
     "command": "workbench.action.togglePanel"
   },
   {
@@ -329,7 +329,7 @@
     "when": "terminalFocus && terminalProcessSupported && terminalTextSelected"
   },
   {
-    "key": "ctrl+shift+f",
+    "key": "ctrl+3",
     "command": "workbench.view.search",
     "when": "viewContainer.workbench.view.explorer.enabled"
   },
@@ -337,5 +337,64 @@
     "key": "shift+cmd+f",
     "command": "-workbench.view.search",
     "when": "workbench.view.search.active && neverMatch =~ /doesNotMatch/"
+  },
+  {
+    "key": "ctrl+2",
+    "command": "workbench.action.chat.open",
+    "when": "!chatSetupDisabled && !chatSetupHidden"
+  },
+  {
+    "key": "ctrl+cmd+i",
+    "command": "-workbench.action.chat.open",
+    "when": "!chatSetupDisabled && !chatSetupHidden"
+  },
+  {
+    "key": "ctrl+2",
+    "command": "workbench.panel.chat",
+    "when": "workbench.panel.chat.view.copilot.active"
+  },
+  {
+    "key": "ctrl+cmd+i",
+    "command": "-workbench.panel.chat",
+    "when": "workbench.panel.chat.view.copilot.active"
+  },
+  {
+    "key": "shift+alt+f8",
+    "command": "-editor.action.marker.prev",
+    "when": "editorFocus"
+  },
+  {
+    "key": "f6",
+    "command": "editor.action.marker.next",
+    "when": "editorFocus"
+  },
+  {
+    "key": "alt+f8",
+    "command": "-editor.action.marker.next",
+    "when": "editorFocus"
+  },
+  {
+    "key": "shift+f6",
+    "command": "editor.action.marker.prev"
+  },
+  {
+    "key": "shift+alt+f12",
+    "command": "editor.action.goToReferences",
+    "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+  },
+  {
+    "key": "shift+f12",
+    "command": "-editor.action.goToReferences",
+    "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+  },
+  {
+    "key": "shift+f12",
+    "command": "references-view.findReferences",
+    "when": "editorHasReferenceProvider"
+  },
+  {
+    "key": "shift+alt+f12",
+    "command": "-references-view.findReferences",
+    "when": "editorHasReferenceProvider"
   }
 ]
