@@ -243,6 +243,8 @@
   "workbench.colorTheme": "Kanagawa",
   "terminal.integrated.fontSize": 14,
   "window.autoDetectColorScheme": true,
-  "workbench.preferredDarkColorTheme": "Default Light+",
-  "workbench.preferredLightColorTheme": "Solarized Light"
+  "workbench.preferredDarkColorTheme": "Kanagawa",
+  "workbench.preferredLightColorTheme": "Solarized Light",
+  "workbench.iconTheme": "vscode-jetbrains-icon-theme-2023-auto",
+  "git.blame.editorDecoration.enabled": true
 }
