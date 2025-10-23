@@ -51,14 +51,6 @@
       "after": ["\"", "*", "P"]
     },
     {
-      "before": ["<leader>", "\\"],
-      "commands": ["workbench.action.splitEditor"]
-    },
-    {
-      "before": ["<leader>", "b"],
-      "commands": ["workbench.action.toggleSidebarVisibility"]
-    },
-    {
       "before": ["<leader>", "q"],
       "after": [":", "q", "enter"]
     },
@@ -81,10 +73,6 @@
     {
       "before": ["<leader>", "r"],
       "commands": ["workbench.action.findInFiles"]
-    },
-    {
-      "before": ["<leader>", "f"],
-      "commands": ["workbench.action.quickOpen"]
     },
     {
       "before": ["[", "d"],
