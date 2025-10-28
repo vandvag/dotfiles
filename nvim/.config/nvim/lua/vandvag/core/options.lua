@@ -12,8 +12,8 @@ local options = {
   lazyredraw = false,  -- good performance config, but conflics with noice.nvim, so I've turned it off
 
   -- UI Settings
-  number = true,
-  relativenumber = true,
+  number = false,
+  relativenumber = false,
   showmode = false,   -- Since we are using LuaLine
   laststatus = 2,     -- 2 -> Always show statusline
   cursorline = false, -- Hightlight the cursor line
@@ -65,4 +65,3 @@ vim.cmd [[set iskeyword+=-]]
 
 -- Remove whitespace on save
 vim.cmd [[ au BufEnter * set fo-=c fo-=r fo-=o ]]
-
