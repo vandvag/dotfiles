@@ -31,6 +31,7 @@
   // Vim extension Settings
   "vim.incsearch": true,
   "vim.highlightedyank.enable": true,
+  "vim.hlsearch": true,
   "vim.leader": " ",
   "vim.handleKeys": {
     "<C-f>": false,
@@ -55,11 +56,11 @@
       "after": [":", "q", "enter"]
     },
     {
-      "before": ["<leader>", "f"],
-      "after": ["workbench.action.quickOpen"]
+      "before": ["<leader>", "<leader>"],
+      "commands": ["workbench.action.quickOpen"]
     },
     {
-      "before": ["<leader>", "e"],
+      "before": ["K"],
       "commands": ["editor.action.showHover"]
     },
     {
@@ -67,11 +68,11 @@
       "commands": ["welcome.showNewFileEntries"]
     },
     {
-      "before": ["<leader>", "t"],
+      "before": ["<leader>", "c", "s"],
       "commands": ["workbench.action.showAllSymbols"]
     },
     {
-      "before": ["<leader>", "r"],
+      "before": ["<leader>", "s", "g"],
       "commands": ["workbench.action.findInFiles"]
     },
     {
@@ -85,6 +86,22 @@
     {
       "before": ["<leader>", "c", "a"],
       "commands": ["editor.action.quickFix"]
+    },
+    {
+      "before": ["<leader>", "c", "n"],
+      "commands": ["editor.action.rename"]
+    },
+    {
+      "before": ["g", "r"],
+      "commands": ["references-view.findReferences"]
+    },
+    {
+      "before": ["[", "r"],
+      "commands": ["references-view.prev"]
+    },
+    {
+      "before": ["]", "r"],
+      "commands": ["references-view.next"]
     }
   ],
   "vim.normalModeKeyBindings": [
