@@ -13,7 +13,10 @@ vim.api.nvim_create_autocmd(
   "BufWritePost",
   {
     callback = function()
-      vim.lsp.buf.format()
+      local clients = vim.lsp.get_clients({ bufnr = 0 })
+      if next(clients) ~= nil then
+        vim.lsp.buf.format()
+      end
     end
   }
 )
