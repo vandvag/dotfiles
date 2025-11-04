@@ -1,8 +1,3 @@
-local choose_all_cb = function()
-  local mappings = MiniPick.get_picker_opts().mappings
-  vim.api.nvim_input(mappings.mark_all .. mappings.choose_marked)
-end
-
 return {
   "nvim-mini/mini.nvim",
   lazy = false,

@@ -2,7 +2,7 @@ return {
   'saghen/blink.cmp',
   dependencies = {
     'rafamadriz/friendly-snippets',
-    'echasnovski/mini.nvim',
+    "nvim-mini/mini.nvim",
   },
 
   version = '1.*',
@@ -24,8 +24,6 @@ return {
       },
     },
 
-    -- Default list of enabled providers defined so that you can extend it
-    -- elsewhere in your config, without redefining it, due to `opts_extend`
     sources = {
       default = { 'lsp', 'path', 'snippets', 'buffer' },
     },
