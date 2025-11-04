@@ -12,6 +12,7 @@ return {
       { "<leader>g", group = "git" },
       { "<leader>h", group = "help" },
       { "<leader>j", group = "[j]harpoon" },
+      { "<leader>k", group = "utilities" },
       { "g",         group = "goto" },
 
     },
