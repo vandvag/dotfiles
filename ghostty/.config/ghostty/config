@@ -1,3 +1,3 @@
-theme = dark:ef-bio,light:ef-melissa-light
-font-family = "JetBrainsMonoNerdFont Mono"
-font-size = 14
+theme = dark:ef-dark,light:ef-melissa-light
+font-family = "Iosevka NFM"
+font-size = 18
