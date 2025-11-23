@@ -282,10 +282,12 @@
       (global-display-line-numbers-mode -1)
     (global-display-line-numbers-mode)))
 
+
 (defun vandvag/copy-line ()
   "Copy the current line to kill-ring."
   (interactive)
-  (kill-ring-save (line-beginning-position) (line-end-position)))
+  (kill-ring-save (line-beginning-position) (line-end-position))
+  (message "Line copied."))
 
 
 ;; Keybinds
