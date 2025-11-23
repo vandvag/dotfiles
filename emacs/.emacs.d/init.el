@@ -18,6 +18,7 @@
   :custom
   (autosave-default nil)
   (create-lockfiles nil)
+  ;; Default tab width
   (tab-width 4)
   (tab-always-indent nil)
   ;; Disable backup files ~
@@ -62,6 +63,12 @@
   :after corfu
   :config
   (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
+
+(use-package keycast
+  :ensure t
+  :config
+  (keycast-mode-line-mode +1))
+
 
 ;; Here are packages that utilize the minibuffer
 (use-package which-key
