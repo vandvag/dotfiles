@@ -20,14 +20,20 @@
   (create-lockfiles nil)
   (tab-width 4)
   (tab-always-indent nil)
+  ;; Disable backup files ~
+  (make-backup-files nil)
   ;; Enables context menu.
   (context-menu-mode t)
   (enable-recursive-minibuffers t)
   (use-short-answers t)
+  ;; Display a counter showing the number of the current and
+  ;; matches. Place it before the prompt, though it can be after it.
+  (isearch-lazy-count t)
+  (lazy-count-prefix-format "(%s/%s) ")
+  (lazy-count-suffix-format nil)
   ;; Do not allow the cursor in the minibuffer prompt
   (minibuffer-prompt-properties
-   '(read-only t cursor-intangible t face minibuffer-prompt))
-)
+   '(read-only t cursor-intangible t face minibuffer-prompt)))
 
 ;; UI stuff
 (set-face-attribute 'default nil :family "Iosevka NFM" :height 160)
@@ -261,14 +267,9 @@
 								  (unknown . "?")
 								  (ignored . "i"))))
 
-(use-package anzu
-  :ensure t
-  :config
-  (global-anzu-mode +1))
-
 ;; custom stuff
 (defun vandvag/toggle-line-numbers ()
-  "Toggles the display of line numbers. Applies to all buffers"
+  "Toggles the display of line numbers. Applies to all buffers."
   (interactive)
   (if (bound-and-true-p display-line-numbers)
       (global-display-line-numbers-mode -1)
