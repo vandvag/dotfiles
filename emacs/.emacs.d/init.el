@@ -65,10 +65,7 @@
   (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
 
 (use-package keycast
-  :ensure t
-  :config
-  (keycast-mode-line-mode +1))
-
+  :ensure t)
 
 ;; Here are packages that utilize the minibuffer
 (use-package which-key
