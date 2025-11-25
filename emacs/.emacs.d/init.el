@@ -1,3 +1,19 @@
+;;; init.el --- Personal configuration of Evangelos Vandoros -*- lexical-binding: t; -*-
+;; Author: Evangelos Vandoros
+;; Package-Requires: ((emacs "30.0"))
+
+
+;;; Commentary:
+;; This is my personal configuration
+;; This is still a work in progress, as I am learning EMACS
+;;
+;; Inspired mostly by:
+;; https://github.com/LionyxML/emacs-kick/blob/master/init.el
+;; Protesilaos Stavrou
+
+
+;;; Code:
+
 (add-to-list 'load-path "~/.emacs.d/modules")
 
 (require 'package)
