@@ -74,7 +74,7 @@
   :hook
   (after-init . which-key-mode))
 
- (use-package vertico
+(use-package vertico
    :ensure t
    :hook
    (after-init . vertico-mode)
@@ -259,17 +259,13 @@
   :ensure t
   :defer t
   :hook
-  (find-file . (lambda ()
-				 (global-diff-hl-mode)
-				 (diff-hl-flydiff-mode)
-				 (diff-hl-margin-mode)))
+  (prog-mode . global-diff-hl-mode)
+  (prog-mode . diff-hl-flydiff-mode)
+  (dired-mode . diff-hl-dired-mode)
+  :config
+  (global-diff-hl-mode)
   :custom
-  (diff-hl-side 'left)
-  (diff-hl-margin-symbols-alist '((insert . "+")
-								  (delete . "-")
-								  (change . "~")
-								  (unknown . "?")
-								  (ignored . "i"))))
+  (diff-hl-side 'left))
 
 
 (require 'vandvag-fun)
