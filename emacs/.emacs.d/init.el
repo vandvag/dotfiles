@@ -152,6 +152,7 @@
   :ensure t
   :init
   (global-corfu-mode)
+  (setq tab-always-indent 'complete)
   :custom
   (corfu-cycle t)
   (corfu-popupinfo-delay '(0.75 . 0.5))
@@ -160,7 +161,6 @@
   (corfu-echo-documentation 0.3)
   (corfu-preview-current nil)
   :config
-  (setq tab-always-indent 'complete)
   :hook ((prog-mode . (lambda () (setq-local corfu-auto t)))
 		 (shell-mode . corfu-mode)
 		 (eshell-mode . corfu-mode)))
@@ -274,22 +274,10 @@
 								  (unknown . "?")
 								  (ignored . "i"))))
 
-;; custom stuff
-(defun vandvag/toggle-line-numbers ()
-  "Toggles the display of line numbers. Applies to all buffers."
-  (interactive)
-  (if (bound-and-true-p display-line-numbers)
-      (global-display-line-numbers-mode -1)
-    (global-display-line-numbers-mode)))
 
-
-(defun vandvag/copy-line ()
-  "Copy the current line to kill-ring."
-  (interactive)
-  (kill-ring-save (line-beginning-position) (line-end-position))
-  (message "Line copied."))
-
+(require 'vandvag-fun)
 
 ;; Keybinds
 (global-set-key (kbd "C-`") 'vandvag/toggle-line-numbers)
 (global-set-key (kbd "C-c y") 'vandvag/copy-line)
+(global-set-key (kbd "<f2>") 'vandvag/toggle-whitespace)
