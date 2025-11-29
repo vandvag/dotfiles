@@ -140,27 +140,6 @@
 	  ("C-x C-q" . wgrep-change-to-wgrep-mode)
 	  ("C-c C-c" . wgrep-finish-edit)))
 
-;;; COMPANY
-;; (use-package company
-;;   :defer t
-;;   :ensure t
-;;   :custom
-;;   (company-tooltip-align-annotations t)
-;;   (company-minimum-prefix-length 1)
-;;   (company-idle-delay 0.2)
-;;   (company-tooltip-maximum-width 50)
-;;   :config
-;;   (define-key company-active-map (kbd "C-y")
-;; 			  (lambda ()
-;; 				(interactive)
-;; 				(company-show-doc-buffer)))
-;;   (define-key company-active-map [tab] 'company-complete-selection)
-;;   (define-key company-active-map (kbd "TAB") 'company-complete-selection)
-;;   (define-key company-active-map [ret] 'company-complete-selection)
-;;   (define-key company-active-map (kbd "RET") 'company-complete-selection)
-;;   :hook
-;;   (after-init . global-company-mode)) ;; Enable Company Mode globally after initialization.
-
 (use-package corfu
   :ensure t
   :init
