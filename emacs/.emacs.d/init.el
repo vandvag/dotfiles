@@ -22,9 +22,6 @@
         ("elpa" . "https://elpa.gnu.org/packages/")
         ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
 
-(setq auto-save-default nil)
-(setq create-lockfiles nil)
-
 (setq custom-file (locate-user-emacs-file "custom-vars.el"))
 (load custom-file 'noerror 'nomessage)
 
