@@ -262,6 +262,20 @@
   :custom
   (diff-hl-side 'left))
 
+(use-package ediff
+  :ensure nil
+  :custom
+  (ediff-window-setup-function 'ediff-setup-windows-plain))
+
+(use-package pdf-tools
+  :ensure t
+  :defer t
+  :commands (pdf-loader-install)
+  :mode "\\.pdf\\'"
+  :init (pdf-loader-install)
+  :config
+  (add-to-list 'revert-without-query ".pdf"))
+
 
 (require 'vandvag-fun)
 
