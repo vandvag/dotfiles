@@ -116,7 +116,9 @@
 (use-package consult
   :ensure t
   :bind (("M-s M-g" . consult-ripgrep)
-	 ("M-s M-b" . consult-buffer)))
+		 ("M-s M-b" . consult-buffer)
+		 ("M-s M-f" . consult-fd)
+     	 ("M-s M-l" . consult-bookmark))))
 
 
 (use-package embark
