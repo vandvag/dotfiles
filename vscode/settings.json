@@ -23,10 +23,10 @@
   "editor.codeActionsOnSave": {
     "source.organizeImports": "explicit"
   },
-  "editor.lineNumbers": "relative",
+  "editor.lineNumbers": "off",
   "editor.rulers": [120],
   "editor.inlayHints.enabled": "onUnlessPressed",
-  "editor.guides.bracketPairs": true,
+  "editor.guides.bracketPairs": "active",
 
   // Vim extension Settings
   "vim.incsearch": true,
@@ -144,7 +144,7 @@
   "workbench.settings.openDefaultSettings": true,
   "explorer.confirmDelete": false,
   "workbench.tips.enabled": false,
-  "workbench.tree.renderIndentGuides": "always",
+  "workbench.tree.renderIndentGuides": "none",
   "editor.renderLineHighlight": "gutter",
 
   // Debug
@@ -235,5 +235,7 @@
   "workbench.preferredDarkColorTheme": "Kanagawa",
   "workbench.preferredLightColorTheme": "Solarized Light",
   "workbench.iconTheme": "vscode-jetbrains-icon-theme-2023-auto",
-  "git.blame.editorDecoration.enabled": true
+  "git.blame.editorDecoration.enabled": true,
+  "workbench.activityBar.location": "hidden",
+  "workbench.editor.showTabs": "single"
 }
