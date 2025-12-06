@@ -60,7 +60,7 @@
 (use-package doric-themes
   :ensure t)
 
-(load-theme 'doric-obsidian t)
+(load-theme 'modus-vivendi t)
 
 (use-package nerd-icons
   :ensure t)
