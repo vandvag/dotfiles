@@ -90,7 +90,9 @@
   :ensure nil
   :defer t
   :hook
-  (after-init . which-key-mode))
+  (after-init . which-key-mode)
+  :custom
+  (which-key-idle-delay 0.3))
 
 (use-package vertico
    :ensure t
