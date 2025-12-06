@@ -120,7 +120,7 @@
   :bind (("M-s M-g" . consult-ripgrep)
 		 ("M-s M-b" . consult-buffer)
 		 ("M-s M-f" . consult-fd)
-     	 ("M-s M-l" . consult-bookmark))))
+     	 ("M-s M-l" . consult-bookmark)))
 
 
 (use-package embark
@@ -258,7 +258,6 @@
 
 (use-package diff-hl
   :ensure t
-  :defer t
   :hook
   (prog-mode . global-diff-hl-mode)
   (prog-mode . diff-hl-flydiff-mode)
@@ -278,7 +277,8 @@
   :defer t
   :commands (pdf-loader-install)
   :mode "\\.pdf\\'"
-  :init (pdf-loader-install)
+  :init
+  (pdf-loader-install)
   :config
   (add-to-list 'revert-without-query ".pdf"))
 
