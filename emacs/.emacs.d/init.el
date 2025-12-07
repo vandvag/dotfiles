@@ -162,6 +162,8 @@
   :hook ((prog-mode . (lambda () (setq-local corfu-auto t)))
 		 (shell-mode . corfu-mode)
 		 (eshell-mode . corfu-mode)))
+
+
 ;;; LSP Configurations
 (use-package lsp-mode
   :ensure t
@@ -269,6 +271,7 @@
   (prog-mode . global-diff-hl-mode)
   (prog-mode . diff-hl-flydiff-mode)
   (dired-mode . diff-hl-dired-mode)
+  (magit-post-refresh . diff-hl-magit-post-refresh)
   :config
   (global-diff-hl-mode)
   :custom
