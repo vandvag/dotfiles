@@ -208,29 +208,36 @@
   (lsp-headerline-breadcrumb-icons-enable nil)
   (lsp-semantic-tokens-enable nil))
 
-(require 'simpc-mode)
-;; Automatically enabling simpc-mode on files with extensions like .h, .c, .cpp, .hpp
-(add-to-list 'auto-mode-alist '("\\.[hc]\\(pp\\)?\\'" . simpc-mode))
-(with-eval-after-load 'lsp-mode
-  ;; map major mode -> language id
-  (add-to-list 'lsp-language-id-configuration '(simpc-mode . "c"))
-  (add-to-list 'lsp-language-id-configuration '(simpc-mode . "cpp"))
+;; (require 'simpc-mode)
+;; ;; Automatically enabling simpc-mode on files with extensions like .h, .c, .cpp, .hpp
+;; (add-to-list 'auto-mode-alist '("\\.[hc]\\(pp\\)?\\'" . simpc-mode))
+;; (with-eval-after-load 'lsp-mode
+;;   ;; map major mode -> language id
+;;   (add-to-list 'lsp-language-id-configuration '(simpc-mode . "c"))
+;;   (add-to-list 'lsp-language-id-configuration '(simpc-mode . "cpp"))
 
-  (lsp-register-client
-   (make-lsp-client
-	:new-connection (lsp-stdio-connection "clangd")
-	:major-modes '(simpc-mode)
-	:server-id 'clangd-simpc)))
-(add-hook 'simpc-mode-hook #'lsp)
-;; (use-package c-mode
-;;   :ensure nil
-;;   :defer t
-;;   :hook (c-mode . lsp-deferred))
+;;   (lsp-register-client
+;;    (make-lsp-client
+;; 	:new-connection (lsp-stdio-connection "clangd")
+;; 	:major-modes '(simpc-mode)
+;; 	:server-id 'clangd-simpc)))
+;; (add-hook 'simpc-mode-hook #'lsp)
+;; (add-hook 'simpc-mode-hook #'diff-hl-update)
+;; (add-hook 'simpc-mode-hook #'diff-hl-flydiff-mode)
 
-;; (use-package c++-mode
-;;   :ensure nil
-;;   :defer t
-;;   :hook (c++-mode . lsp-deferred))
+(use-package c-mode
+  :ensure nil
+  :defer t
+  :hook (c-mode . lsp-deferred)
+  :config
+  (c-set-style "Java"))
+
+(use-package c++-mode
+  :ensure nil
+  :defer t
+  :hook (c++-mode . lsp-deferred)
+  :config
+  (c-set-style "Java"))
 
 (use-package flycheck
   :ensure t
