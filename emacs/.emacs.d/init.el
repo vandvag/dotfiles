@@ -45,6 +45,9 @@
   (isearch-lazy-count t)
   (lazy-count-prefix-format "(%s/%s) ")
   (lazy-count-suffix-format nil)
+  (font-lock-maximum-decoration '((c-mode . 2) ;; Nice performace hacks'
+								  (c++-mode . 2)
+								  (t . t))) ;; Max for all other modes
   ;; Do not allow the cursor in the minibuffer prompt
   (minibuffer-prompt-properties
    '(read-only t cursor-intangible t face minibuffer-prompt)))
@@ -227,19 +230,35 @@
 ;; (add-hook 'simpc-mode-hook #'diff-hl-update)
 ;; (add-hook 'simpc-mode-hook #'diff-hl-flydiff-mode)
 
-(use-package c-mode
+(use-package cc-mode
   :ensure nil
   :defer t
-  :hook (c-mode . lsp-deferred)
-  :config
-  (c-set-style "Java"))
+  :hook
+  (c-mode . lsp-deffered)
+  (c++-mode . lsp-deferred)
+  :custom
+  (c-default-style '((c-mode . "java")
+					 (c++-mode . "java"))))
+  
+;; (use-package c-mode
+;;   :ensure nil
+;;   :defer t
+;;   :hook (c-mode . lsp-deferred)
+;;   :config
+;;   (c-set-style "Java"))
 
-(use-package c++-mode
-  :ensure nil
-  :defer t
-  :hook (c++-mode . lsp-deferred)
-  :config
-  (c-set-style "Java"))
+;; (use-package c++-mode
+;;   :ensure nil
+;;   :defer t
+;;   :hook (c++-mode . lsp-deferred)
+;;   :config
+;;   (c-set-style "Java"))
+
+(use-package cmake-mode
+  :ensure t
+  :defer t)
+
+;;; End C/C++ configuration
 
 (use-package flycheck
   :ensure t
