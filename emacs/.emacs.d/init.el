@@ -121,7 +121,9 @@
 (use-package consult
   :ensure t
   :bind (("M-s M-g" . consult-ripgrep)
+		 ("C-s"     . consult-line) ;; C-s is still available by using C-r, I just added the option to use consult-line
 		 ("M-s M-b" . consult-buffer)
+		 ("M-s M-m" . consult-global-mark)
 		 ("M-s M-f" . consult-fd)
      	 ("M-s M-l" . consult-bookmark)))
 
