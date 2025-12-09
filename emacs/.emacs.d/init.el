@@ -83,7 +83,7 @@
 (use-package doric-themes
   :ensure t)
 
-(load-theme 'modus-vivendi t)
+(load-theme 'ef-dream t)
 
 (use-package nerd-icons
   :ensure t)
