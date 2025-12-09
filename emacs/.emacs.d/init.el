@@ -55,17 +55,22 @@
   (context-menu-mode t)
   (enable-recursive-minibuffers t)
   (use-short-answers t)
-  ;; Display a counter showing the number of the current and
-  ;; matches. Place it before the prompt, though it can be after it.
-  (isearch-lazy-count t)
-  (lazy-count-prefix-format "(%s/%s) ")
-  (lazy-count-suffix-format nil)
   (font-lock-maximum-decoration '((c-mode . 2) ;; Nice performace hacks'
 								  (c++-mode . 2)
 								  (t . t))) ;; Max for all other modes
   ;; Do not allow the cursor in the minibuffer prompt
   (minibuffer-prompt-properties
    '(read-only t cursor-intangible t face minibuffer-prompt)))
+
+(use-package isearch
+  :ensure nil
+  :custom
+  (isearch-lazy-count t)
+  (lazy-count-prefix-format "(%s/%s) ")
+  (lazy-count-suffix-format nil))
+
+(use-package diminish
+  :ensure t)
 
 ;; UI stuff
 (set-face-attribute 'default nil :family "Iosevka NFM" :height 160)
