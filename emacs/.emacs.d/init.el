@@ -7,9 +7,16 @@
 ;; This is my personal configuration
 ;; This is still a work in progress, as I am learning EMACS
 ;;
-;; Inspired mostly by:
+;; REFERENCES/RESOURCES
 ;; https://github.com/LionyxML/emacs-kick/blob/master/init.el
-;; Protesilaos Stavrou
+;; https://protesilaos.com/emacs/
+;; https://github.com/jakebox/jake-emacs/tree/main :: for categorizing the info, packages, everything & all key bindings. Still a lot to learn.
+;; https://blog.sumtypeofway.com/posts/emacs-config.html :: for good write up.
+;; https://www.patrickdelliott.com/emacs.d/
+
+
+
+
 
 
 ;;; Code:
