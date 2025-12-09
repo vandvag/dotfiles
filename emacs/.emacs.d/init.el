@@ -35,6 +35,14 @@
 ;; Emacs configuration
 (use-package emacs
   :ensure nil
+  :init
+  (save-place-mode 1)
+  (global-auto-revert-mode 1) ;; Keep buffers up-to-date with external changes
+  (modify-coding-system-alist 'file "" 'utf-8)
+  :config
+  ;; Save customizations to a different file and not `init.el'
+  (setq custom-file (locate-user-emacs-file "custom-vars.el"))
+  (load custom-file 'noerror 'nomessage)
   :custom
   (autosave-default nil)
   (create-lockfiles nil)
