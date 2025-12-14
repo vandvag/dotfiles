@@ -54,6 +54,7 @@
   ;; Enables context menu.
   (context-menu-mode t)
   (enable-recursive-minibuffers t)
+  (confirm-kill-emacs 'yes-or-no-p)
   (use-short-answers t)
   (font-lock-maximum-decoration '((c-mode . 2) ;; Nice performace hacks'
 								  (c++-mode . 2)
