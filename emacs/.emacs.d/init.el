@@ -141,6 +141,7 @@
 
 (use-package consult
   :ensure t
+  :defer t
   :bind (("M-s M-g" . consult-ripgrep)
 		 ("C-s"     . consult-line) ;; C-s is still available by using C-r, I just added the option to use consult-line
 		 ("M-s M-b" . consult-buffer)
@@ -296,6 +297,7 @@
 (use-package undo-tree
   :ensure t
   :defer t
+  :diminish
   :hook
   (after-init . global-undo-tree-mode)
   :init
@@ -341,3 +343,5 @@
 (global-set-key (kbd "C-`") 'vandvag/toggle-line-numbers)
 (global-set-key (kbd "C-c y") 'vandvag/copy-line)
 (global-set-key (kbd "<f2>") 'vandvag/toggle-whitespace)
+
+(provide 'init)
