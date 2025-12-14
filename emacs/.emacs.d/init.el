@@ -13,11 +13,7 @@
 ;; https://github.com/jakebox/jake-emacs/tree/main :: for categorizing the info, packages, everything & all key bindings. Still a lot to learn.
 ;; https://blog.sumtypeofway.com/posts/emacs-config.html :: for good write up.
 ;; https://www.patrickdelliott.com/emacs.d/
-
-
-
-
-
+;; https://gitlab.com/s_witcher/witcharch/-/blob/main/dotfiles/emacs/init.el?ref_type=heads
 
 ;;; Code:
 
@@ -107,11 +103,19 @@
   (global-set-key (kbd "C-;") 'er/expand-region))
 
 (use-package keycast
-  :ensure t)
+  :ensure t
+  :diminish)
+
+(use-package eldoc
+  :ensure nil
+  :diminish
+  :init
+  (global-eldoc-mode))
 
 ;; Here are packages that utilize the minibuffer
 (use-package which-key
   :ensure nil
+  :diminish
   :defer t
   :hook
   (after-init . which-key-mode)
