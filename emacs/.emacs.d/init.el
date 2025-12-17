@@ -340,6 +340,15 @@
   :config
   (add-to-list 'revert-without-query ".pdf"))
 
+;; Configurations
+(use-package json-mode
+  :ensure t)
+
+(use-package toml-mode
+  :ensure t)
+
+(use-package yaml-mode
+  :ensure t)
 
 (require 'vandvag-fun)
 
