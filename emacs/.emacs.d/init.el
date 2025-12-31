@@ -269,6 +269,18 @@
   (c-default-style '((c-mode . "java")
 					 (c++-mode . "java"))))
 
+(use-package zig-mode
+  :ensure nil
+  :defer t
+  :hook
+  (zig-mode . lsp-deferred))
+
+(use-package rust-mode
+  :ensure t
+  :defer t
+  :hook
+  (rust-mode . lsp-deferred))
+
 (use-package cmake-mode
   :ensure t
   :defer t)
