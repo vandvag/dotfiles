@@ -263,25 +263,11 @@
   :ensure nil
   :defer t
   :hook
-  (c-mode . lsp-deffered)
+  (c-mode . lsp-deferred)
   (c++-mode . lsp-deferred)
   :custom
   (c-default-style '((c-mode . "java")
 					 (c++-mode . "java"))))
-  
-;; (use-package c-mode
-;;   :ensure nil
-;;   :defer t
-;;   :hook (c-mode . lsp-deferred)
-;;   :config
-;;   (c-set-style "Java"))
-
-;; (use-package c++-mode
-;;   :ensure nil
-;;   :defer t
-;;   :hook (c++-mode . lsp-deferred)
-;;   :config
-;;   (c-set-style "Java"))
 
 (use-package cmake-mode
   :ensure t
