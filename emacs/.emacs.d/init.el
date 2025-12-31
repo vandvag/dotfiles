@@ -172,7 +172,7 @@
 
 (use-package wgrep
   :ensure t
-  :bind ( :map grep-mode-map
+  :bind (:map grep-mode-map
 	  ("e" . wgrep-change-to-wgrep-mode)
 	  ("C-x C-q" . wgrep-change-to-wgrep-mode)
 	  ("C-c C-c" . wgrep-finish-edit)))
@@ -205,7 +205,8 @@
   (
    (bash-ts-mode . lsp)
    (lsp-mode . lsp-enable-which-key-integration))
-  :commands (lsp lsp-deferred)
+  :commands
+  (lsp lsp-deferred)
   :custom
   (lsp-inlay-hint-enable nil)
   (lsp-completion-provider :none)
