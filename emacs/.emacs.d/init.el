@@ -164,7 +164,8 @@
 		 ("M-s M-b" . consult-buffer)
 		 ("M-s M-m" . consult-global-mark)
 		 ("M-s M-f" . consult-fd)
-     	 ("M-s M-l" . consult-bookmark)))
+     	 ("M-s M-l" . consult-bookmark)
+		 ("M-s M-i" . consult-imenu)))
 
 
 (use-package embark
