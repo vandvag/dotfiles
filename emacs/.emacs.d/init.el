@@ -35,6 +35,8 @@
   (save-place-mode 1)
   (global-auto-revert-mode 1) ;; Keep buffers up-to-date with external changes
   (modify-coding-system-alist 'file "" 'utf-8)
+  :hook
+  (before-save . delete-trailing-whitespace)
   :config
   ;; Save customizations to a different file and not `init.el'
   (setq custom-file (locate-user-emacs-file "custom-vars.el"))
@@ -96,6 +98,16 @@
   :after corfu
   :config
   (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
+
+(use-package whitespace-mode
+  :ensure nil
+  :defer t
+  :custom
+  (whitespace-style '(face
+                      tabs
+                      spaces
+                      space-mark
+                      tab-mark)))
 
 (use-package expand-region
   :ensure t
