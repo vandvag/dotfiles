@@ -2,6 +2,11 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
+# Go configuration
+
+set -x GOPATH ~/go
+set -a PATH ~/go/bin
+
 # Abbreviations
 
 # Neovim
