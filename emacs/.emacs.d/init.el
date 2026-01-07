@@ -283,6 +283,11 @@
   (c-default-style '((c-mode . "java")
 					 (c++-mode . "java"))))
 
+(use-package cmake-mode
+  :ensure t
+  :defer t)
+
+;;; End C/C++ configuration
 (use-package zig-mode
   :ensure nil
   :defer t
@@ -295,11 +300,11 @@
   :hook
   (rust-mode . lsp-deferred))
 
-(use-package cmake-mode
-  :ensure t
-  :defer t)
-
-;;; End C/C++ configuration
+(use-package go-mode
+  :ensure nil
+  :defer t
+  :hook
+  (go-mode . lsp-deferred))
 
 (use-package flycheck
   :ensure t
