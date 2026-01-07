@@ -42,6 +42,7 @@
   (setq custom-file (locate-user-emacs-file "custom-vars.el"))
   (load custom-file 'noerror 'nomessage)
   :custom
+  (user-full-name "Evangelos Vandoros")
   (autosave-default nil)
   (create-lockfiles nil)
   ;; Default tab width
