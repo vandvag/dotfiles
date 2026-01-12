@@ -14,6 +14,7 @@
 ;; https://blog.sumtypeofway.com/posts/emacs-config.html :: for good write up.
 ;; https://www.patrickdelliott.com/emacs.d/
 ;; https://gitlab.com/s_witcher/witcharch/-/blob/main/dotfiles/emacs/init.el?ref_type=heads
+;; https://github.com/caisah/emacs.dz :: repository with several configurations from known community members
 
 ;;; Code:
 
