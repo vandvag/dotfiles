@@ -70,6 +70,12 @@
   (lazy-count-prefix-format "(%s/%s) ")
   (lazy-count-suffix-format nil))
 
+(use-package dired
+  :ensure nil
+  :defer t
+  :custom
+  (dired-kill-when-opening-new-dired-buffer t))
+
 (use-package diminish
   :ensure t)
 
