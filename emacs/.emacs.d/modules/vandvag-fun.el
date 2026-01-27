@@ -24,5 +24,12 @@
 	  (whitespace-mode 1))))
 
 
-(provide 'vandvag-fun)
+(defun vandvag/diff-buffer-with-file ()
+  "Compare the current unsaved buffer with the underlying file on the disk."
+  (interactive)
+  (let ((buf-file (buffer-file-name)))
+	(if (and buf-file (buffer-modified-p))
+		(diff-buffer-with-file (current-buffer))
+	  (message "Buffer is not modified or has no associated file."))))
 
+(provide 'vandvag-fun)
