@@ -10,12 +10,14 @@
 ;; Nice Performance hacks
 (setq gc-cons-threshold #x40000000)
 (setq read-process-output-max (* 1024 1024 4)) ;; 4MB
+(setq read-process-output-max (* 1024 1024 16)) ;; 16MB
 
 ;; Some startup noise
 (setq inhibit-startup-screen t)
 (setq inhibit-startup-message t)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
+(scroll-bar-mode -1)
 
 (provide 'early-init)
 ;;; early-init.el ends here
