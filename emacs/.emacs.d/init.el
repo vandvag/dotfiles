@@ -297,6 +297,7 @@
   :defer t)
 
 ;;; End C/C++ configuration
+
 (use-package zig-mode
   :ensure nil
   :defer t
@@ -384,6 +385,65 @@
 
 (use-package yaml-mode
   :ensure t)
+
+;; Denote
+(use-package denote
+  :ensure t
+  :hook
+  (;; If you use plain text files (.txt), then you want to make the
+   ;; Denote links clickable (Org mode and Markdown mode render links
+   ;; as buttons right away and provide commands to open them)
+   (text-mode . denote-fontify-links-mode)
+   ;; Apply colours to Denote names in Dired.  This applies to all
+   ;; directories.  Check `denote-dired-directories' for the specific
+   ;; directories you may prefer instead.  Then, instead of
+   ;; `denote-dired-mode', use `denote-dired-mode-in-directories'.
+   (dired-mode . denote-dired-mode))
+  :bind
+  ( :map global-map
+    ("C-c n n" . denote)
+    ("C-c n d" . denote-dired)
+    ("C-c n g" . denote-grep)
+    ("C-c n l" . denote-link)
+    ("C-c n L" . denote-add-links)
+    ("C-c n b" . denote-backlinks)
+    ("C-c n q c" . denote-query-contents-link) ; create link that triggers a grep
+    ("C-c n q f" . denote-query-filenames-link) ; create link that triggers a dired
+    ("C-c n r" . denote-rename-file)
+    ("C-c n R" . denote-rename-file-using-front-matter)
+
+    :map dired-mode-map
+    ("C-c C-d C-i" . denote-dired-link-marked-notes)
+    ("C-c C-d C-r" . denote-dired-rename-files)
+    ("C-c C-d C-k" . denote-dired-rename-marked-files-with-keywords)
+    ("C-c C-d C-R" . denote-dired-rename-marked-files-using-front-matter))
+  :config
+  (denote-rename-buffer-mode 1)
+  :custom
+  (denote-directory (expand-file-name "~/Documents/notes/"))
+  (denote-save-buffers nil)
+  ;; (denote-known-keywords '("emacs" "philosophy" "politics" "economics"))
+  (denote-infer-keywords t)
+  (denote-sort-keywords t)
+  (denote-prompts '(title keywords))
+  (denote-excluded-directories-regexp nil)
+  (denote-keywords-to-not-infer-regexp nil)
+  (denote-rename-confirmations '(rewrite-front-matter modify-file-name))
+  (denote-date-prompt-use-org-read-date t))
+
+(use-package denote-journal
+  :ensure t
+  :after denote
+  :commands ( denote-journal-new-entry
+              denote-journal-new-or-existing-entry
+              denote-journal-link-or-create-entry )
+  :hook (calendar-mode . denote-journal-calendar-mode)
+  :custom
+  (denote-journal-directory
+        (expand-file-name "journal" denote-directory))
+  (denote-journal-keyword "journal")
+  (denote-journal-title-format 'day-date-month-year))
+
 
 (require 'vandvag-fun)
 
