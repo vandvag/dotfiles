@@ -84,13 +84,15 @@
 (when (eq system-type 'darwin)
   (set-face-attribute 'default nil :family "Iosevka NFM" :height 170))
 
+;; Theme packages
 (use-package ef-themes
   :ensure t)
 
 (use-package doric-themes
   :ensure t)
+;; Theme packages
 
-(load-theme 'ef-dream t)
+(doric-themes-load-random)
 
 (use-package nerd-icons
   :ensure t)
