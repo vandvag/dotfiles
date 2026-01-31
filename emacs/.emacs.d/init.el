@@ -448,8 +448,8 @@
 (require 'vandvag-fun)
 
 ;; Keybinds
-(global-set-key (kbd "C-`") 'vandvag/toggle-line-numbers)
-(global-set-key (kbd "C-c y") 'vandvag/copy-line)
-(global-set-key (kbd "<f2>") 'vandvag/toggle-whitespace)
+(global-set-key (kbd "C-`")		'vandvag/toggle-line-numbers)
+(global-set-key (kbd "C-c y")	'vandvag/copy-line)
+(global-set-key (kbd "<f2>")	'vandvag/toggle-whitespace)
 
 (provide 'init)
