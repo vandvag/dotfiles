@@ -22,8 +22,8 @@
 
 (require 'package)
 (setq package-archives
-      '(("melpa" . "https://melpa.org/packages/")
-        ("elpa" . "https://elpa.gnu.org/packages/")
+      '(("melpa"  . "https://melpa.org/packages/")
+        ("elpa"   . "https://elpa.gnu.org/packages/")
         ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
 
 (setq custom-file (locate-user-emacs-file "custom-vars.el"))
@@ -57,9 +57,9 @@
   (enable-recursive-minibuffers t)
   (confirm-kill-emacs 'yes-or-no-p)
   (use-short-answers t)
-  (font-lock-maximum-decoration '((c-mode . 2) ;; Nice performace hacks'
-								  (c++-mode . 2)
-								  (t . t))) ;; Max for all other modes
+  (font-lock-maximum-decoration '((c-mode   . 2)   ;; Nice performace hacks
+                                  (c++-mode . 2)
+                                  (t        . t))) ;; Max for all other modes
   ;; Do not allow the cursor in the minibuffer prompt
   (minibuffer-prompt-properties
    '(read-only t cursor-intangible t face minibuffer-prompt)))
@@ -163,19 +163,19 @@
   :ensure t
   :custom
   (completion-styles '(orderless basic))
-  (completion-category-defaults nil) ;; Disable defaults, use our settings
+  (completion-category-defaults nil)   ;; Disable defaults, use our settings
   (completion-pcm-leading-wildchar t)) ;; Emacs 31: partial-completion behaves like a substring
 
 (use-package consult
   :ensure t
   :defer t
-  :bind (("M-s M-g" . consult-ripgrep)
-		 ("C-s"     . consult-line) ;; C-s is still available by using C-r, I just added the option to use consult-line
+  :bind ("M-s M-g"  . consult-ripgrep)
+		 ("M-s M-s" . consult-line)
 		 ("M-s M-b" . consult-buffer)
 		 ("M-s M-m" . consult-global-mark)
 		 ("M-s M-f" . consult-fd)
-     	 ("M-s M-l" . consult-bookmark)
-		 ("M-s M-i" . consult-imenu)))
+		 ("M-s M-l" . consult-bookmark)
+		 ("M-s M-i" . consult-imenu))
 
 
 (use-package embark
@@ -197,9 +197,9 @@
 (use-package wgrep
   :ensure t
   :bind (:map grep-mode-map
-	  ("e" . wgrep-change-to-wgrep-mode)
-	  ("C-x C-q" . wgrep-change-to-wgrep-mode)
-	  ("C-c C-c" . wgrep-finish-edit)))
+              ("e"       . wgrep-change-to-wgrep-mode)
+              ("C-x C-q" . wgrep-change-to-wgrep-mode)
+              ("C-c C-c" . wgrep-finish-edit)))
 
 (use-package corfu
   :ensure t
@@ -214,10 +214,9 @@
   (corfu-echo-documentation 0.3)
   (corfu-preview-current nil)
   :config
-  :hook ((prog-mode . (lambda () (setq-local corfu-auto t)))
-		 (shell-mode . corfu-mode)
-		 (eshell-mode . corfu-mode)))
-
+  :hook ((prog-mode   . (lambda () (setq-local corfu-auto t)))
+         (shell-mode  . corfu-mode)
+         (eshell-mode . corfu-mode)))
 
 ;;; LSP Configurations
 (use-package lsp-mode
@@ -227,8 +226,8 @@
   (setq lsp-keymap-prefix "C-c l")
   :hook
   (
-   (bash-ts-mode . lsp)
-   (lsp-mode . lsp-enable-which-key-integration))
+   (bash-ts-mode	. lsp)
+   (lsp-mode		. lsp-enable-which-key-integration))
   :commands
   (lsp lsp-deferred)
   :custom
@@ -276,9 +275,9 @@
 
   (lsp-register-client
    (make-lsp-client
-	:new-connection (lsp-stdio-connection "clangd")
-	:major-modes '(simpc-mode)
-	:server-id 'clangd-simpc)))
+    :new-connection (lsp-stdio-connection "clangd")
+    :major-modes '(simpc-mode)
+    :server-id 'clangd-simpc)))
 
 (add-hook 'simpc-mode-hook #'lsp)
 (add-hook 'simpc-mode-hook #'diff-hl-update)
@@ -310,7 +309,11 @@
   :ensure t
   :defer t
   :hook
-  (rust-mode . lsp-deferred))
+  (rust-mode . lsp-deferred)
+  (rust-mode . (lambda()
+                 (setq indent-tabs-mode nil)))
+  :custom
+  (rust-indent-offset 4))
 
 (use-package go-mode
   :ensure nil
@@ -450,8 +453,8 @@
 (require 'vandvag-fun)
 
 ;; Keybinds
-(global-set-key (kbd "C-`")		'vandvag/toggle-line-numbers)
-(global-set-key (kbd "C-c y")	'vandvag/copy-line)
-(global-set-key (kbd "<f2>")	'vandvag/toggle-whitespace)
+(global-set-key (kbd "C-`")   'vandvag/toggle-line-numbers)
+(global-set-key (kbd "C-c y") 'vandvag/copy-line)
+(global-set-key (kbd "<f2>")  'vandvag/toggle-whitespace)
 
 (provide 'init)
