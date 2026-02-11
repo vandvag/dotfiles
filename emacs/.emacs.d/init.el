@@ -49,6 +49,7 @@
   ;; Default tab width
   (tab-width 4)
   (tab-always-indent nil)
+  (indent-tabs-mode nil)
   ;; Disable backup files ~
   (make-backup-files nil)
   ;; Enables context menu.
