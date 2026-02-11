@@ -134,3 +134,4 @@
   (setq-local comment-start "// "))
 
 (provide 'simpc-mode)
+;;; simpc-mode.el ends here
