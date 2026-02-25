@@ -78,6 +78,10 @@
 (use-package diminish
   :ensure t)
 
+(use-package repeat
+  :ensure nil
+  :hook (after-init . repeat-mode))
+
 ;; UI stuff
 
 ;; Theme packages
