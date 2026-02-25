@@ -344,9 +344,8 @@
 (use-package diff-hl
   :ensure t
   :hook
-  (prog-mode . global-diff-hl-mode)
-  (prog-mode . diff-hl-flydiff-mode)
-  (dired-mode . diff-hl-dired-mode)
+  (prog-mode          . diff-hl-flydiff-mode)
+  (dired-mode         . diff-hl-dired-mode)
   (magit-post-refresh . diff-hl-magit-post-refresh)
   :config
   (global-diff-hl-mode)
