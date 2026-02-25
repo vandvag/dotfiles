@@ -264,33 +264,41 @@
   (lsp-headerline-breadcrumb-icons-enable nil)
   (lsp-semantic-tokens-enable nil))
 
-(require 'simpc-mode)
-;; Automatically enabling simpc-mode on files with extensions like .h, .c, .cpp, .hpp
-(add-to-list 'auto-mode-alist '("\\.[hc]\\(pp\\)?\\'" . simpc-mode))
-(with-eval-after-load 'lsp-mode
-  ;; map major mode -> language id
-  (add-to-list 'lsp-language-id-configuration '(simpc-mode . "c"))
-  (add-to-list 'lsp-language-id-configuration '(simpc-mode . "cpp"))
+;; (require 'simpc-mode)
+;; ;; Automatically enabling simpc-mode on files with extensions like .h, .c, .cpp, .hpp
+;; (add-to-list 'auto-mode-alist '("\\.[hc]\\(pp\\)?\\'" . simpc-mode))
+;; (with-eval-after-load 'lsp-mode
+;;   ;; map major mode -> language id
+;;   (add-to-list 'lsp-language-id-configuration '(simpc-mode . "c"))
+;;   (add-to-list 'lsp-language-id-configuration '(simpc-mode . "cpp"))
 
-  (lsp-register-client
-   (make-lsp-client
-    :new-connection (lsp-stdio-connection "clangd")
-    :major-modes '(simpc-mode)
-    :server-id 'clangd-simpc)))
+;;   (lsp-register-client
+;;    (make-lsp-client
+;;     :new-connection (lsp-stdio-connection "clangd")
+;;     :major-modes '(simpc-mode)
+;;     :server-id 'clangd-simpc)))
 
-(add-hook 'simpc-mode-hook #'lsp)
-(add-hook 'simpc-mode-hook #'diff-hl-update)
-(add-hook 'simpc-mode-hook #'diff-hl-flydiff-mode)
+;; (add-hook 'simpc-mode-hook #'lsp)
+;; (add-hook 'simpc-mode-hook #'diff-hl-update)
+;; (add-hook 'simpc-mode-hook #'diff-hl-flydiff-mode)
 
-;; (use-package cc-mode
-;;   :ensure nil
-;;   :defer t
-;;   :hook
-;;   (c-mode . lsp-deferred)
-;;   (c++-mode . lsp-deferred)
-;;   :custom
-;;   (c-default-style '((c-mode . "java")
-;; 					 (c++-mode . "java"))))
+(setq treesit-language-source-alist
+   '((cpp "https://github.com/tree-sitter/tree-sitter-cpp")
+     (c "https://github.com/tree-sitter/tree-sitter-c")))
+
+(use-package c-ts-mode
+  :ensure t
+  :mode (("\\.h\\'" . c-ts-mode)
+         ("\\.c\\'" . c-ts-mode)
+         ("\\.hpp\\'" . c++-ts-mode)
+         ("\\.cpp\\'" . c++-ts-mode))
+  :hook
+  (c-ts-mode . lsp-deferred)
+  (c++-ts-mode . lsp-deferred)
+  :config
+  (setq c-ts-mode-indent-offset 4
+        c-ts-mode-indent-style 'bsd))
+
 
 (use-package cmake-mode
   :ensure t
