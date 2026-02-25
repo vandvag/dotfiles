@@ -19,5 +19,9 @@
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
 
+;; (add-to-list 'default-frame-alist '(font . "Terminess Nerd Font-18"))
+(set-face-attribute 'default nil :family "Iosevka NFM" :height 170)
+
+
 (provide 'early-init)
 ;;; early-init.el ends here

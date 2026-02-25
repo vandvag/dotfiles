@@ -81,9 +81,6 @@
   :ensure t)
 
 ;; UI stuff
-(set-face-attribute 'default nil :family "Iosevka NFM" :height 160)
-(when (eq system-type 'darwin)
-  (set-face-attribute 'default nil :family "Iosevka NFM" :height 170))
 
 ;; Theme packages
 (use-package ef-themes
@@ -91,7 +88,7 @@
 
 (use-package doric-themes
   :ensure t)
-;; Theme packages
+;; Theme packages END
 
 (doric-themes-load-random)
 
