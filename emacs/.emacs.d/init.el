@@ -234,7 +234,7 @@
   (lsp-completion-provider :none)
   (lsp-session-file (locate-user-emacs-file ".lsp-session"))
   (lsp-log-io nil)
-  (lsp-idle-delay 0)
+  (lsp-idle-delay 0.1)
   (lsp-keep-workspace-alive nil)
   (lsp-enable-xref t)
   (lsp-auto-configure t)
@@ -284,7 +284,10 @@
 
 (setq treesit-language-source-alist
    '((cpp "https://github.com/tree-sitter/tree-sitter-cpp")
-     (c "https://github.com/tree-sitter/tree-sitter-c")))
+     (c "https://github.com/tree-sitter/tree-sitter-c")
+     (rust "https://github.com/tree-sitter/tree-sitter-rust")
+     (go "https://github.com/tree-sitter/tree-sitter-go")
+     (zig "https://github.com/tree-sitter/zig-tree-sitter")))
 
 (use-package c-ts-mode
   :ensure t
@@ -312,21 +315,23 @@
   :hook
   (zig-mode . lsp-deferred))
 
-(use-package rust-mode
+(use-package rust-ts-mode
   :ensure t
+  :mode "\\.rs\\'"
   :defer t
   :hook
-  (rust-mode . lsp-deferred)
-  (rust-mode . (lambda()
+  (rust-ts-mode . lsp-deferred)
+  (rust-ts-mode . (lambda()
                  (setq indent-tabs-mode nil)))
   :custom
   (rust-indent-offset 4))
 
-(use-package go-mode
+(use-package go-ts-mode
   :ensure nil
   :defer t
+  :mode "\\.go\\'"
   :hook
-  (go-mode . lsp-deferred))
+  (go-ts-mode . lsp-deferred))
 
 (use-package flycheck
   :ensure t
