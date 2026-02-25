@@ -9,7 +9,6 @@
 
 ;; Nice Performance hacks
 (setq gc-cons-threshold #x40000000)
-(setq read-process-output-max (* 1024 1024 4)) ;; 4MB
 (setq read-process-output-max (* 1024 1024 16)) ;; 16MB
 
 ;; Some startup noise
