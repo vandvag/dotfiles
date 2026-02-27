@@ -264,24 +264,6 @@
   (lsp-headerline-breadcrumb-icons-enable nil)
   (lsp-semantic-tokens-enable nil))
 
-;; (require 'simpc-mode)
-;; ;; Automatically enabling simpc-mode on files with extensions like .h, .c, .cpp, .hpp
-;; (add-to-list 'auto-mode-alist '("\\.[hc]\\(pp\\)?\\'" . simpc-mode))
-;; (with-eval-after-load 'lsp-mode
-;;   ;; map major mode -> language id
-;;   (add-to-list 'lsp-language-id-configuration '(simpc-mode . "c"))
-;;   (add-to-list 'lsp-language-id-configuration '(simpc-mode . "cpp"))
-
-;;   (lsp-register-client
-;;    (make-lsp-client
-;;     :new-connection (lsp-stdio-connection "clangd")
-;;     :major-modes '(simpc-mode)
-;;     :server-id 'clangd-simpc)))
-
-;; (add-hook 'simpc-mode-hook #'lsp)
-;; (add-hook 'simpc-mode-hook #'diff-hl-update)
-;; (add-hook 'simpc-mode-hook #'diff-hl-flydiff-mode)
-
 (setq treesit-language-source-alist
    '((cpp "https://github.com/tree-sitter/tree-sitter-cpp")
      (c "https://github.com/tree-sitter/tree-sitter-c")
@@ -302,18 +284,18 @@
   (setq c-ts-mode-indent-offset 4
         c-ts-mode-indent-style 'bsd))
 
-
 (use-package cmake-mode
   :ensure t
   :defer t)
 
-;;; End C/C++ configuration
-
-(use-package zig-mode
-  :ensure nil
+(use-package zig-ts-mode
+  :ensure t
+  :mode "\\.zig\\'"
   :defer t
   :hook
-  (zig-mode . lsp-deferred))
+  (zig-ts-mode . lsp-deferred)
+  :custom
+  (zig-indent-offset 4))
 
 (use-package rust-ts-mode
   :ensure t
