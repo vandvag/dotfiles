@@ -34,6 +34,7 @@
   (save-place-mode 1)
   (global-auto-revert-mode 1) ;; Keep buffers up-to-date with external changes
   (modify-coding-system-alist 'file "" 'utf-8)
+  (context-menu-mode 1) ;; Enable context menu
   :hook
   (before-save . delete-trailing-whitespace)
   :config
@@ -42,7 +43,7 @@
   (load custom-file 'noerror 'nomessage)
   :custom
   (user-full-name "Evangelos Vandoros")
-  (autosave-default nil)
+  (auto-save-default nil)
   (create-lockfiles nil)
   ;; Default tab width
   (tab-width 4)
@@ -50,14 +51,9 @@
   (indent-tabs-mode nil)
   ;; Disable backup files ~
   (make-backup-files nil)
-  ;; Enables context menu.
-  (context-menu-mode t)
   (enable-recursive-minibuffers t)
   (confirm-kill-emacs 'yes-or-no-p)
   (use-short-answers t)
-  (font-lock-maximum-decoration '((c-mode   . 2)   ;; Nice performace hacks
-                                  (c++-mode . 2)
-                                  (t        . t))) ;; Max for all other modes
   ;; Do not allow the cursor in the minibuffer prompt
   (minibuffer-prompt-properties
    '(read-only t cursor-intangible t face minibuffer-prompt)))
@@ -84,8 +80,11 @@
 
 ;; UI stuff
 
-(use-package ef-themes :ensure t)
 (use-package doric-themes :ensure t)
+(use-package ef-themes
+  :ensure t
+  :config
+  (ef-themes-load-random-dark))
 (use-package catppuccin-theme
   :ensure t
   :custom
@@ -94,8 +93,6 @@
   :ensure nil
   :custom
   (modus-themes-mode-line '(accented borderless)))
-
-(ef-themes-load-random-dark)
 
 (use-package nerd-icons
   :ensure t)
@@ -112,7 +109,7 @@
   :config
   (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
 
-(use-package whitespace-mode
+(use-package whitespace
   :ensure nil
   :defer t
   :custom
@@ -166,7 +163,7 @@
   :custom
   (completion-styles '(orderless basic))
   (completion-category-defaults nil)   ;; Disable defaults, use our settings
-  (completion-pcm-leading-wildchar t)) ;; Emacs 31: partial-completion behaves like a substring
+  (completion-pcm-leading-wildcard t)) ;; Emacs 31: partial-completion behaves like a substring
 
 (use-package consult
   :ensure t
@@ -191,7 +188,6 @@
 
 (use-package embark-consult
   :ensure t
-  :defer t
   :demand t
   :hook
   (embark-collect-mode . consult-preview-at-point-mode))
@@ -214,13 +210,14 @@
   (corfu-popupinfo-delay '(0.75 . 0.5))
   (corfu-auto-prefix 2)
   (corfu-auto-delay 0.2)
-  (corfu-echo-documentation 0.3)
   (corfu-preview-current nil)
   :bind (:map corfu-map
               ("M-SPC" . corfu-insert-separator))
-  :hook ((prog-mode   . (lambda () (setq-local corfu-auto t)))
-         (shell-mode  . corfu-mode)
-         (eshell-mode . corfu-mode)))
+  :hook
+  (prog-mode   . (lambda () (setq-local corfu-auto t)))
+  (shell-mode  . corfu-mode)
+  (eshell-mode . corfu-mode)
+  (corfu-mode  . corfu-popupinfo-mode))
 
 ;;; LSP Configurations
 (use-package lsp-mode
@@ -250,7 +247,7 @@
   (lsp-enable-indentation nil)
   (lsp-enable-on-type-formatting nil)
   (lsp-enable-suggest-server-download t)
-  (lsp-enable-symbol highlighting t)
+  (lsp-enable-symbol-highlighting t)
   (lsp-enable-text-document-color nil)
   (lsp-modeline-code-actions-enable nil)
   (lsp-modeline-diagnostics-enable nil)
@@ -268,12 +265,16 @@
   (lsp-headerline-breadcrumb-icons-enable nil)
   (lsp-semantic-tokens-enable nil))
 
-(setq treesit-language-source-alist
-   '((cpp "https://github.com/tree-sitter/tree-sitter-cpp")
+(use-package treesit
+  :ensure nil
+  :custom
+  (treesit-language-source-alist
+    '((cpp "https://github.com/tree-sitter/tree-sitter-cpp")
      (c "https://github.com/tree-sitter/tree-sitter-c")
      (rust "https://github.com/tree-sitter/tree-sitter-rust")
      (go "https://github.com/tree-sitter/tree-sitter-go")
      (zig "https://github.com/tree-sitter/zig-tree-sitter")))
+  (treesit-font-lock-level 4))
 
 (use-package c-ts-mode
   :ensure t
