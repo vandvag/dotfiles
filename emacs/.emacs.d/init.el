@@ -176,6 +176,9 @@
 		 ("M-s M-l" . consult-bookmark)
 		 ("M-s M-i" . consult-imenu))
 
+(use-package consult-lsp
+  :ensure t
+  :after lsp)
 
 (use-package embark
   :ensure t
