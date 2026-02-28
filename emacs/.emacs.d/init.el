@@ -84,15 +84,18 @@
 
 ;; UI stuff
 
-;; Theme packages
-(use-package ef-themes
-  :ensure t)
+(use-package ef-themes :ensure t)
+(use-package doric-themes :ensure t)
+(use-package catppuccin-theme
+  :ensure t
+  :custom
+  (catppuccin-flavor 'frappe)) ;; or 'latte, 'macchiato, 'mocha
+(use-package modus-themes
+  :ensure nil
+  :custom
+  (modus-themes-mode-line '(accented borderless)))
 
-(use-package doric-themes
-  :ensure t)
-;; Theme packages END
-
-(doric-themes-load-random)
+(ef-themes-load-random-dark)
 
 (use-package nerd-icons
   :ensure t)
