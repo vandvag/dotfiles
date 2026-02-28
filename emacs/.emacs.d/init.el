@@ -219,6 +219,12 @@
   (eshell-mode . corfu-mode)
   (corfu-mode  . corfu-popupinfo-mode))
 
+(use-package cape
+  :defer 10
+  :init
+  (add-to-list 'completion-at-point-functions #'cape-file)
+  (add-to-list 'completion-at-point-functions #'cape-dabbrev))
+
 ;;; LSP Configurations
 (use-package lsp-mode
   :ensure t
