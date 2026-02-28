@@ -207,6 +207,7 @@
   :ensure t
   :init
   (global-corfu-mode)
+  (corfu-history-mode)
   (setq tab-always-indent 'complete)
   :custom
   (corfu-cycle t)
@@ -215,7 +216,8 @@
   (corfu-auto-delay 0.2)
   (corfu-echo-documentation 0.3)
   (corfu-preview-current nil)
-  :config
+  :bind (:map corfu-map
+              ("M-SPC" . corfu-insert-separator))
   :hook ((prog-mode   . (lambda () (setq-local corfu-auto t)))
          (shell-mode  . corfu-mode)
          (eshell-mode . corfu-mode)))
@@ -227,9 +229,8 @@
   :init
   (setq lsp-keymap-prefix "C-c l")
   :hook
-  (
-   (bash-ts-mode	. lsp)
-   (lsp-mode		. lsp-enable-which-key-integration))
+  (bash-ts-mode . lsp)
+  (lsp-mode     . lsp-enable-which-key-integration)
   :commands
   (lsp lsp-deferred)
   :custom
