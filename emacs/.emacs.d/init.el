@@ -453,6 +453,11 @@
   (denote-journal-keyword "journal")
   (denote-journal-title-format 'day-date-month-year))
 
+(use-package org-modern
+  :ensure t
+  :hook
+  (org-mode . org-modern-mode))
+
 
 ;;; Claude code ide
 (use-package websocket
