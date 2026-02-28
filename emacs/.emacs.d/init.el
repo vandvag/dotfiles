@@ -450,6 +450,13 @@
   :hook
   (org-mode . org-modern-mode))
 
+(use-package org
+  :ensure nil
+  :custom
+  (org-capture-templates
+   '(("t" "todo"         entry (file "~/Documents/org/inbox.org")
+      "* TODO %?\n%U\n- ref :: %a\n")))
+  (org-agenda-files '("~/Documents/org/inbox.org")))
 
 ;;; Claude code ide
 (use-package websocket
