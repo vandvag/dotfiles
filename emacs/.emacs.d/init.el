@@ -339,20 +339,9 @@
   :ensure t
   :defer t)
 
-(use-package undo-tree
+(use-package vundo
   :ensure t
-  :defer t
-  :diminish
-  :hook
-  (after-init . global-undo-tree-mode)
-  :init
-  (setq undo-tree-visualizer-timestamps t)
-  (setq undo-tree-visualizer-diff t)
-  (setq undo-limit 800000)
-  (setq undo-strong-limit 1200000)
-  (setq undo-outer-limit 12000000)
-  :config
-  (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/.cache/undo"))))
+  :bind ("C-x u" . vundo))
 
 (use-package diff-hl
   :ensure t
