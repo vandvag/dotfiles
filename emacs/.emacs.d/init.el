@@ -18,7 +18,8 @@
 
 ;;; Code:
 
-(add-to-list 'load-path "~/.emacs.d/modules")
+;; (add-to-list 'load-path "~/.emacs.d/modules")
+(add-to-list 'load-path "~/.emacs.d/lisp")
 
 (require 'package)
 (setq package-archives
@@ -450,6 +451,8 @@
   :hook
   (org-mode . org-modern-mode))
 
+;;; RESOURCES
+;;; https://yannesposito.com/posts/0015-how-i-use-org-mode/index.html
 (use-package org
   :ensure nil
   :custom
@@ -473,7 +476,7 @@
   :custom
   (claude-code-ide-terminal-backend 'eat)) ; Optionally enable Emacs MCP tools
 
-(require 'vandvag-fun)
+(require 'lisp-vandvag)
 
 ;; Keybinds
 (global-set-key (kbd "C-`")   'vandvag/toggle-line-numbers)
@@ -481,3 +484,4 @@
 (global-set-key (kbd "<f2>")  'vandvag/toggle-whitespace)
 
 (provide 'init)
+;;; init.el ends here
