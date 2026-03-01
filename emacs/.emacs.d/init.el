@@ -10,7 +10,7 @@
 ;; REFERENCES/RESOURCES
 ;; https://github.com/LionyxML/emacs-kick/blob/master/init.el
 ;; https://protesilaos.com/emacs/
-;; https://github.com/jakebox/jake-emacs/tree/main :: for categorizing the info, packages, everything & all key bindings. Still a lot to learn.
+;; https://github.com/jakebox/jake-emacs/tree/main :: for categorizing the info, packages, everything & all key bindings.  Still a lot to learn.
 ;; https://blog.sumtypeofway.com/posts/emacs-config.html :: for good write up.
 ;; https://www.patrickdelliott.com/emacs.d/
 ;; https://gitlab.com/s_witcher/witcharch/-/blob/main/dotfiles/emacs/init.el?ref_type=heads
@@ -169,17 +169,26 @@
 (use-package consult
   :ensure t
   :defer t
+  :config
+  (defun vandvag/consult-ripgrep-thing-at-point ()
+    "Use `consult-ripgrep` with the active region
+     or symbol at point as initial input."
+    (interactive)
+    (consult-ripgrep nil (if (use-region-p)
+                             (buffer-substring-no-properties (region-beginning) (region-end))
+                           (thing-at-point 'symbol t))))
   :bind ("M-s M-g"  . consult-ripgrep)
-		 ("M-s M-s" . consult-line)
+		 ("M-s M-s" . vandvag/consult-ripgrep-thing-at-point)
 		 ("M-s M-b" . consult-buffer)
 		 ("M-s M-m" . consult-global-mark)
 		 ("M-s M-f" . consult-fd)
 		 ("M-s M-l" . consult-bookmark)
-		 ("M-s M-i" . consult-imenu))
+		 ("M-s M-i" . consult-imenu)
+         ("M-s M-e" . consult-flymake))
 
-(use-package consult-lsp
+(use-package consult-eglot
   :ensure t
-  :after lsp)
+  :after eglot)
 
 (use-package embark
   :ensure t
@@ -230,50 +239,89 @@
   (add-to-list 'completion-at-point-functions #'cape-dabbrev))
 
 ;;; LSP Configurations
-(use-package lsp-mode
-  :ensure t
-  :defer t
-  :init
-  (setq lsp-keymap-prefix "C-c l")
+;; (use-package lsp-mode
+;;   :ensure t
+;;   :defer t
+;;   :init
+;;   (setq lsp-keymap-prefix "C-c l")
+;;   :hook
+;;   (bash-ts-mode . lsp)
+;;   (lsp-mode     . lsp-enable-which-key-integration)
+;;   :commands
+;;   (lsp lsp-deferred)
+;;   :custom
+;;   (lsp-inlay-hint-enable nil)
+;;   (lsp-completion-provider :none)
+;;   (lsp-session-file (locate-user-emacs-file ".lsp-session"))
+;;   (lsp-log-io nil)
+;;   (lsp-idle-delay 0.1)
+;;   (lsp-keep-workspace-alive nil)
+;;   (lsp-enable-xref t)
+;;   (lsp-auto-configure t)
+;;   (lsp-eldoc-enable-hover t)
+;;   (lsp-enable-links nil)
+;;   (lsp-enable-file-watchers nil)
+;;   (lsp-enable-folding nil)
+;;   (lsp-enable-imenu t)
+;;   (lsp-enable-indentation nil)
+;;   (lsp-enable-on-type-formatting nil)
+;;   (lsp-enable-suggest-server-download t)
+;;   (lsp-enable-symbol-highlighting t)
+;;   (lsp-enable-text-document-color nil)
+;;   (lsp-modeline-code-actions-enable nil)
+;;   (lsp-modeline-diagnostics-enable nil)
+;;   (lsp-modeline-workspace-status-enable t)
+;;   (lsp-signature-doc-lines 1)
+;;   (lsp-eldoc-render-all nil)
+;;   (lsp-completion-enable t)
+;;   (lsp-completion-enable-additional-text-edit t)
+;;   (lsp-enable-snippet nil)
+;;   (lsp-completion-show-kind t)
+;;   (lsp-lens-enable t)
+;;   (lsp-headerline-breadcrumb-enable-symbol-numbers t)
+;;   (lsp-headerline-arrow "▶")
+;;   (lsp-headerline-breadcrumb-enable-diagnostics nil)
+;;   (lsp-headerline-breadcrumb-icons-enable nil)
+;;   (lsp-semantic-tokens-enable nil))
+
+(use-package eglot
+  :ensure nil
   :hook
-  (bash-ts-mode . lsp)
-  (lsp-mode     . lsp-enable-which-key-integration)
-  :commands
-  (lsp lsp-deferred)
+  (c-ts-mode    . eglot-ensure)
+  (c++-ts-mode  . eglot-ensure)
+  (zig-ts-mode  . eglot-ensure)
+  (rust-ts-mode . eglot-ensure)
+  (go-ts-mode   . eglot-ensure)
+  (eglot-managed-mode . (lambda ()
+                          (eglot-inlay-hints-mode -1)
+                          (remove-hook 'eldoc-documentation-functions
+                                       #'eglot-hover-eldoc-function t)))
+  :bind (:map eglot-mode-map
+              ("C-c l r" . eglot-rename)
+              ("C-c l a" . eglot-code-actions)
+              ("C-c l =" . eglot-format)
+              ("C-c l d" . eldoc-doc-buffer)
+              ("C-c l s" . consult-eglot-symbols)
+              ("C-c l i" . eglot-inlay-hints-mode)
+              ("C-c l h" . vandvag/toggle-eglot-hover))
+  :custom-face
+  (eglot-highlight-symbol-face ((t (:inherit highlight))))
   :custom
-  (lsp-inlay-hint-enable nil)
-  (lsp-completion-provider :none)
-  (lsp-session-file (locate-user-emacs-file ".lsp-session"))
-  (lsp-log-io nil)
-  (lsp-idle-delay 0.1)
-  (lsp-keep-workspace-alive nil)
-  (lsp-enable-xref t)
-  (lsp-auto-configure t)
-  (lsp-eldoc-enable-hover t)
-  (lsp-enable-links nil)
-  (lsp-enable-file-watchers nil)
-  (lsp-enable-folding nil)
-  (lsp-enable-imenu t)
-  (lsp-enable-indentation nil)
-  (lsp-enable-on-type-formatting nil)
-  (lsp-enable-suggest-server-download t)
-  (lsp-enable-symbol-highlighting t)
-  (lsp-enable-text-document-color nil)
-  (lsp-modeline-code-actions-enable nil)
-  (lsp-modeline-diagnostics-enable nil)
-  (lsp-modeline-workspace-status-enable t)
-  (lsp-signature-doc-lines 1)
-  (lsp-eldoc-render-all nil)
-  (lsp-completion-enable t)
-  (lsp-completion-enable-additional-text-edit t)
-  (lsp-enable-snippet nil)
-  (lsp-completion-show-kind t)
-  (lsp-lens-enable t)
-  (lsp-headerline-breadcrumb-enable-symbol-numbers t)
-  (lsp-headerline-arrow "▶")
-  (lsp-headerline-breadcrumb-enable-diagnostics nil)
-  (lsp-headerline-breadcrumb-icons-enable nil)
-  (lsp-semantic-tokens-enable nil))
+  (eglot-autoshutdown t)
+  (eglot-ignored-server-capabilities
+   '(:documentLinkProvider
+     :colorProvider))
+  :config
+  (defun vandvag/toggle-eglot-hover ()
+    "Toggle eglot hover documentation in the echo area."
+    (interactive)
+    (if (memq #'eglot-hover-eldoc-function eldoc-documentation-functions)
+        (remove-hook 'eldoc-documentation-functions #'eglot-hover-eldoc-function t)
+      (add-hook 'eldoc-documentation-functions #'eglot-hover-eldoc-function nil t)))
+
+  (add-to-list 'eglot-server-programs
+               '((c-ts-mode c++-ts-mode) . ("clangd")))
+  (fset #'jsonrpc--log-event #'ignore))
 
 (use-package treesit
   :ensure nil
@@ -292,9 +340,9 @@
          ("\\.c\\'" . c-ts-mode)
          ("\\.hpp\\'" . c++-ts-mode)
          ("\\.cpp\\'" . c++-ts-mode))
-  :hook
-  (c-ts-mode . lsp-deferred)
-  (c++-ts-mode . lsp-deferred)
+  ;; :hook
+  ;; (c-ts-mode . lsp-erred)
+  ;; (c++-ts-mode . lsp-deferred)
   :config
   (setq c-ts-mode-indent-offset 4
         c-ts-mode-indent-style 'bsd))
@@ -307,8 +355,8 @@
   :ensure t
   :mode "\\.zig\\'"
   :defer t
-  :hook
-  (zig-ts-mode . lsp-deferred)
+  ;; :hook
+  ;; (zig-ts-mode . lsp-deferred)
   :custom
   (zig-indent-offset 4))
 
@@ -317,7 +365,7 @@
   :mode "\\.rs\\'"
   :defer t
   :hook
-  (rust-ts-mode . lsp-deferred)
+  ;; (rust-ts-mode . lsp-deferred)
   (rust-ts-mode . (lambda()
                  (setq indent-tabs-mode nil)))
   :custom
@@ -326,16 +374,25 @@
 (use-package go-ts-mode
   :ensure nil
   :defer t
-  :mode "\\.go\\'"
-  :hook
-  (go-ts-mode . lsp-deferred))
+  :mode "\\.go\\'")
+  ;; :hook
+  ;; (go-ts-mode . lsp-deferred))
 
-(use-package flycheck
-  :ensure t
-  :after lsp-ui
-  :hook (prog-mode . flycheck-mode))
+;; (use-package flycheck
+;;   :ensure t
+;;   :after lsp-ui
+;;   :hook (prog-mode . flycheck-mode))
 
-;; MAGIT
+(use-package flymake
+  :ensure nil
+  :hook (prog-mode . flymake-mode)
+  :bind (:map flymake-mode-map
+              ("M-n" . flymake-goto-next-error)
+              ("M-p" . flymake-goto-prev-error)
+              ("C-c ! l" . flymake-show-buffer-diagnostics)
+              ("C-c ! c" . flymake-start)
+              ("C-c ! e" . consult-flymake)))
+
 (use-package magit
   :ensure t
   :defer t)
