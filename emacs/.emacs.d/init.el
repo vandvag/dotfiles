@@ -302,8 +302,7 @@
               ("C-c l =" . eglot-format)
               ("C-c l d" . eldoc-doc-buffer)
               ("C-c l s" . consult-eglot-symbols)
-              ("C-c l i" . eglot-inlay-hints-mode)
-              ("C-c l h" . vandvag/toggle-eglot-hover))
+              ("C-c l i" . eglot-inlay-hints-mode))
   :custom-face
   (eglot-highlight-symbol-face ((t (:inherit highlight))))
   :custom
@@ -312,13 +311,6 @@
    '(:documentLinkProvider
      :colorProvider))
   :config
-  (defun vandvag/toggle-eglot-hover ()
-    "Toggle eglot hover documentation in the echo area."
-    (interactive)
-    (if (memq #'eglot-hover-eldoc-function eldoc-documentation-functions)
-        (remove-hook 'eldoc-documentation-functions #'eglot-hover-eldoc-function t)
-      (add-hook 'eldoc-documentation-functions #'eglot-hover-eldoc-function nil t)))
-
   (add-to-list 'eglot-server-programs
                '((c-ts-mode c++-ts-mode) . ("clangd")))
   (fset #'jsonrpc--log-event #'ignore))
