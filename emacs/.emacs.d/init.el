@@ -18,7 +18,6 @@
 
 ;;; Code:
 
-;; (add-to-list 'load-path "~/.emacs.d/modules")
 (add-to-list 'load-path "~/.emacs.d/lisp")
 
 (require 'package)
@@ -27,6 +26,7 @@
         ("elpa"   . "https://elpa.gnu.org/packages/")
         ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
 
+(require 'lisp-vandvag)
 
 ;; Emacs configuration
 (use-package emacs
@@ -90,10 +90,7 @@
 ;; UI stuff
 
 (use-package doric-themes :ensure t)
-(use-package ef-themes
-  :ensure t
-  :config
-  (ef-themes-load-random-dark))
+(use-package ef-themes :ensure t)
 (use-package catppuccin-theme
   :ensure t
   :custom
@@ -492,12 +489,14 @@
   :custom
   (claude-code-ide-terminal-backend 'eat)) ; Optionally enable Emacs MCP tools
 
-(require 'lisp-vandvag)
+
+(load-theme (symbol-value 'vandvag/dark-theme) t)
 
 ;; Keybinds
 (global-set-key (kbd "C-`")   'vandvag/toggle-line-numbers)
 (global-set-key (kbd "C-c y") 'vandvag/copy-line)
 (global-set-key (kbd "<f2>")  'vandvag/toggle-whitespace)
+(global-set-key (kbd "M-g t") 'vandvag/toggle-theme)
 
 (provide 'init)
 ;;; init.el ends here
