@@ -45,6 +45,9 @@
   :custom
   (user-full-name "Evangelos Vandoros")
   (auto-save-default nil)
+  (completions-detailed t)
+  (help-window-select t)
+  (global-auto-revert-non-file-buffers t)
   (create-lockfiles nil)
   ;; Default tab width
   (tab-width 4)
@@ -58,6 +61,11 @@
   ;; Do not allow the cursor in the minibuffer prompt
   (minibuffer-prompt-properties
    '(read-only t cursor-intangible t face minibuffer-prompt)))
+
+(use-package compile
+  :ensure nil
+  :custom
+  (compilation-scroll-output t))
 
 (use-package isearch
   :ensure nil
@@ -343,7 +351,6 @@
   :ensure t
   :after lsp-ui
   :hook (prog-mode . flycheck-mode))
-
 
 (use-package magit
   :ensure t
