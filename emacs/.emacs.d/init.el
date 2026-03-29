@@ -9,6 +9,7 @@
 ;;
 ;; REFERENCES/RESOURCES
 ;; https://github.com/LionyxML/emacs-kick/blob/master/init.el
+;; https://github.com/LionyxML/emacs-solo
 ;; https://protesilaos.com/emacs/
 ;; https://github.com/jakebox/jake-emacs/tree/main :: for categorizing the info, packages, everything & all key bindings.  Still a lot to learn.
 ;; https://blog.sumtypeofway.com/posts/emacs-config.html :: for good write up.
@@ -79,6 +80,16 @@
   :defer t
   :custom
   (dired-kill-when-opening-new-dired-buffer t))
+
+(use-package window
+  :ensure nil
+  :custom
+  (display-buffer-alist
+   '(("\\*eldoc\\*"
+      (display-buffer-in-side-window)
+      (window-height . 0.25)
+      (side . bottom)
+      (slot . 0)))))
 
 (use-package diminish
   :ensure t)
@@ -243,51 +254,30 @@
   (add-to-list 'completion-at-point-functions #'cape-file)
   (add-to-list 'completion-at-point-functions #'cape-dabbrev))
 
-;;; LSP Configurations
-(use-package lsp-mode
-  :ensure t
-  :defer t
-  :init
-  (setq lsp-keymap-prefix "C-c l")
-  :hook
-  (bash-ts-mode . lsp)
-  (lsp-mode     . lsp-enable-which-key-integration)
-  :commands
-  (lsp lsp-deferred)
+(use-package eglot
+  :ensure nil
   :custom
-  (lsp-inlay-hint-enable nil)
-  (lsp-completion-provider :none)
-  (lsp-session-file (locate-user-emacs-file ".lsp-session"))
-  (lsp-log-io nil)
-  (lsp-idle-delay 0.1)
-  (lsp-keep-workspace-alive nil)
-  (lsp-enable-xref t)
-  (lsp-auto-configure t)
-  (lsp-eldoc-enable-hover t)
-  (lsp-enable-links nil)
-  (lsp-enable-file-watchers nil)
-  (lsp-enable-folding nil)
-  (lsp-enable-imenu t)
-  (lsp-enable-indentation nil)
-  (lsp-enable-on-type-formatting nil)
-  (lsp-enable-suggest-server-download t)
-  (lsp-enable-symbol-highlighting t)
-  (lsp-enable-text-document-color nil)
-  (lsp-modeline-code-actions-enable nil)
-  (lsp-modeline-diagnostics-enable nil)
-  (lsp-modeline-workspace-status-enable t)
-  (lsp-signature-doc-lines 1)
-  (lsp-eldoc-render-all nil)
-  (lsp-completion-enable t)
-  (lsp-completion-enable-additional-text-edit t)
-  (lsp-enable-snippet nil)
-  (lsp-completion-show-kind t)
-  (lsp-lens-enable t)
-  (lsp-headerline-breadcrumb-enable-symbol-numbers t)
-  (lsp-headerline-arrow "▶")
-  (lsp-headerline-breadcrumb-enable-diagnostics nil)
-  (lsp-headerline-breadcrumb-icons-enable nil)
-  (lsp-semantic-tokens-enable nil))
+  (eglot-autoshutdown t)
+  (eglot-events-buffer-size 0)
+  (eglot-events-buffer-config '(:size 0 :format full))
+  (eglot-prefer-plaintext nil)
+  (jsonrpc-event-hook nil)
+  (eglot-code-action-indications nil)
+  (eglot-highlight-symbol-face '(highlight :box t))
+  :init
+  (fset #'jsonrpc--log-event #'ignore)
+  (eglot-inlay-hints-mode -1)
+  :hook
+  (prog-mode . eglot-ensure)
+  :bind (:map
+         eglot-mode-map
+         ("C-c l a" . eglot-code-actions)
+         ("C-c l o" . eglot-code-action-organize-imports)
+         ("C-c l r" . eglot-rename)
+         ("C-c l i" . eglot-inlay-hints-mode)
+         ("C-c l =" . eglot-format)
+         ("C-c l s" . consult-eglot-symbols)
+         ("C-c l h" . eldoc-doc-buffer)))
 
 (use-package treesit
   :ensure nil
@@ -306,9 +296,6 @@
          ("\\.c\\'" . c-ts-mode)
          ("\\.hpp\\'" . c++-ts-mode)
          ("\\.cpp\\'" . c++-ts-mode))
-  :hook
-  (c-ts-mode . lsp-erred)
-  (c++-ts-mode . lsp-deferred)
   :config
   (setq c-ts-mode-indent-offset 4
         c-ts-mode-indent-style 'bsd))
@@ -321,8 +308,6 @@
   :ensure t
   :mode "\\.zig\\'"
   :defer t
-  :hook
-  (zig-ts-mode . lsp-deferred)
   :custom
   (zig-indent-offset 4))
 
@@ -331,7 +316,6 @@
   :mode "\\.rs\\'"
   :defer t
   :hook
-  (rust-ts-mode . lsp-deferred)
   (rust-ts-mode . (lambda()
                  (setq indent-tabs-mode nil)))
   :custom
@@ -340,14 +324,36 @@
 (use-package go-ts-mode
   :ensure nil
   :defer t
-  :mode "\\.go\\'"
-  :hook
-  (go-ts-mode . lsp-deferred))
+  :mode "\\.go\\'")
 
-(use-package flycheck
-  :ensure t
-  :after lsp-ui
-  :hook (prog-mode . flycheck-mode))
+(use-package flymake
+  :ensure nil
+  :defer t
+  :hook
+  (prog-mode . flymake-mode)
+  :bind (:map flymake-mode-map
+         ("M-8"     . flymake-goto-next-error)
+         ("<f8>"    . flymake-goto-prev-error)
+         ("M-7"     . flymake-goto-prev-error)
+         ("<f7>"    . flymake-goto-prev-error)
+         ("C-c ! l" . flymake-show-buffer-diagnostics)
+         ("C-c l d" . flymake-show-buffer-diagnostics)
+         ("C-c ! t" . vandvag/toggle-flymake-diagnostics-at-eol))
+  :custom
+  (flymake-show-diagnostics-at-end-of-line nil)
+  (flymake-indicator-type 'margins)
+  :config
+  (defun vandvag/toggle-flymake-diagnostics-at-eol ()
+    "Toggle the display of Flymake diagnostics at the end of the line
+and restart Flymake to apply the changes. Taken from emacs-solo."
+    (interactive)
+    (setq flymake-show-diagnostics-at-end-of-line
+          (not flymake-show-diagnostics-at-end-of-line))
+    (flymake-mode -1)
+    (flymake-mode 1)
+    (message "Flymake diagnostics at end of line: %s"
+             (if flymake-show-diagnostics-at-end-of-line
+                 "Enabled" "Disabled"))))
 
 (use-package magit
   :ensure t
