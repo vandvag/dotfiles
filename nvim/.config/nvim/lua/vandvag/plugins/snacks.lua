@@ -10,7 +10,7 @@ return {
     input = { enabled = true },
   },
   keys = {
-    { "<leader>e",  false },
+    { "<leader>e", "<Nop>", desc = "Disable (LSP diagnostic handles <leader>e)" },
     -- <leader>g keymaps (git)
     { "<leader>gg", function() Snacks.lazygit() end, desc = "Lazygit" },
   },

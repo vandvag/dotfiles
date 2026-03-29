@@ -3,7 +3,7 @@ return {
     "clangd",
     "--clang-tidy",
     "-j=5",
-    "--fallback-style=goole",
+    "--fallback-style=google",
   },
   filetypes = { "c", "h", "h.c", "hpp", "cpp" },
 }
