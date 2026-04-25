@@ -154,7 +154,6 @@
   :init
   (global-eldoc-mode))
 
-;; Here are packages that utilize the minibuffer
 (use-package which-key
   :ensure nil
   :diminish
@@ -197,7 +196,7 @@
                              (buffer-substring-no-properties (region-beginning) (region-end))
                            (thing-at-point 'symbol t))))
   :bind ("M-s M-g"  . consult-ripgrep)
-		 ("M-s M-s" . vandvag/consult-ripgrep-thing-at-point)
+         ("M-s M-s" . vandvag/consult-ripgrep-thing-at-point)
 		 ("M-s M-b" . consult-buffer)
 		 ("M-s M-m" . consult-global-mark)
 		 ("M-s M-f" . consult-fd)
@@ -381,14 +380,6 @@ and restart Flymake to apply the changes. Taken from emacs-solo."
   :ensure nil
   :custom
   (ediff-window-setup-function 'ediff-setup-windows-plain))
-
-(use-package projectile
-  :ensure t
-  :init
-  (projectile-mode +1)
-  :bind (:map projectile-mode-map
-              ("s-p" . projectile-command-map)
-              ("C-c p" . projectile-command-map)))
 
 (use-package pdf-tools
   :ensure t
