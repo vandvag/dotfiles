@@ -32,6 +32,8 @@
 ;; Emacs configuration
 (use-package emacs
   :ensure nil
+  :bind
+  (("M-s g" . grep))
   :init
   (save-place-mode 1)
   (global-auto-revert-mode 1) ;; Keep buffers up-to-date with external changes
@@ -59,6 +61,8 @@
   (enable-recursive-minibuffers t)
   (confirm-kill-emacs 'yes-or-no-p)
   (use-short-answers t)
+  (xref-search-program 'ripgrep)
+  (grep-command "rg -nS --no-heading ")
   ;; Do not allow the cursor in the minibuffer prompt
   (minibuffer-prompt-properties
    '(read-only t cursor-intangible t face minibuffer-prompt)))
