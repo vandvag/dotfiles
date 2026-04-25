@@ -141,6 +141,9 @@
   :config
   (global-set-key (kbd "C-;") 'er/expand-region))
 
+(use-package rg
+  :ensure t)
+
 (use-package keycast
   :ensure t
   :diminish)
