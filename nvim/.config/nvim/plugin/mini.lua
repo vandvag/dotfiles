@@ -11,6 +11,9 @@ align.setup()
 local bracketed = require("mini.bracketed")
 bracketed.setup()
 
+local cursorword = require("mini.cursorword")
+cursorword.setup()
+
 local files = require("mini.files")
 files.setup()
 utils.noremap("n", "<leader>fm", function() MiniFiles.open() end, "Open MiniFiles")
