@@ -34,6 +34,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     noremap('n', 'gd', vim.lsp.buf.definition, "Go to definition", additional_opts)
     noremap('n', '<leader>e', function() vim.diagnostic.open_float() end, "Open diagnostic float", additional_opts)
+    noremap("n", "<leader>cl", "<cmd>lua vim.lsp.buf.format()<cr>", "Format document", additional_opts)
   end
 })
 
