@@ -115,6 +115,11 @@
   :custom
   (modus-themes-mode-line '(accented borderless)))
 
+(use-package golden-ratio
+  :ensure t
+  :init
+  (golden-ratio-mode 1))
+
 (use-package nerd-icons
   :ensure t)
 
