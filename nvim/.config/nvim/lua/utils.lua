@@ -37,4 +37,23 @@ set -g window-status-current-format "#[fg=#%s,bg=#%s,nobold,noitalics,noundersco
   vim.fn.system("tmux source-file ~/.config/.tmux-theme")
 end
 
+function X.toggle_whitespace()
+  local new_state = not vim.opt.list:get()
+  vim.opt.list = not vim.opt.list:get()
+
+  if new_state then
+    vim.notify("Whitespace enabled", vim.log.levels.INFO)
+  else
+    vim.notify("Whitespace disabled", vim.log.levels.INFO)
+  end
+end
+
+vim.api.nvim_create_user_command(
+  "ToggleWhitespace",
+  function()
+    require("utils").toggle_whitespace()
+  end,
+  {}
+)
+
 return X

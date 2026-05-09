@@ -50,3 +50,5 @@ noremap("x", "J", ":move '>+1<cr>gv-gv")
 noremap("x", "K", ":move '<-2<cr>gv-gv")
 noremap("x", "<A-j>", ":move '>+1<cr>gv-gv")
 noremap("x", "<A-k>", ":move '<-2<cr>gv-gv")
+
+noremap("n", "<f2>", ":ToggleWhitespace<cr>", "Toggle whitespace")
