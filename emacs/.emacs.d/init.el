@@ -340,7 +340,9 @@
 (use-package go-ts-mode
   :ensure nil
   :defer t
-  :mode "\\.go\\'")
+  :mode "\\.go\\'"
+  :custom
+  (go-ts-mode-indent-offset 4))
 
 (use-package flymake
   :ensure nil
