@@ -18,9 +18,6 @@ local files = require("mini.files")
 files.setup()
 utils.noremap("n", "<leader>fm", function() MiniFiles.open() end, "Open MiniFiles")
 
-local git = require("mini.git")
-git.setup()
-
 local hipatterns = require("mini.hipatterns")
 hipatterns.setup({
   highlighters = {

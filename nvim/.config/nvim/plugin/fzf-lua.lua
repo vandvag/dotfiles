@@ -43,6 +43,6 @@ utils.noremap("n", "<leader>cb", function() FzfLua.lsp_document_diagnostics() en
 utils.noremap("n", "<leader>cx", function() FzfLua.lsp_workspace_diagnostics() end, "Show workspace diagnostics")
 -- <leader>h keymaps (help)
 utils.noremap("n", "<leader>hk", function() FzfLua.keymaps() end, "Show keymaps")
-utils.noremap("n", "<leader>hh", function() FzfLua.lsp_workspace_diagnostics() end, "Show help")
+utils.noremap("n", "<leader>hh", function() FzfLua.helptags() end, "Show help")
 -- <leader>m keymaps (marks)
 utils.noremap("n", "<leader>mm", function() FzfLua.marks() end, "Show marks")
