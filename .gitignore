@@ -1,5 +1,10 @@
+# Nvim
 */packer_compiled.lua
+nvim-pack-lock.json
+# Tmux
 tmux/plugins/
+# Ghostty
+ghostty/.config/ghostty/themes
 *.bak
 *~
-ghostty/.config/ghostty/themes
+.DS_Store

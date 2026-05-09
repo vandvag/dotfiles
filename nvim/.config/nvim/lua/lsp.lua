@@ -7,7 +7,7 @@ vim.lsp.enable({
   "zls",
 })
 
-local noremap = require("vandvag.core.utils").noremap
+local noremap = require("utils").noremap
 
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
@@ -16,10 +16,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     -- Completion settings
     if client and client:supports_method('textDocument/completion') then
-      -- vim.lsp.completion.enable(true, client.id, args.buff, { autotrigger = true })
-      vim.lsp.config('*', {
-        capabilities = require('blink-cmp').get_lsp_capabilities()
-      })
+      vim.lsp.completion.enable(true, client.id, args.buff, { autotrigger = true })
     end
 
     -- Inlay hints settings
@@ -40,6 +37,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end
 })
 
+vim.o.autocomplete = true
+vim.opt.complete:append('o')
+vim.opt.completeopt = { 'menuone', 'noselect', 'noinsert' }
 
 vim.diagnostic.config({
   virtual_text = true,

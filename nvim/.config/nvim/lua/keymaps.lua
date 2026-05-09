@@ -1,4 +1,4 @@
-local noremap = require("vandvag.core.utils").noremap
+local noremap = require("utils").noremap
 
 -- Space is the best leader key
 noremap("", "<Space>", "<Nop>")

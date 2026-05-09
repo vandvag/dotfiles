@@ -9,7 +9,7 @@ return {
         library = {
           [vim.fn.expand("$VIMRUNTIME/lua")] = true,
           [vim.fn.stdpath("config") .. "/lua"] = true,
-          [vim.fn.stdpath("data") .. "lazy/lazy.nvim"] = true,
+          [vim.fn.stdpath("data") .. "/pack/packages"] = true,
         },
       },
     },
