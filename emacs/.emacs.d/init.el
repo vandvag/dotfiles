@@ -390,7 +390,9 @@ and restart Flymake to apply the changes. Taken from emacs-solo."
   :config
   (global-diff-hl-mode)
   :custom
-  (diff-hl-side 'left))
+  (diff-hl-side 'left)
+  (diff-hl-update-async 'thread)
+  (diff-hl-flydiff-delay 0.5))
 
 (use-package ediff
   :ensure nil
