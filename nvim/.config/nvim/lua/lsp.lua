@@ -16,7 +16,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     -- Completion settings
     if client and client:supports_method('textDocument/completion') then
-      vim.lsp.completion.enable(true, client.id, args.buff, { autotrigger = true })
+      local exists, cmp = pcall(require, "blink-cmp")
+      if exists then
+        vim.lsp.config('*', {
+          capabilities = cmp.get_lsp_capabilities()
+        })
+      else
+        vim.lsp.completion.enable(true, client.id, args.buff, { autotrigger = true })
+      end
     end
 
     -- Inlay hints settings
@@ -38,7 +45,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end
 })
 
-vim.o.autocomplete = true
+-- vim.o.autocomplete = true
 vim.opt.complete:append('o')
 vim.opt.completeopt = { 'menuone', 'noselect', 'noinsert' }
 
