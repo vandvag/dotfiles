@@ -6,4 +6,3 @@
 - rg   : (https://github.com/BurntSushi/ripgrep)
 - fd   : (https://github.com/sharkdp/fd)
 - fzf  : (https://github.com/junegunn/fzf)
-*Requires* version >= 0.12
