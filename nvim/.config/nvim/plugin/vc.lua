@@ -8,5 +8,5 @@ vim.pack.add({
 utils.noremap("n", "<leader>gl", ":Gitsigns toggle_current_line_blame<cr>", "Toggle current line blame")
 utils.noremap("n", "<leader>gb", ":Gitsigns blame_line<cr>", "Blame current line")
 
-utils.noremap("n", "<leader>gg", ":G<cr>", "Fugitive")
-utils.noremap("n", "<leader>gf", ":Git blame<cr>", "Blame file")
+-- utils.noremap("n", "<leader>gg", ":G<cr>", "Fugitive")
+-- utils.noremap("n", "<leader>gf", ":Git blame<cr>", "Blame file")
