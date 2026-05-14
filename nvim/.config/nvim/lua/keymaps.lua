@@ -52,3 +52,5 @@ noremap("x", "<A-j>", ":move '>+1<cr>gv-gv")
 noremap("x", "<A-k>", ":move '<-2<cr>gv-gv")
 
 noremap("n", "<f2>", ":ToggleWhitespace<cr>", "Toggle whitespace")
+noremap("n", "<leader>rc", ":source $MYVIMRC<cr>",
+  "Source neovim config")
