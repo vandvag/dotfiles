@@ -21,3 +21,7 @@ starship init fish | source
 
 # Zoxide
 zoxide init fish | source
+
+# Reload fish config
+abbr -a fsource "source $__fish_config_dir/config.fish"
+
