@@ -48,12 +48,59 @@ function X.toggle_whitespace()
   end
 end
 
-vim.api.nvim_create_user_command(
-  "ToggleWhitespace",
-  function()
-    require("utils").toggle_whitespace()
-  end,
-  {}
-)
+vim.api.nvim_create_user_command("ToggleWhitespace", function()
+  require("utils").toggle_whitespace()
+end, {})
+
+local function strip_quotes(s)
+  return s:gsub('^"(.+)"$', "%1"):gsub("^'(.+)'$", "%1")
+end
+
+--- ===========
+--- ConvertPath
+--- ===========
+
+local function get_clipboard()
+  local content = vim.fn.getreg("+")
+  if content == "" then
+    content = vim.fn.getreg("*")
+  end
+  return content
+end
+
+function X.convert_path(path)
+  path = strip_quotes(path)
+  if path == "" then
+    path = get_clipboard()
+    if path == "" then
+      vim.notify("No input and clipboard is empty", vim.log.levels.WARN)
+      return nil
+    end
+    path = strip_quotes(path)
+  end
+
+  if path:sub(1, 2) == "\\\\" then
+    return path:gsub("\\", "/")
+  elseif path:sub(1, 2) == "//" then
+    return path:gsub("/", "\\")
+  elseif path:sub(1, 1) == "/" then
+    return "\\" .. path:gsub("/", "\\")
+  elseif path:find("\\") then
+    return path:gsub("\\", "/")
+  elseif path:find("/") then
+    return path:gsub("/", "\\")
+  else
+    return path
+  end
+end
+
+vim.api.nvim_create_user_command("ConvertPath", function(opts)
+  local input = opts.args ~= "" and opts.args or get_clipboard()
+  local result = require("utils").convert_path(input)
+  if result then
+    vim.fn.setreg("+", result)
+    vim.notify(string.format("Converted: %s", result), vim.log.levels.INFO)
+  end
+end, { nargs = "?" })
 
 return X
