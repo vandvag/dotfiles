@@ -50,6 +50,6 @@ vim.opt.complete:append('o')
 vim.opt.completeopt = { 'menuone', 'noselect', 'noinsert' }
 
 vim.diagnostic.config({
-  virtual_text = true,
+  virtual_text = false,
   virtual_lines = false,
 })
