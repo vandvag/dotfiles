@@ -323,12 +323,12 @@
   :ensure t
   :defer t)
 
-(use-package zig-ts-mode
-  :ensure t
-  :mode "\\.zig\\'"
-  :defer t
-  :custom
-  (zig-indent-offset 4))
+;; (use-package zig-ts-mode
+;;   :ensure t
+;;   :mode "\\.zig\\'"
+;;   :defer t
+;;   :custom
+;;   (zig-indent-offset 4))
 
 (use-package rust-ts-mode
   :ensure t
