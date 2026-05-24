@@ -69,6 +69,8 @@
 
 (use-package compile
   :ensure nil
+  :hook
+  (compilation-filter . ansi-color-compilation-filter)
   :custom
   (compilation-scroll-output t))
 
