@@ -52,10 +52,12 @@
   (help-window-select t)
   (global-auto-revert-non-file-buffers t)
   (create-lockfiles nil)
-  ;; Default tab width
+
+  ;; Tab behavior
   (tab-width 4)
   (tab-always-indent nil)
   (indent-tabs-mode nil)
+
   ;; Disable backup files ~
   (make-backup-files nil)
   (enable-recursive-minibuffers t)
@@ -63,6 +65,7 @@
   (use-short-answers t)
   (xref-search-program 'ripgrep)
   (grep-command "rg -nS --no-heading ")
+
   ;; Do not allow the cursor in the minibuffer prompt
   (minibuffer-prompt-properties
    '(read-only t cursor-intangible t face minibuffer-prompt)))
@@ -153,7 +156,8 @@
   (global-set-key (kbd "C-;") 'er/expand-region))
 
 (use-package rg
-  :ensure t)
+  :ensure t
+  :bind (("M-s M-g" . rg-project)))
 
 (use-package multiple-cursors
   :ensure t
@@ -211,13 +215,12 @@
     (consult-ripgrep nil (if (use-region-p)
                              (buffer-substring-no-properties (region-beginning) (region-end))
                            (thing-at-point 'symbol t))))
-  :bind ("M-s M-g"  . consult-ripgrep)
-         ("M-s M-s" . vandvag/consult-ripgrep-thing-at-point)
-		 ("M-s M-b" . consult-buffer)
-		 ("M-s M-m" . consult-global-mark)
-		 ("M-s M-f" . consult-fd)
-		 ("M-s M-l" . consult-bookmark)
-		 ("M-s M-i" . consult-imenu)
+  :bind ("M-s M-s" . vandvag/consult-ripgrep-thing-at-point)
+         ("M-s M-b" . consult-buffer)
+         ("M-s M-m" . consult-global-mark)
+         ("M-s M-f" . consult-fd)
+         ("M-s M-l" . consult-bookmark)
+         ("M-s M-i" . consult-imenu)
          ("M-s M-e" . consult-flymake))
 
 (use-package embark
@@ -247,7 +250,6 @@
   :init
   (global-corfu-mode)
   (corfu-history-mode)
-  (setq tab-always-indent 'complete)
   :custom
   (corfu-cycle t)
   (corfu-popupinfo-delay '(0.75 . 0.5))
