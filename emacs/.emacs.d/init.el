@@ -436,7 +436,14 @@
 (use-package yaml-mode
   :ensure t)
 
-;; Denote
+(use-package projectile
+  :ensure t
+  :init
+  (projectile-mode +1)
+  :bind
+  ( :map projectile-mode-map
+    ("C-c p" . projectile-command-map)))
+
 (use-package denote
   :ensure t
   :hook
