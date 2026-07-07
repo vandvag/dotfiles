@@ -416,6 +416,23 @@
   (diff-hl-update-async 'thread)
   (diff-hl-flydiff-delay 0.5))
 
+(use-package helpful
+  :ensure t
+  :commands (helpful-callable
+             helpful-variable
+             helpful-key
+             helpful-command
+             helpful-at-point
+             helpful-function)
+  :bind
+  ([remap describe-command]  . helpful-command)
+  ([remap describe-function] . helpful-callable)
+  ([remap describe-key]      . helpful-key)
+  ([remap describe-symbol]   . helpful-symbol)
+  ([remap describe-variable] . helpful-variable)
+  :custom
+  (helpful-max-buffers 7))
+
 (use-package ediff
   :ensure nil
   :custom
