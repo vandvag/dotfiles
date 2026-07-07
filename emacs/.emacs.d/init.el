@@ -153,7 +153,9 @@
 ;; UI stuff
 
 (use-package doric-themes :ensure t)
+
 (use-package ef-themes :ensure t)
+
 (use-package catppuccin-theme
   :ensure t
   :custom
@@ -228,24 +230,36 @@
 
 (use-package vertico
    :ensure t
-   :hook
-   (after-init . vertico-mode)
+   :init
+   (vertico-mode)
    :config
-   (setq vertico-cycle t)
-   (setq vertico-resize nil))
+   (vertico-mouse-mode)
+   :custom
+   (vertico-cycle t)
+   (vertico-count 15)
+   (vertico-resize nil))
 
 (use-package marginalia
   :ensure t
   :after vertico
-  :hook
-  (after-init . marginalia-mode))
+  :init
+  (marginalia-mode))
 
 (use-package orderless
   :ensure t
   :custom
   (completion-styles '(orderless basic))
-  (completion-category-defaults nil)   ;; Disable defaults, use our settings
-  (completion-pcm-leading-wildcard t)) ;; Emacs 31: partial-completion behaves like a substring
+  (completion-category-defaults nil)
+  (completion-pcm-leading-wildcard t))
+
+(use-package embark
+  :ensure t
+  :defer t
+  :bind
+  (("C-." . embark-act)
+   :map minibuffer-local-map
+   ("C-c C-e" . embark-export)
+   ("C-c C-c" . embark-collect)))
 
 (use-package consult
   :ensure t
