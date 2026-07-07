@@ -272,28 +272,42 @@
     (consult-ripgrep nil (if (use-region-p)
                              (buffer-substring-no-properties (region-beginning) (region-end))
                            (thing-at-point 'symbol t))))
-  :bind ("M-s M-s" . vandvag/consult-ripgrep-thing-at-point)
+  :custom
+  (xref-show-xrefs-function       #'consult-register-window)
+  (xref-show-definitions-function #'consult-xref)
+  :bind (;; C-x bindings
+         ("C-x b"   . consult-buffer)
+         ("C-x p b" . consult-project-buffer)
+         ;; Yank
+         ("M-y"     . consult-yank-pop)
+         ;; M-g bindings (goto)
+         ("M-g g"   . consult-goto-line)
+         ("M-g M-g" . consult-goto-line)
+         ("M-g m"   . consult-mark)
+         ("M-g k"   . consult-global-mark)
+         ;; M-s bindings
+         ("M-s M-r" . consult-register)
+         ("M-s M-s" . vandvag/consult-ripgrep-thing-at-point)
          ("M-s M-b" . consult-buffer)
-         ("M-s M-m" . consult-global-mark)
          ("M-s M-f" . consult-fd)
          ("M-s M-l" . consult-bookmark)
          ("M-s M-i" . consult-imenu)
-         ("M-s M-e" . consult-flymake))
+         ("M-s M-e" . consult-flycheck)))
 
-(use-package embark
+(use-package consult-projectile
   :ensure t
-  :defer t
-  :bind
-  (("C-." . embark-act)
-   :map minibuffer-local-map
-   ("C-c C-e" . embark-export)
-   ("C-c C-c" . embark-collect)))
+  :after (consult projectile)
+  :bind (("C-c p p" . consult-projectile-switch-project)
+         ("C-c p f" . consult-projectile-find-file)
+         ("C-c p g" . my/consult-ripgrep-project)))
 
 (use-package embark-consult
   :ensure t
-  :demand t
   :hook
   (embark-collect-mode . consult-preview-at-point-mode))
+
+(use-package consult-flycheck
+  :ensure t)
 
 (use-package wgrep
   :ensure t
