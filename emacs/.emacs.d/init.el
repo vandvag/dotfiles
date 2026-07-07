@@ -90,6 +90,44 @@
   :custom
   (dired-kill-when-opening-new-dired-buffer t))
 
+(use-package dashboard
+  :ensure t
+  :after projectile
+  :init
+  (setq dashboard-projects-backend 'projectile)
+  (setq dashboard-banner-logo-title (concat "Welcome, " (user-full-name) "!"))
+  (setq dashboard-startup-banner 2)
+  (setq dashboard-center-content t)
+  (setq dashboard-vertically-center-content t)
+  (setq dashboard-navigation-cycle t)
+  (setq dashboard-show-shortcuts t)
+  (setq dashboard-heading-shorcut-format " [shortcut: %s]")
+  (setq dashboard-display-icons-p t)
+  (setq dashboard-icon-type 'nerd-icons)
+  (setq dashboard-set-heading-icons t)
+  (setq dashboard-set-file-icons t)
+  (setq dashboard-startupify-list '(dashboard-insert-banner
+                                    dashboard-insert-newline
+                                    dashboard-insert-banner-title
+                                    dashboard-insert-newline
+                                    dashboard-insert-navigator
+                                    dashboard-insert-newline
+                                    dashboard-insert-init-info
+                                    dashboard-insert-items
+                                    dashboard-insert-newline))
+  (setq dashboard-items '((recents   . 5)
+                          (bookmarks . 5)
+                          (projects  . 5)
+                          (agenda    . 5)
+                          (registers . 5)))
+  (setq dashboard-item-shortcuts '((recents   . "r")
+                                   (bookmarks . "m")
+                                   (projects  . "p")
+                                   (agenda    . "a")
+                                   (registers . "e")))
+  :config
+  (dashboard-setup-startup-hook))
+
 (use-package window
   :ensure nil
   :custom
@@ -561,6 +599,8 @@
 (global-set-key (kbd "C-c y") 'vandvag/copy-line)
 (global-set-key (kbd "<f2>")  'vandvag/toggle-whitespace)
 (global-set-key (kbd "M-g t") 'vandvag/toggle-theme)
+
+(dashboard-open)
 
 (provide 'init)
 ;;; init.el ends here
