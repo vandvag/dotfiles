@@ -496,13 +496,22 @@
 (use-package yaml-mode
   :ensure t)
 
+
 (use-package projectile
   :ensure t
   :init
   (projectile-mode +1)
   :bind
   ( :map projectile-mode-map
-    ("C-c p" . projectile-command-map)))
+    ("C-c p" . projectile-command-map))
+  :custom
+  ;; Sort projects by recent activity
+  (projectile-sort-oder 'recentf)
+  ;; Faster indexing on large repos (uses external git / fd / find)
+  (projectile-indexing-method 'alien)
+  (projectile-enable-caching t)
+  (projectile-fd-executable (or (executable-find "fd")
+                                (executable-find "fdfind"))))
 
 (use-package denote
   :ensure t
