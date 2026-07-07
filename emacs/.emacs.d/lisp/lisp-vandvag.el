@@ -1,6 +1,8 @@
-;;; lisp-vandvag.el --- Utility function -*- lexical-binding: t; -*-
+;;; lisp-vandvag.el --- Utility functions -*- lexical-binding: t; -*-
+
 ;;; Commentary:
 ;;; Some useful utility functions I wrote
+
 ;;; Code:
 
 (defcustom vandvag/dark-theme 'modus-vivendi
@@ -40,7 +42,7 @@
 
 
 (defun vandvag/copy-line ()
-  "Copy the current line to `kill-ring`."
+  "Copy the current line to `kill-ring'."
   (interactive)
   (kill-ring-save (line-beginning-position) (line-end-position))
   (message "Line copied."))
@@ -64,6 +66,13 @@
     (if (and buf-file (buffer-modified-p))
         (diff-buffer-with-file (current-buffer))
       (message "Buffer is not modified or has no associated file."))))
+
+(defun vandvag/smart-kill-word ()
+  "Delete word at point."
+  (interactive)
+  (let ((bounds (bounds-of-thing-at-point 'word)))
+    (when bounds
+      (kill-region (car bounds) (cdr bounds)))))
 
 (provide 'lisp-vandvag)
 ;;; lisp-vandvag.el ends here
