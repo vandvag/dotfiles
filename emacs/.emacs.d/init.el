@@ -554,8 +554,7 @@
   (claude-code-ide-terminal-backend 'eat)) ; Optionally enable Emacs MCP tools
 
 
-;; (load-theme (symbol-value 'vandvag/dark-theme) t)
-(ef-themes-load-random-dark)
+(doric-themes-load-random)
 
 ;; Keybinds
 (global-set-key (kbd "C-`")   'vandvag/toggle-line-numbers)
