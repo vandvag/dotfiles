@@ -70,6 +70,11 @@
   (minibuffer-prompt-properties
    '(read-only t cursor-intangible t face minibuffer-prompt)))
 
+(use-package elec-pair
+  :ensure nil
+  :hook
+  (after-init . electric-pair-mode))
+
 (use-package compile
   :ensure nil
   :hook
