@@ -8,15 +8,15 @@
 ;; This is still a work in progress, as I am learning EMACS
 ;;
 ;; REFERENCES/RESOURCES
-;; https://github.com/LionyxML/emacs-kick/blob/master/init.el
-;; https://github.com/LionyxML/emacs-solo
-;; https://protesilaos.com/emacs/
+;; https://github.com/LionyxML/emacs-solo :: only emacs, no packages
+;; https://protesilaos.com/emacs/ :: Just Prot
 ;; https://github.com/jakebox/jake-emacs/tree/main :: for categorizing the info, packages, everything & all key bindings.  Still a lot to learn.
 ;; https://blog.sumtypeofway.com/posts/emacs-config.html :: for good write up.
 ;; https://www.patrickdelliott.com/emacs.d/
 ;; https://gitlab.com/s_witcher/witcharch/-/blob/main/dotfiles/emacs/init.el?ref_type=heads
 ;; https://github.com/caisah/emacs.dz :: repository with several configurations from known community members.
-;; https://github.com/Borderliner/Chadmacs :: modern, clean emacs configuration.
+;; https://github.com/Borderliner/Chadmacs :: modern, clean emacs configurations.
+
 ;;; Code:
 
 (add-to-list 'load-path "~/.emacs.d/lisp")
