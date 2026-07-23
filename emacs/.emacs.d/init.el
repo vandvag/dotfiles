@@ -97,6 +97,10 @@
   :custom
   (dired-kill-when-opening-new-dired-buffer t))
 
+(use-package crux
+  :ensure t
+  :bind (("C-a" . crux-move-beginning-of-line)))
+
 (use-package dashboard
   :ensure t
   :after projectile
