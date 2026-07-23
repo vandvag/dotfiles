@@ -36,13 +36,15 @@
   (("M-s g" . grep))
   :init
   (save-place-mode 1)
-  (global-auto-revert-mode 1) ;; Keep buffers up-to-date with external changes
+  (global-auto-revert-mode 1)
+  (context-menu-mode 1)
+  (tool-bar-mode -1)
+  (menu-bar-mode -1)
+  (scroll-bar-mode -1)
   (modify-coding-system-alist 'file "" 'utf-8)
-  (context-menu-mode 1) ;; Enable context menu
   :hook
   (before-save . delete-trailing-whitespace)
   :config
-  ;; Save customizations to a different file and not `init.el'
   (setq custom-file (locate-user-emacs-file "custom-vars.el"))
   (load custom-file 'noerror 'nomessage)
   :custom
