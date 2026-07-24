@@ -279,7 +279,7 @@
                              (buffer-substring-no-properties (region-beginning) (region-end))
                            (thing-at-point 'symbol t))))
   :custom
-  (xref-show-xrefs-function       #'consult-register-window)
+  (xref-show-xrefs-function       #'consult-xref)
   (xref-show-definitions-function #'consult-xref)
   :bind (;; C-x bindings
          ("C-x b"   . consult-buffer)
