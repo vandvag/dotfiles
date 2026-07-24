@@ -401,11 +401,11 @@
   :custom
   (treesit-language-source-alist
     '((cpp "https://github.com/tree-sitter/tree-sitter-cpp")
-     (c "https://github.com/tree-sitter/tree-sitter-c")
+     (c    "https://github.com/tree-sitter/tree-sitter-c")
      (rust "https://github.com/tree-sitter/tree-sitter-rust")
-     (go "https://github.com/tree-sitter/tree-sitter-go")
-     (zig "https://github.com/tree-sitter/zig-tree-sitter")
-     (lua "https://github.com/tree-sitter-grammars/tree-sitter-lua")))
+     (go   "https://github.com/tree-sitter/tree-sitter-go")
+     (zig  "https://github.com/tree-sitter/zig-tree-sitter")
+     (lua  "https://github.com/tree-sitter-grammars/tree-sitter-lua")))
   (treesit-font-lock-level 4))
 
 (use-package c-ts-mode
