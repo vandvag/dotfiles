@@ -624,6 +624,11 @@
       "* TODO %?\n%U\n- ref :: %a\n")))
   (org-agenda-files '("~/Documents/org/inbox.org")))
 
+(use-package ghostel
+  :ensure t
+  :bind (("C-c v" . ghostel)
+         :map projectile-mode-map))
+
 ;;; Claude code ide
 (use-package websocket
   :ensure t)
@@ -637,7 +642,7 @@
   :config
   (claude-code-ide-emacs-tools-setup)
   :custom
-  (claude-code-ide-terminal-backend 'eat)) ; Optionally enable Emacs MCP tools
+  (claude-code-ide-terminal-backend 'ghostel))
 
 
 (doric-themes-load-random)
