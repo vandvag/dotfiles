@@ -152,7 +152,7 @@
   :ensure nil
   :custom
   (display-buffer-alist
-   '(("\\*eldoc\\*"
+   '(("\\*lsp-help\\*"
       (display-buffer-in-side-window)
       (window-height . 0.25)
       (side . bottom)
