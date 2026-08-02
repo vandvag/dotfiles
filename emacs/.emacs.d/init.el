@@ -209,7 +209,10 @@
 
 (use-package whitespace
   :ensure nil
+  :diminish
   :defer t
+  :bind
+  ("<f2>" . 'vandvag/toggle-whitespace)
   :custom
   (whitespace-style '(face
                       tabs
@@ -661,7 +664,6 @@
 ;; Keybinds
 (global-set-key (kbd "C-`")   'vandvag/toggle-line-numbers)
 (global-set-key (kbd "C-c y") 'vandvag/copy-line)
-(global-set-key (kbd "<f2>")  'vandvag/toggle-whitespace)
 (global-set-key (kbd "M-g t") 'vandvag/toggle-theme)
 
 (dashboard-open)
