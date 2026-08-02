@@ -78,7 +78,7 @@
   (display-time-24hr-format t)
   (display-time-day-and-date t)
   (display-time-load-average-threshold 0.0)
-  (display-time-default-load-average 0)
+  (display-time-default-load-average nil)
   (display-time-format "%d.%m.%Y %R"))
 
 (use-package elec-pair
