@@ -2,7 +2,6 @@
 ;; Author: Evangelos Vandoros
 ;; Package-Requires: ((emacs "30.0"))
 
-
 ;;; Commentary:
 ;; This is my personal configuration
 ;; This is still a work in progress, as I am learning EMACS
@@ -18,7 +17,6 @@
 ;; https://github.com/Borderliner/Chadmacs :: modern, clean `'emacs configurations.
 
 ;;; Code:
-
 (add-to-list 'load-path "~/.emacs.d/lisp")
 
 (require 'package)
@@ -60,7 +58,6 @@
   (tab-always-indent nil)
   (indent-tabs-mode nil)
 
-  ;; Disable backup files ~
   (make-backup-files nil)
   (enable-recursive-minibuffers t)
   (confirm-kill-emacs 'yes-or-no-p)
@@ -68,7 +65,6 @@
   (xref-search-program 'ripgrep)
   (grep-command "rg -nS --no-heading ")
 
-  ;; Do not allow the cursor in the minibuffer prompt
   (minibuffer-prompt-properties
    '(read-only t cursor-intangible t face minibuffer-prompt)))
 
@@ -274,11 +270,10 @@
 (use-package embark
   :ensure t
   :defer t
-  :bind
-  (("C-." . embark-act)
-   :map minibuffer-local-map
-   ("C-c C-e" . embark-export)
-   ("C-c C-c" . embark-collect)))
+  :bind (("C-." . embark-act)
+         :map minibuffer-local-map
+              ("C-c C-e" . embark-export)
+              ("C-c C-c" . embark-collect)))
 
 (use-package consult
   :ensure t
@@ -553,12 +548,11 @@
   :ensure t
   :init
   (projectile-mode +1)
-  :bind
-  ( :map projectile-mode-map
-    ("C-c p" . projectile-command-map))
+  :bind (:map projectile-mode-map
+              ("C-c p" . projectile-command-map))
   :custom
   ;; Sort projects by recent activity
-  (projectile-sort-oder 'recentf)
+  (projectile-sort-order 'recentf)
   ;; Faster indexing on large repos (uses external git / fd / find)
   (projectile-indexing-method 'alien)
   (projectile-enable-caching t)

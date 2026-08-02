@@ -1,7 +1,7 @@
 ;;; lisp-vandvag.el --- Utility functions -*- lexical-binding: t; -*-
 
 ;;; Commentary:
-;;; Some useful utility functions I wrote
+;; Some useful utility functions I wrote
 
 ;;; Code:
 
