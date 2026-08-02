@@ -245,7 +245,7 @@
   (global-eldoc-mode))
 
 (use-package which-key
-  :ensure nil
+  :ensure t
   :diminish
   :defer t
   :hook
@@ -409,6 +409,11 @@
   (lsp-headerline-breadcrumb-enable-diagnostics nil)
   (lsp-headerline-breadcrumb-icons-enable nil))
 
+(use-package lsp-ui
+  :ensure t
+  :defer t
+  :after lsp-mode)
+
 (use-package consult-lsp
   :ensure t
   :defer t
@@ -438,11 +443,6 @@
   :config
   (setq c-ts-mode-indent-offset 4
         c-ts-mode-indent-style 'bsd))
-
-(use-package lsp-ui
-  :ensure t
-  :defer t
-  :after lsp-mode)
 
 (use-package cmake-mode
   :ensure t
