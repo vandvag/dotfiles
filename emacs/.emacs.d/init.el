@@ -56,7 +56,7 @@
 
   ;; Tab behavior
   (tab-width 4)
-  (tab-always-indent nil)
+  (tab-always-indent t)
   (indent-tabs-mode nil)
 
   (make-backup-files nil)
