@@ -43,6 +43,7 @@
   :hook
   (before-save . delete-trailing-whitespace)
   :config
+  (setq-default truncate-lines nil)
   (setq custom-file (locate-user-emacs-file "custom-vars.el"))
   (load custom-file 'noerror 'nomessage)
   :custom
