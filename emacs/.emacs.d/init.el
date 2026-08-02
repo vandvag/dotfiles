@@ -183,11 +183,17 @@
 
 (use-package golden-ratio
   :ensure t
+  :diminish
   :init
   (golden-ratio-mode 1))
 
-(use-package nerd-icons
-  :ensure t)
+(use-package nyan-mode
+  :ensure t
+  :diminish
+  :config
+  (nyan-mode))
+
+(use-package nerd-icons :ensure t)
 
 (use-package nerd-icons-completion
   :ensure t
