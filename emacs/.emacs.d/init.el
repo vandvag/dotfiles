@@ -153,7 +153,7 @@
   :ensure nil
   :custom
   (display-buffer-alist
-   '(("\\*lsp-help\\*"
+   '(("\\*eldoc\\*"
       (display-buffer-in-side-window)
       (window-height . 0.25)
       (side . bottom)
@@ -243,7 +243,9 @@
   :ensure nil
   :diminish
   :init
-  (global-eldoc-mode))
+  (global-eldoc-mode)
+  :custom
+  (eldoc-echo-area-use-multiline-p nil))
 
 (use-package which-key
   :ensure t
@@ -317,7 +319,7 @@
          ("M-s M-f" . consult-fd)
          ("M-s M-l" . consult-bookmark)
          ("M-s M-i" . consult-imenu)
-         ("M-s M-e" . consult-flycheck)))
+         ("M-s M-e" . consult-flymake)))
 
 (use-package consult-projectile
   :ensure t
@@ -330,9 +332,6 @@
   :ensure t
   :hook
   (embark-collect-mode . consult-preview-at-point-mode))
-
-(use-package consult-flycheck
-  :ensure t)
 
 (use-package wgrep
   :ensure t
@@ -366,59 +365,58 @@
   (add-to-list 'completion-at-point-functions #'cape-file)
   (add-to-list 'completion-at-point-functions #'cape-dabbrev))
 
-(use-package lsp-mode
-  :ensure t
+(use-package eglot
+  :ensure nil
   :defer t
-  :init
-  (setq lsp-keymap-prefix "C-c l")
+  :commands (eglot eglot-ensure)
   :hook
-  (bash-ts-mode . lsp)
-  (lsp-mode     . lsp-enable-which-key-integration)
-  :commands
-  (lsp lsp-deferred)
+  (bash-ts-mode . eglot-ensure)
+  :config
+  (add-to-list 'eglot-server-programs '(zig-ts-mode . ("zls")))
+  (defvar vandvag/eglot-command-map
+    (let ((map (make-sparse-keymap)))
+      (define-key map "wd" #'eglot-server-menu)
+      (define-key map "we" #'eglot-events-buffer)
+      (define-key map "wq" #'eglot-shutdown)
+      (define-key map "wr" #'eglot-reconnect)
+      (define-key map "ws" #'eglot)
+      (define-key map "wa" #'eglot-shutdown-all)
+      (define-key map "ga" #'consult-eglot-symbols)
+      (define-key map "gd" #'eglot-find-declaration)
+      (define-key map "gg" #'xref-find-definitions)
+      (define-key map "gi" #'eglot-find-implementation)
+      (define-key map "gr" #'xref-find-references)
+      (define-key map "gt" #'eglot-find-typeDefinition)
+      (define-key map "h"  #'eldoc)
+      (define-key map "ro" #'eglot-code-action-organize-imports)
+      (define-key map "rr" #'eglot-rename)
+      (define-key map "a"  #'eglot-code-actions)
+      (define-key map "==" #'eglot-format-buffer)
+      (define-key map "=r" #'eglot-format)
+      (define-key map "n"  #'flymake-goto-next-error)
+      (define-key map "p"  #'flymake-goto-prev-error)
+      (define-key map "i"  #'eglot-inlay-hints-mode)
+      map)
+    "Keymap bound to `C-c l', mirroring the old `lsp-mode' prefix with Eglot commands.")
+  (keymap-set eglot-mode-map "C-c l" vandvag/eglot-command-map)
+  ;; (keymap-set eglot-mode-map "C-S-SPC" #'eldoc)
+  ;; (keymap-set eglot-mode-map "C-c C-a" #'eglot-code-actions)
+  ;; (keymap-set eglot-mode-map "C-c C-r" #'eglot-rename)
+  ;; (keymap-set eglot-mode-map "C-c C-n" #'flymake-goto-next-error)
+  ;; (keymap-set eglot-mode-map "C-c C-p" #'flymake-goto-prev-error)
+  ;; (keymap-set eglot-mode-map "C-c C-s" #'flymake-show-buffer-diagnostics)
   :custom
-  (lsp-inlay-hint-enable nil)
-  (lsp-completion-provider :none)
-  (lsp-session-file (locate-user-emacs-file ".lsp-session"))
-  (lsp-log-io nil)
-  (lsp-idle-delay 0.1)
-  (lsp-keep-workspace-alive nil)
-  (lsp-enable-xref t)
-  (lsp-auto-configure t)
-  (lsp-eldoc-enable-hover t)
-  (lsp-enable-links nil)
-  (lsp-enable-file-watchers nil)
-  (lsp-enable-folding nil)
-  (lsp-enable-imenu t)
-  (lsp-enable-indentation nil)
-  (lsp-enable-on-type-formatting nil)
-  (lsp-enable-suggest-server-download t)
-  (lsp-enable-symbol-highlighting t)
-  (lsp-enable-text-document-color nil)
-  (lsp-modeline-code-actions-enable nil)
-  (lsp-modeline-diagnostics-enable nil)
-  (lsp-modeline-workspace-status-enable t)
-  (lsp-signature-doc-lines 1)
-  (lsp-eldoc-render-all nil)
-  (lsp-completion-enable t)
-  (lsp-completion-enable-additional-text-edit t)
-  (lsp-enable-snippet nil)
-  (lsp-completion-show-kind t)
-  (lsp-lens-enable t)
-  (lsp-headerline-breadcrumb-enable-symbol-numbers t)
-  (lsp-headerline-arrow "▶")
-  (lsp-headerline-breadcrumb-enable-diagnostics nil)
-  (lsp-headerline-breadcrumb-icons-enable nil))
+  (eglot-send-changes-idle-time 0.1)
+  (eglot-autoshutdown t)
+  (eglot-ignored-server-capabilities
+   '(:inlayHintProvider
+     :documentHighlightProvider
+     :documentHighlight)))
 
-(use-package lsp-ui
+(use-package consult-eglot
   :ensure t
   :defer t
-  :after lsp-mode)
-
-(use-package consult-lsp
-  :ensure t
-  :defer t
-  :after lsp-mode)
+  :after eglot)
 
 (use-package treesit
   :ensure nil
@@ -439,8 +437,8 @@
          ("\\.hpp\\'" . c++-ts-mode)
          ("\\.cpp\\'" . c++-ts-mode))
   :hook
-  (c-ts-mode   . lsp-deferred)
-  (c++-ts-mode . lsp-deferred)
+  (c-ts-mode   . eglot-ensure)
+  (c++-ts-mode . eglot-ensure)
   :config
   (setq c-ts-mode-indent-offset 4
         c-ts-mode-indent-style 'bsd))
@@ -454,10 +452,9 @@
   :mode "\\.zig\\'"
   :defer t
   :hook
-  (zig-ts-mode . lsp-deferred)
+  (zig-ts-mode . eglot-ensure)
   :custom
   (zig-indent-offset 4))
-
 
 (use-package rust-ts-mode
   :ensure t
@@ -466,7 +463,7 @@
   :hook
   (rust-ts-mode . (lambda()
                     (setq indent-tabs-mode nil)
-                    (lsp-deferred)))
+                    (eglot-ensure)))
   :custom
   (rust-indent-offset 4))
 
@@ -475,7 +472,7 @@
   :defer t
   :mode "\\.go\\'"
   :hook
-  (go-ts-mode . lsp-deferred)
+  (go-ts-mode . eglot-ensure)
   :custom
   (go-ts-mode-indent-offset 4))
 
@@ -486,10 +483,18 @@
   :custom
   (lua-ts--mode-indent-offset 2))
 
-(use-package flycheck
-  :ensure t
-  :after lsp-ui
-  :hook (prog-mode . flycheck-mode))
+(use-package flymake
+  :ensure nil
+  :hook (prog-mode . flymake-mode)
+  :bind
+  (:map flymake-mode-map
+        ("C-c ! n" . flymake-goto-next-error)
+        ("<f7>"    . flymake-goto-next-error)
+        ("C-c ! p" . flymake-goto-prev-error)
+        ("<f8>"    . flymake-goto-prev-error)
+        ("C-c ! l" . flymake-show-buffer-diagnostics)
+        ("C-c ! L" . flymake-show-project-diagnostics)
+        ("C-c ! ?" . flymake-show-diagnostics-buffer)))
 
 (use-package magit
   :ensure t
