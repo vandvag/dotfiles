@@ -408,6 +408,8 @@
   :custom
   (eglot-send-changes-idle-time 0.1)
   (eglot-autoshutdown t)
+  (eglot-events-buffer-size 0)
+  (eglot-extend-to-xref t)
   (eglot-ignored-server-capabilities
    '(:inlayHintProvider
      :documentHighlightProvider
