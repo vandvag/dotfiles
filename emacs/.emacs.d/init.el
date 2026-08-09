@@ -244,6 +244,11 @@
   :diminish
   :init
   (global-eldoc-mode)
+  :config
+  (advice-add 'eldoc-doc-buffer :after
+              (lambda (&rest _)
+                (when-let ((win (get-buffer-window "*eldoc*")))
+                  (select-window win))))
   :custom
   (eldoc-echo-area-use-multiline-p nil))
 
@@ -387,7 +392,7 @@
       (define-key map "gi" #'eglot-find-implementation)
       (define-key map "gr" #'xref-find-references)
       (define-key map "gt" #'eglot-find-typeDefinition)
-      (define-key map "h"  #'eldoc)
+      (define-key map "h"  #'eldoc-doc-buffer)
       (define-key map "ro" #'eglot-code-action-organize-imports)
       (define-key map "rr" #'eglot-rename)
       (define-key map "a"  #'eglot-code-actions)
