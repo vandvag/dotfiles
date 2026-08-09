@@ -676,7 +676,7 @@
 (global-set-key (kbd "C-c y")  'vandvag/copy-line)
 (global-set-key (kbd "M-g t")  'vandvag/toggle-theme)
 
-(dashboard-open)
+;; (dashboard-open)
 
 (provide 'init)
 ;;; init.el ends here
