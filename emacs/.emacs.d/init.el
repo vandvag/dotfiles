@@ -108,7 +108,8 @@
 
 (use-package crux
   :ensure t
-  :bind (("C-a" . crux-move-beginning-of-line)))
+  :bind
+  ("C-a" . crux-move-beginning-of-line))
 
 (use-package dashboard
   :ensure t
@@ -558,8 +559,11 @@
   :ensure t
   :init
   (projectile-mode +1)
-  :bind (:map projectile-mode-map
-              ("C-c p" . projectile-command-map))
+  :bind
+  (:map projectile-mode-map
+        ("C-c p" . projectile-command-map))
+  (:map projectile-command-map
+        ("G" . ghostel-project))
   :custom
   ;; Sort projects by recent activity
   (projectile-sort-order 'recentf)
@@ -658,13 +662,12 @@
   :custom
   (claude-code-ide-terminal-backend 'ghostel))
 
-
 (doric-themes-load-random)
 
 ;; Keybinds
-(global-set-key (kbd "C-`")   'vandvag/toggle-line-numbers)
-(global-set-key (kbd "C-c y") 'vandvag/copy-line)
-(global-set-key (kbd "M-g t") 'vandvag/toggle-theme)
+(global-set-key (kbd "C-<f2>") 'vandvag/toggle-line-numbers)
+(global-set-key (kbd "C-c y")  'vandvag/copy-line)
+(global-set-key (kbd "M-g t")  'vandvag/toggle-theme)
 
 (dashboard-open)
 
