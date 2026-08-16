@@ -166,6 +166,10 @@
   :ensure nil
   :hook (after-init . repeat-mode))
 
+(use-package savehist
+  :init
+  (savehist-mode))
+
 ;; UI stuff
 
 (use-package doric-themes :ensure t)
