@@ -14,7 +14,7 @@
 ;; https://www.patrickdelliott.com/emacs.d/
 ;; https://gitlab.com/s_witcher/witcharch/-/blob/main/dotfiles/emacs/init.el?ref_type=heads
 ;; https://github.com/caisah/emacs.dz :: repository with several configurations from known community members.
-;; https://github.com/Borderliner/Chadmacs :: modern, clean `'emacs configurations.
+;; https://github.com/Borderliner/Chadmacs :: modern, clean Emacs configurations.
 
 ;;; Code:
 (add-to-list 'load-path "~/.emacs.d/lisp")
@@ -505,7 +505,13 @@
         ("<f8>"    . flymake-goto-prev-error)
         ("C-c ! l" . flymake-show-buffer-diagnostics)
         ("C-c ! L" . flymake-show-project-diagnostics)
-        ("C-c ! ?" . flymake-show-diagnostics-buffer)))
+        ("C-c ! ?" . flymake-show-diagnostics-buffer))
+  :custom
+  (flymake-show-diagnostics-at-end-of-line t)
+  :custom-face
+  (flymake-error-echo-at-eol   ((t (:box nil :slant italic))))
+  (flymake-warning-echo-at-eol ((t (:box nil :slant italic))))
+  (flymake-note-echo-at-eol    ((t (:box nil :slant italic)))))
 
 (use-package magit
   :ensure t
