@@ -672,19 +672,7 @@
   :bind (("C-c v" . ghostel)
          :map projectile-mode-map))
 
-;;; Claude code ide
-(use-package websocket
-  :ensure t)
-
-(use-package claude-code-ide
-  :vc (:url "https://github.com/manzaltu/claude-code-ide.el" :rev :newest)
-  :bind ("C-c C-'" . claude-code-ide-menu) ; Set your favorite keybinding
-  :config
-  (claude-code-ide-emacs-tools-setup)
-  :custom
-  (claude-code-ide-terminal-backend 'ghostel))
-
-(doric-themes-load-random)
+(ef-themes-load-random)
 
 ;; Keybinds
 (global-set-key (kbd "C-<f2>") 'vandvag/toggle-line-numbers)
