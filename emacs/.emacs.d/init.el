@@ -176,6 +176,10 @@
 
 (use-package ef-themes :ensure t)
 
+(use-package naga-theme :ensure t)
+
+(use-package color-theme-modern :ensure t)
+
 (use-package catppuccin-theme
   :ensure t
   :custom
@@ -658,7 +662,7 @@
   (org-mode . org-modern-mode))
 
 ;;; RESOURCES
-;;; https://yannesposito.com/posts/0015-how-i-use-org-mode/index.html
+;; https://yannesposito.com/posts/0015-how-i-use-org-mode/index.html
 (use-package org
   :ensure nil
   :custom
@@ -672,7 +676,8 @@
   :bind (("C-c v" . ghostel)
          :map projectile-mode-map))
 
-(ef-themes-load-random)
+;; (ef-themes-load-random)
+(load-theme 'naga t)
 
 ;; Keybinds
 (global-set-key (kbd "C-<f2>") 'vandvag/toggle-line-numbers)
