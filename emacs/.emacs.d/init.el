@@ -255,7 +255,7 @@
   :config
   (advice-add 'eldoc-doc-buffer :after
               (lambda (&rest _)
-                (when-let ((win (get-buffer-window "*eldoc*")))
+                (when-let* ((win (get-buffer-window "*eldoc*")))
                   (select-window win))))
   :custom
   (eldoc-echo-area-use-multiline-p nil))
@@ -412,20 +412,17 @@
       map)
     "Keymap bound to `C-c l', mirroring the old `lsp-mode' prefix with Eglot commands.")
   (keymap-set eglot-mode-map "C-c l" vandvag/eglot-command-map)
-  ;; (keymap-set eglot-mode-map "C-S-SPC" #'eldoc)
-  ;; (keymap-set eglot-mode-map "C-c C-a" #'eglot-code-actions)
-  ;; (keymap-set eglot-mode-map "C-c C-r" #'eglot-rename)
-  ;; (keymap-set eglot-mode-map "C-c C-n" #'flymake-goto-next-error)
-  ;; (keymap-set eglot-mode-map "C-c C-p" #'flymake-goto-prev-error)
-  ;; (keymap-set eglot-mode-map "C-c C-s" #'flymake-show-buffer-diagnostics)
   :custom
   (eglot-send-changes-idle-time 0.1)
   (eglot-autoshutdown t)
   (eglot-events-buffer-size 0)
   (eglot-extend-to-xref t)
   (eglot-ignored-server-capabilities
-   '(:inlayHintProvider
+   '(;; :inlayHintProvider
      :documentHighlightProvider
+     :documentRangeFormattingProvider
+     :documentOnTypeFormattingProvider
+     :foldingRangeProvider
      :documentHighlight)))
 
 (use-package consult-eglot
@@ -570,7 +567,6 @@
   :config
   (add-to-list 'revert-without-query ".pdf"))
 
-;; Configurations
 (use-package json-mode
   :ensure t)
 
