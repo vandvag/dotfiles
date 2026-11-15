@@ -432,15 +432,49 @@
 
 (use-package treesit
   :ensure nil
+  :init
+  (setq treesit-language-source-alist
+        '((cpp "https://github.com/tree-sitter/tree-sitter-cpp")
+          (c    "https://github.com/tree-sitter/tree-sitter-c")
+          (rust "https://github.com/tree-sitter/tree-sitter-rust")
+          (go   "https://github.com/tree-sitter/tree-sitter-go")
+          (zig  "https://github.com/tree-sitter/zig-tree-sitter")
+          (lua  "https://github.com/tree-sitter-grammars/tree-sitter-lua")
+          ;; Web / React
+          (javascript "https://github.com/tree-sitter/tree-sitter-javascript")
+          (jsdoc      "https://github.com/tree-sitter/tree-sitter-jsdoc")
+          (typescript "https://github.com/tree-sitter/tree-sitter-typescript"
+                      "master" "typescript/src")
+          (tsx        "https://github.com/tree-sitter/tree-sitter-typescript"
+                      "master" "tsx/src")))
   :custom
-  (treesit-language-source-alist
-    '((cpp "https://github.com/tree-sitter/tree-sitter-cpp")
-     (c    "https://github.com/tree-sitter/tree-sitter-c")
-     (rust "https://github.com/tree-sitter/tree-sitter-rust")
-     (go   "https://github.com/tree-sitter/tree-sitter-go")
-     (zig  "https://github.com/tree-sitter/zig-tree-sitter")
-     (lua  "https://github.com/tree-sitter-grammars/tree-sitter-lua")))
   (treesit-font-lock-level 4))
+
+(use-package js
+  :ensure nil
+  :defer t
+  :mode (("\\.js\\'"  . js-ts-mode)
+         ("\\.jsx\\'" . js-ts-mode)
+         ("\\.mjs\\'" . js-ts-mode)
+         ("\\.cjs\\'" . js-ts-mode))
+  :hook
+  (js-ts-mode . eglot-ensure)
+  :custom
+  ;; Prettier/React ecosystem default
+  (js-indent-level 2))
+
+(use-package typescript-ts-mode
+  :ensure t
+  :defer t
+  :mode (("\\.ts\\'"  . typescript-ts-mode)
+         ("\\.mts\\'" . typescript-ts-mode)
+         ("\\.cts\\'" . typescript-ts-mode)
+         ("\\.tsx\\'" . tsx-ts-mode))
+  :hook
+  (typescript-ts-mode . eglot-ensure)
+  (tsx-ts-mode        . eglot-ensure)
+  :custom
+  (typescript-ts-indent-offset 2))
 
 (use-package c-ts-mode
   :ensure t
