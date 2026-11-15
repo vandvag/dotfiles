@@ -476,6 +476,15 @@
   :custom
   (typescript-ts-indent-offset 2))
 
+(use-package apheleia
+  :ensure t
+  :hook
+  ;; Prettier is already the formatter for these modes in
+  ;; `apheleia-mode-alist'; `apheleia-mode' formats on save.
+  ((js-ts-mode         . apheleia-mode)
+   (typescript-ts-mode . apheleia-mode)
+   (tsx-ts-mode        . apheleia-mode)))
+
 (use-package c-ts-mode
   :ensure t
   :mode (("\\.h\\'" . c-ts-mode)
