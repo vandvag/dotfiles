@@ -1,7 +1,5 @@
 vim.pack.add({ "https://github.com/nvim-mini/mini.nvim" })
 
-local utils = require("utils")
-
 local ai = require("mini.ai")
 ai.setup()
 
@@ -13,10 +11,6 @@ bracketed.setup()
 
 local cursorword = require("mini.cursorword")
 cursorword.setup()
-
-local files = require("mini.files")
-files.setup()
-utils.noremap("n", "<leader>fm", function() MiniFiles.open() end, "Open MiniFiles")
 
 local hipatterns = require("mini.hipatterns")
 hipatterns.setup({
