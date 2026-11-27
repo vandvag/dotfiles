@@ -732,7 +732,7 @@
          :map projectile-mode-map))
 
 ;; (ef-themes-load-random)
-(load-theme 'naga t)
+(load-theme 'ef-dream t)
 
 ;; Keybinds
 (global-set-key (kbd "C-<f2>") 'vandvag/toggle-line-numbers)
