@@ -1,7 +1,7 @@
 vim.pack.add({
-  "https://github.com/oonamo/ef-themes.nvim",
-  "https://github.com/rebelot/kanagawa.nvim",
-  "https://github.com/folke/tokyonight.nvim",
+  { src = "https://github.com/oonamo/ef-themes.nvim" },
+  { src = "https://github.com/rebelot/kanagawa.nvim" },
+  { src = "https://github.com/folke/tokyonight.nvim" },
 })
 
 local ef = require('ef-themes')

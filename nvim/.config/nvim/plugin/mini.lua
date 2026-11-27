@@ -1,4 +1,4 @@
-vim.pack.add({ "https://github.com/nvim-mini/mini.nvim" })
+vim.pack.add({ src = "https://github.com/nvim-mini/mini.nvim" })
 
 local ai = require("mini.ai")
 ai.setup()
@@ -27,6 +27,8 @@ hipatterns.setup({
 
 local icons = require("mini.icons")
 icons.setup()
+-- Let plugins that only know nvim-web-devicons (e.g. Telescope) use mini icons.
+icons.mock_nvim_web_devicons()
 
 -- local indentscope = require("mini.indentscope")
 -- indentscope.setup()
