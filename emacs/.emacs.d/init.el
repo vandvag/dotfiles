@@ -476,6 +476,21 @@
   :custom
   (typescript-ts-indent-offset 2))
 
+(use-package web-mode
+  :ensure t
+  :mode
+  (("\\.html?\\'" . web-mode)
+   ("\\.css\\'"  . web-mode))
+  :custom
+  (web-mode-markup-indent-offset 2))
+
+(use-package emmet-mode
+  :ensure t
+  :hook
+  (web-mode . emmet-mode)
+  (js-ts-mode . emmet-mode)
+  (typescript-ts-mode . emmet-mode))
+
 (use-package apheleia
   :ensure t
   :hook
@@ -483,6 +498,7 @@
   ;; `apheleia-mode-alist'; `apheleia-mode' formats on save.
   ((js-ts-mode         . apheleia-mode)
    (typescript-ts-mode . apheleia-mode)
+   (web-mode           . apheleia-mode)
    (tsx-ts-mode        . apheleia-mode)))
 
 (use-package c-ts-mode
