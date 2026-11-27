@@ -221,7 +221,7 @@
   :diminish
   :defer t
   :bind
-  ("<f2>" . 'vandvag/toggle-whitespace)
+  ;; ("<f2>" . 'vandvag/toggle-whitespace)
   :custom
   (whitespace-style '(face
                       tabs
@@ -292,6 +292,26 @@
   (completion-styles '(orderless basic))
   (completion-category-defaults nil)
   (completion-pcm-leading-wildcard t))
+
+(use-package hydra
+  :ensure t
+  :defer t
+  :bind
+  ("<f2>"  . hydra-toggle-simple/body)
+  ("M-g e" . hydra-error/body)
+  :config
+  (setq hydra-hint-display-type 'message)
+  (defhydra hydra-error ()
+    "goto-error"
+    ("j" flymake-goto-next-error "next")
+    ("k" flymake-goto-prev-error "prev")
+    ("q" nil "quit"))
+  (defhydra hydra-toggle-simple (:color pink)
+    "toggle"
+    ("a" abbrev-mode "abbrev")
+    ("t" toggle-truncate-lines "truncate")
+    ("w" vandvag/toggle-whitespace "whitespace")
+    ("q" nil "quit")))
 
 (use-package embark
   :ensure t
