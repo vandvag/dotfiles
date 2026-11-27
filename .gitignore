@@ -5,6 +5,7 @@ nvim-pack-lock.json
 tmux/plugins/
 # Ghostty
 ghostty/.config/ghostty/themes
+ghostty/.config/ghostty/auto
 *.bak
 *~
 .DS_Store
